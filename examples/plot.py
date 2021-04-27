@@ -11,7 +11,7 @@ if __name__ == '__main__':
     fig.set_axis_label('y', 'Model Accuracy Drop (%)')
     fig.set_axis_lim('x', lim=[0, 40], piece=4, margin=[1.0, 1.0],
                      _format='%d')
-    fig.set_axis_lim('y', lim=[0, 20], piece=5, margin=[1.0, 1.0],
+    fig.set_axis_lim('y', lim=[0, 100], piece=5, margin=[1.0, 1.0],
                      _format='%d')
 
     fig.curve(x=x, y=y, color=ting_color['red'])

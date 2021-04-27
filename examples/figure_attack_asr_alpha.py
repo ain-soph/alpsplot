@@ -13,7 +13,7 @@ if __name__ == '__main__':
     dataset: str = args.dataset
     name = f'attack_asr_{dataset}_alpha'
     fig = Figure(name)
-    fig.set_axis_label('x', r'Trigger Transparency ( $\alpha $)')
+    fig.set_axis_label('x', r'Trigger Transparency ($\alpha$)')
     fig.set_axis_label('y', 'ASR (%)')
     fig.set_axis_lim('x', lim=[0, 0.9], piece=9, margin=[0.05, 0.05],
                      _format='%.1f')

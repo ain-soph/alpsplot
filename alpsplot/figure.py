@@ -15,11 +15,9 @@ from matplotlib.container import BarContainer
 import seaborn
 
 add_palatino()
-rc('font', family='serif', serif='Palatino', weight='bold')
 rc('svg', image_inline=True, fonttype='none')
 rc('pdf', fonttype=42)
 rc('ps', fonttype=42)
-rc('mathtext', fontset='cm')
 
 
 # Markers
@@ -76,22 +74,25 @@ class Figure:
         self.ax.set_xlim([0.0, 1.0])
         self.ax.set_ylim([0.0, 1.0])
 
-    def set_legend(self, *args, frameon: bool = True, edgecolor='white', framealpha=1.0,
-                   fontsize=11, fontstyle='italic', **kwargs) -> None:
+    def set_legend(self, *args, fontsize=11, frameon: bool = True, edgecolor='white', framealpha=1.0,
+                   font='Palatino', fontstyle='italic', fontweight='bold', math_fontfamily='cm', **kwargs) -> None:
         self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
                        framealpha=framealpha, **kwargs)
-        plt.setp(self.ax.get_legend().get_texts(),
-                 fontsize=fontsize, fontstyle=fontstyle)
+        plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
+                 font=font, fontstyle=fontstyle, fontweight=fontweight, math_fontfamily=math_fontfamily)
 
     def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
-                       family='serif', font='Palatino', weight='bold', **kwargs):
-        getattr(self.ax, f'set_{axis}label')(text, fontsize=fontsize,
-                                             family=family, font=font, weight=weight, **kwargs)
+                       font='Palatino', fontweight='bold', math_fontfamily='cm', **kwargs):
+        func = getattr(self.ax, f'set_{axis}label')
+        func(text, fontsize=fontsize, font=font,
+             fontweight=fontweight, math_fontfamily=math_fontfamily, **kwargs)
 
-    def set_title(self, text: str = None, fontsize: int = 16, fontweight: str = 'bold') -> None:
+    def set_title(self, text: str = None, fontsize: int = 16,
+                  font='Palatino', fontweight: str = 'bold', math_fontfamily='cm') -> None:
         if text is None:
             text = self.name
-        self.ax.set_title(text, fontsize=fontsize, fontweight=fontweight)
+        self.ax.set_title(text, fontsize=fontsize,
+                          font=font, fontweight=fontweight, math_fontfamily=math_fontfamily)
 
     def save(self, path: str = None, folder_path: str = None, ext: str = '.pdf') -> None:
         if path is None:
@@ -105,8 +106,8 @@ class Figure:
         self.fig.savefig(path, dpi=100, bbox_inches='tight')
 
     def set_axis_lim(self, axis: str, lim: list[float] = [0.0, 1.0], margin: list[float] = [0.0, 0.0],
-                     piece: int = 10, _format: str = '%.1f',
-                     fontsize: int = 11) -> None:
+                     piece: int = 10, _format: str = '%.1f', fontsize: int = 11,
+                     font='Palatino', fontweight: str = 'bold', math_fontfamily='cm') -> None:
         if _format == 'integer':
             _format = '%d'
         lim_func = getattr(self.ax, f'set_{axis}lim')
@@ -122,7 +123,8 @@ class Figure:
         set_ticks_func(ticks)
         ticks = getattr(self.ax, f'get_{axis}ticks')()
         set_ticklabels_func = getattr(self.ax, f'set_{axis}ticklabels')
-        set_ticklabels_func(ticks, fontsize=fontsize)
+        set_ticklabels_func(ticks, fontsize=fontsize,
+                            font=font, fontweight=fontweight, math_fontfamily=math_fontfamily)
         format_func(_format)
 
     def curve(self, x: np.ndarray, y: np.ndarray, color: str = 'black', linewidth: int = 2,
@@ -169,8 +171,8 @@ class Figure:
     def hist(self, x: np.ndarray, bins: list[float] = None, normed: bool = True, **kwargs):
         return self.ax.hist(x, bins=bins, normed=normed, **kwargs)
 
-    def autolabel(self, rects: BarContainer, above: bool = True,
-                  fontsize: int = 6):
+    def autolabel(self, rects: BarContainer, above: bool = True, fontsize: int = 6,
+                  font='Palatino', fontweight: str = 'bold', math_fontfamily='cm'):
         """Attach a text label above each bar in *rects*, displaying its height."""
         for rect in rects:
             height = int(rect.get_height())
@@ -179,4 +181,5 @@ class Figure:
                              xy=(rect.get_x() + rect.get_width() / 2, height),
                              xytext=(0, offset),  # 3 points vertical offset
                              textcoords="offset points",
-                             ha='center', va='bottom', fontsize=fontsize)
+                             ha='center', va='bottom', fontsize=fontsize,
+                             font=font, fontweight=fontweight, math_fontfamily=math_fontfamily)
