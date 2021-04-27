@@ -1,0 +1,29 @@
+# Configureation Files
+.vs
+.vscode
+.devcontainer
+.idea
+
+# Working on
+# /docs
+codecov.yml
+
+# Temp Files
+.DS_Store
+.dropbox
+.ssh
+.ipynb_checkpoints
+*.pyc
+*.ini
+__pycache__
+/build
+/dist
+/*.egg-info
+.pytest_cache
+
+# Filter Directory
+/result
+/projects
+
+# test file
+/test.py

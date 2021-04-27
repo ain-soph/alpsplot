@@ -1,2 +1,2 @@
 # alpsplot
-My personal plotting library following alps-lab style.
+Python plotting library of alps-lab style using matplotlib.
