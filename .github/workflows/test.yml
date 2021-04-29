@@ -2,7 +2,7 @@ name: codecov
 on: [push, pull_request]
 
 jobs:
-  run:
+  test:
     runs-on: ubuntu-latest
     container:
       image: python:latest
