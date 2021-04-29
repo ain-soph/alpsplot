@@ -4,10 +4,6 @@
 .devcontainer
 .idea
 
-# Working on
-# /docs
-codecov.yml
-
 # Temp Files
 .DS_Store
 .dropbox
@@ -19,6 +15,9 @@ __pycache__
 /dist
 /*.egg-info
 .pytest_cache
+
+# vscode test configure
+conftest.py
 
 # Filter Directory
 /result
