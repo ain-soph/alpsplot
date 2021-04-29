@@ -12,6 +12,6 @@ jobs:
       - name: Pytest
         run: |
           pip install numpy matplotlib seaborn pytest pytest-cov
-          pytest --cov=./
+          pytest --cov=alpsplot
       - name: Upload Codecov
         uses: codecov/codecov-action@v1

@@ -73,26 +73,6 @@ class Figure:
         self.ax.set_xlim([0.0, 1.0])
         self.ax.set_ylim([0.0, 1.0])
 
-    def set_legend(self, *args, fontsize=11, frameon: bool = True, edgecolor='white', framealpha=1.0,
-                   fontproperties='Palatino', fontstyle='italic', fontweight='bold', math_fontfamily='cm', **kwargs) -> None:
-        self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
-                       framealpha=framealpha, **kwargs)
-        plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
-                 fontproperties=fontproperties, fontstyle=fontstyle, fontweight=fontweight, math_fontfamily=math_fontfamily)
-
-    def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
-                       fontproperties='Palatino', fontweight='bold', math_fontfamily='cm', **kwargs):
-        func = getattr(self.ax, f'set_{axis}label')
-        func(text, fontsize=fontsize, fontproperties=fontproperties,
-             fontweight=fontweight, math_fontfamily=math_fontfamily, **kwargs)
-
-    def set_title(self, text: str = None, fontsize: int = 16,
-                  fontproperties='Palatino', fontweight: str = 'bold', math_fontfamily='cm') -> None:
-        if text is None:
-            text = self.name
-        self.ax.set_title(text, fontsize=fontsize,
-                          fontproperties=fontproperties, fontweight=fontweight, math_fontfamily=math_fontfamily)
-
     def save(self, path: str = None, folder_path: str = None, ext: str = '.pdf') -> None:
         if path is None:
             if folder_path is None:
@@ -104,9 +84,22 @@ class Figure:
             os.makedirs(folder_path)
         self.fig.savefig(path, dpi=100, bbox_inches='tight')
 
+    def set_title(self, text: str = None, fontsize: int = 16,
+                  fontproperties: str = 'Palatino', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
+        if text is None:
+            text = self.name
+        self.ax.set_title(text, fontsize=fontsize,
+                          fontproperties=fontproperties, fontweight=fontweight, math_fontfamily=math_fontfamily)
+
+    def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
+                       fontproperties: str = 'Palatino', fontweight='bold', math_fontfamily: str = 'cm', **kwargs):
+        func = getattr(self.ax, f'set_{axis}label')
+        func(text, fontsize=fontsize, fontproperties=fontproperties,
+             fontweight=fontweight, math_fontfamily=math_fontfamily, **kwargs)
+
     def set_axis_lim(self, axis: str, lim: list[float] = [0.0, 1.0], margin: list[float] = [0.0, 0.0],
                      piece: int = 10, _format: str = '%.1f', fontsize: int = 11,
-                     fontproperties='Palatino', fontweight: str = 'bold', math_fontfamily='cm') -> None:
+                     fontproperties: str = 'Palatino', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
         if _format == 'integer':
             _format = '%d'
         lim_func = getattr(self.ax, f'set_{axis}lim')
@@ -126,8 +119,15 @@ class Figure:
                             fontproperties=fontproperties, fontweight=fontweight, math_fontfamily=math_fontfamily)
         format_func(_format)
 
+    def set_legend(self, *args, fontsize=11, frameon: bool = True, edgecolor='white', framealpha=1.0,
+                   fontproperties: str = 'Palatino', fontstyle='italic', fontweight='bold', math_fontfamily: str = 'cm', **kwargs) -> None:
+        self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
+                       framealpha=framealpha, **kwargs)
+        plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
+                 fontproperties=fontproperties, fontstyle=fontstyle, fontweight=fontweight, math_fontfamily=math_fontfamily)
+
     def plot(self, x: np.ndarray, y: np.ndarray, color: str = 'black', linewidth: int = 2,
-              label: str = None, markerfacecolor: str = 'white', linestyle: str = '-', zorder: int = 1, **kwargs) -> Line2D:
+             label: str = None, markerfacecolor: str = 'white', linestyle: str = '-', zorder: int = 1, **kwargs) -> Line2D:
         # linestyle marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
         ax = seaborn.lineplot(x=x, y=y, ax=self.ax, color=color, linewidth=linewidth,
                               markerfacecolor=markerfacecolor, zorder=zorder, **kwargs)
@@ -158,7 +158,7 @@ class Figure:
         # facecolor edgewidth alpha
         return self.ax.bar(x, y, color=color, width=width, align=align, edgecolor=edgecolor, label=label, **kwargs)
 
-    def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.array, color: str = 'black', size: tuple[float, float] = 0.5,
+    def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray, color: str = 'black', size: tuple[float, float] = 0.5,
               label: str = None, **kwargs) -> BarContainer:
         # facecolor edgewidth alpha
         if isinstance(size, (float, int)):
@@ -167,16 +167,16 @@ class Figure:
                              dx=np.ones_like(x) * size[0], dy=np.ones_like(y) * size[1], dz=z,
                              color=color, label=label, **kwargs)
 
-    def hist(self, x: np.ndarray, bins: list[float] = None, normed: bool = True, **kwargs):
-        return self.ax.hist(x, bins=bins, normed=normed, **kwargs)
+    def hist(self, x: np.ndarray, bins: int = None, density: bool = True, **kwargs):
+        return self.ax.hist(x, bins=bins, density=density, **kwargs)
 
     def autolabel(self, rects: BarContainer, above: bool = True, fontsize: int = 6,
-                  fontproperties='Palatino', fontweight: str = 'bold', math_fontfamily='cm') -> None:
+                  fontproperties: str = 'Palatino', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
         """Attach a text label above each bar in *rects*, displaying its height."""
         for rect in rects:
             height = int(rect.get_height())
             offset = 3 if above else -13
-            self.ax.annotate('%d' % (abs(height)),
+            self.ax.annotate(f'{int(abs(height)):d}',
                              xy=(rect.get_x() + rect.get_width() / 2, height),
                              xytext=(0, offset),  # 3 points vertical offset
                              textcoords="offset points",

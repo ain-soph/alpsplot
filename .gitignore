@@ -15,9 +15,12 @@ __pycache__
 /dist
 /*.egg-info
 .pytest_cache
+.coverage
+coverage.xml
 
 # Filter Directory
 /result
+/output
 /projects
 
 # test file
