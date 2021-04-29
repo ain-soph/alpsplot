@@ -16,9 +16,6 @@ __pycache__
 /*.egg-info
 .pytest_cache
 
-# vscode test configure
-conftest.py
-
 # Filter Directory
 /result
 /projects
