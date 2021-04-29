@@ -15,9 +15,9 @@ jobs:
       - name: Build
         run: |
           pip install --no-cache-dir --upgrade pip
-          pip install --no-cache-dir setuptools wheel pep517
+          pip install --no-cache-dir build
           pip install -r requirements.txt
-          python -m pep517.build .
+          python -m build .
       - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
