@@ -209,8 +209,8 @@ if __name__ == '__main__':
                 y_grid = avg_smooth(y_grid, window=100)
                 y_grid[0] = y_list[0]
         fig.plot(x_grid, y_grid, color=color_dict[key])
-        fig.scatter(
-            x_list, y_list, color=color_dict[key], marker=mark_dict[key], label=attack_mapping[key])
+        fig.scatter(x_list, y_list, color=color_dict[key],
+                    marker=mark_dict[key], label=attack_mapping[key], curve_legend=True)
     if dataset == 'cifar10':
         fig.set_legend(ncol=2, columnspacing=1)
     elif dataset == 'sample_imagenet':

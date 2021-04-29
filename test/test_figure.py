@@ -45,6 +45,7 @@ def test_scatter():
     fig = Figure('test_scatter')
     x = np.arange(0, 1, 0.1)
     fig.scatter(x, x, label='scatter')
+    fig.scatter(x, x / 2, label='scatter', curve_legend=True)
     fig.save()
 
 

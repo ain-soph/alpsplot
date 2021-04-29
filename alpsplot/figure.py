@@ -146,12 +146,14 @@ class Figure:
         return line
 
     def scatter(self, x: np.ndarray, y: np.ndarray, color: str = 'black', linewidth: int = 2,
-                label: str = None, marker: str = 'D', facecolor: str = 'white', zorder: int = 3, **kwargs):
+                label: str = None, curve_legend: bool = False,
+                marker: str = 'D', facecolor: str = 'white', zorder: int = 3, **kwargs):
         # marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
-        if label is not None:
+        if curve_legend and label is not None:
             self.curve_legend(label=label, color=color,
                               linewidth=linewidth, marker=marker, **kwargs)
-        return self.ax.scatter(x=x, y=y, color=color, linewidth=linewidth, marker=marker, facecolor=facecolor, zorder=zorder, **kwargs)
+            label = None
+        return self.ax.scatter(x=x, y=y, color=color, linewidth=linewidth, label=label, marker=marker, facecolor=facecolor, zorder=zorder, **kwargs)
 
     def bar(self, x: np.ndarray, y: np.ndarray, color: str = 'black', width: float = 0.2,
             align: str = 'edge', edgecolor: str = 'white', label: str = None, **kwargs) -> BarContainer:

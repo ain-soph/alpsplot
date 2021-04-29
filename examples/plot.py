@@ -16,6 +16,6 @@ if __name__ == '__main__':
 
     fig.plot(x=x, y=y, color=ting_color['red'])
     fig.scatter(x=x, y=y, color=ting_color['red'],
-                marker='H', label='resnet')
+                marker='H', label='resnet', curve_legend=True)
     fig.set_legend()
     fig.save(folder_path='./result')
