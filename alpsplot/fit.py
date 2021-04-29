@@ -4,6 +4,8 @@ import numpy as np
 from scipy.interpolate import UnivariateSpline
 # from scipy.optimize import curve_fit
 
+EPS = 1e-5
+
 
 def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, degree: int = 1) -> np.ndarray:
     z = np.polyfit(x, y, degree)
@@ -14,7 +16,7 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, degree: int = 1) 
 def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
              degree: int = 1, mean_bias: float = 0.0, scale_multiplier: float = 1.0) -> np.ndarray:
     mean = (max(y) + min(y)) / 2 + mean_bias
-    scale = max(abs(y - mean)) * scale_multiplier
+    scale = max(abs(y - mean)) * scale_multiplier + EPS
     fit_data = np.arctanh((y - mean) / scale)
     z = np.polyfit(x, fit_data, degree)
     y_grid = np.tanh(np.polyval(z, x_grid)) * scale + mean
@@ -24,7 +26,7 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
              degree: int = 1, mean_bias: float = 0.0, scale_multiplier: float = 1.0) -> np.ndarray:
     mean = (max(y) + min(y)) / 2 + mean_bias
-    scale = max(abs(y - mean)) * scale_multiplier
+    scale = max(abs(y - mean)) * scale_multiplier + EPS
     fit_data = np.tan((y - mean) / scale)
     z = np.polyfit(x, fit_data, degree)
     y_grid = np.tanh(np.polyval(z, x_grid)) * scale + mean
@@ -35,11 +37,8 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
             degree: int = 1, increase: bool = True, eps: float = 0.01) -> np.ndarray:
     y_max = max(y)
     y_min = min(y)
-    if increase:
-        fit_data = np.log(y + eps - y_min)
-    else:
-        fit_data = np.log(y_max + eps - y)
 
+    fit_data = np.log(y + eps - y_min) if increase else np.log(y_max + eps - y)
     z = np.polyfit(x, fit_data, degree)
     y_grid = np.exp(np.polyval(z, x_grid))
     if increase:
