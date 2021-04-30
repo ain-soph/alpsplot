@@ -8,8 +8,8 @@ color_dict = {
     'AutoML': ting_color['red'],
 }
 mark_dict = {
-    'Manual': ['o', '^', '8', 's', 'p', 'P', '*', 'X', 'D'],
-    'AutoML': ['o', '^', '8', 's', 'p', 'P', '*', 'X', 'D', '2', 'P', 'H'],
+    'Manual': ['o', '^', '8', 's', 'p', '+', 'v', 'x', 'D'],
+    'AutoML': ['o', '^', '8', 's', 'p', '+', 'v', 'x', 'D', '2', 'h', 'H'],
 }
 
 model_acc = {
@@ -38,8 +38,15 @@ if __name__ == '__main__':
         x = np.array(succ_rate[key])
         y = np.array(model_acc[key]) - np.array(poison_acc[key])
         for i in range(len(x)):
-            fig.scatter(x=x[i], y=y[i], color=color_dict[key],
-                        marker=mark_dict[key][i])
+            kwargs = {}
+            if mark_dict[key][i] in ['P', 'x', '2', '+']:
+                kwargs['facecolor'] = color_dict[key]
+                kwargs['color'] = None
+            else:
+                kwargs['color'] = color_dict[key]
+                kwargs['facecolor'] = 'none'
+            fig.scatter(x=x[i], y=y[i], marker=mark_dict[key][i],
+                        linewidth=1.5, s=64, **kwargs)
         fig.scatter([], [], color=color_dict[key], marker='s', label=key)
     fig.set_legend(edgecolor=None)
     fig.save(folder_path='./result')

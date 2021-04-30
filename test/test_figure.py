@@ -29,7 +29,7 @@ def test_set_axis_label():
 
 def test_set_axis_lim():
     fig = Figure('test_set_axis_lim')
-    fig.set_axis_lim('x')
+    fig.set_axis_lim('x', labels=['aaa']*11)
     fig.set_axis_lim('y', _format='integer')
     fig.save()
 

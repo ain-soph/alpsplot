@@ -6,7 +6,7 @@ color_dict = {
     'AutoML': ting_color['red'],
 }
 mark_dict = {
-    'AutoML': 'H',
+    'AutoML': 's',
     'Manual': '^',
 }
 # color_dict = {

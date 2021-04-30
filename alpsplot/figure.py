@@ -98,9 +98,9 @@ class Figure:
         func(text, fontsize=fontsize, fontproperties=fontproperties,
              fontweight=fontweight, math_fontfamily=math_fontfamily, **kwargs)
 
-    def set_axis_lim(self, axis: str, lim: list[float] = [0.0, 1.0], margin: list[float] = [0.0, 0.0],
+    def set_axis_lim(self, axis: str, labels: list[str] = None, lim: list[float] = [0.0, 1.0], margin: list[float] = [0.0, 0.0],
                      piece: int = 10, _format: str = '%.1f', fontsize: int = 11,
-                     fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
+                     fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm', **kwargs) -> None:
         if _format == 'integer':
             _format = '%d'
         lim_func = getattr(self.ax, f'set_{axis}lim')
@@ -114,11 +114,17 @@ class Figure:
         final_lim = [lim[0] - margin[0], lim[1] + margin[1]]
         lim_func(final_lim)
         set_ticks_func(ticks)
-        ticks = getattr(self.ax, f'get_{axis}ticks')()
         set_ticklabels_func = getattr(self.ax, f'set_{axis}ticklabels')
-        set_ticklabels_func(ticks, fontsize=fontsize,
-                            fontproperties=fontproperties, fontweight=fontweight, math_fontfamily=math_fontfamily)
-        format_func(_format)
+        if labels is None:
+            labels = getattr(self.ax, f'get_{axis}ticks')()
+            set_ticklabels_func(labels, fontsize=fontsize,
+                                fontproperties=fontproperties, fontweight=fontweight,
+                                math_fontfamily=math_fontfamily, **kwargs)
+            format_func(_format)
+        else:
+            set_ticklabels_func(labels, fontsize=fontsize,
+                                fontproperties=fontproperties, fontweight=fontweight,
+                                math_fontfamily=math_fontfamily, **kwargs)
 
     def set_legend(self, *args, fontsize=11, frameon: bool = True, edgecolor='white', framealpha=1.0,
                    fontproperties: str = 'Optima', fontstyle=None, fontweight='bold',
