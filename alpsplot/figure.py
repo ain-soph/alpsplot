@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from .fonts import add_palatino
+from .fonts import add_optima, add_palatino
 
 import os
 import numpy as np
@@ -14,6 +14,7 @@ from matplotlib.lines import Line2D
 from matplotlib.container import BarContainer
 import seaborn
 
+add_optima()
 add_palatino()
 matplotlib.rc('mathtext', fontset='cm')
 matplotlib.rc('pdf', fonttype=42)
@@ -67,7 +68,7 @@ class Figure:
         self.ax.spines['bottom'].set_visible(True)
         self.ax.spines['left'].set_visible(False)
         self.ax.spines['right'].set_visible(False)
-        self.ax.grid(axis='y', linewidth=1)
+        self.ax.grid(axis='y', linewidth=1, alpha=0.5)
         self.ax.set_axisbelow(True)
 
         self.ax.set_xlim([0.0, 1.0])
@@ -85,21 +86,21 @@ class Figure:
         self.fig.savefig(path, dpi=100, bbox_inches='tight')
 
     def set_title(self, text: str = None, fontsize: int = 16,
-                  fontproperties: str = 'Palatino', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
+                  fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
         if text is None:
             text = self.name
         self.ax.set_title(text, fontsize=fontsize,
                           fontproperties=fontproperties, fontweight=fontweight, math_fontfamily=math_fontfamily)
 
     def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
-                       fontproperties: str = 'Palatino', fontweight='bold', math_fontfamily: str = 'cm', **kwargs):
+                       fontproperties: str = 'Optima', fontweight='bold', math_fontfamily: str = 'cm', **kwargs):
         func = getattr(self.ax, f'set_{axis}label')
         func(text, fontsize=fontsize, fontproperties=fontproperties,
              fontweight=fontweight, math_fontfamily=math_fontfamily, **kwargs)
 
     def set_axis_lim(self, axis: str, lim: list[float] = [0.0, 1.0], margin: list[float] = [0.0, 0.0],
                      piece: int = 10, _format: str = '%.1f', fontsize: int = 11,
-                     fontproperties: str = 'Palatino', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
+                     fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
         if _format == 'integer':
             _format = '%d'
         lim_func = getattr(self.ax, f'set_{axis}lim')
@@ -120,7 +121,8 @@ class Figure:
         format_func(_format)
 
     def set_legend(self, *args, fontsize=11, frameon: bool = True, edgecolor='white', framealpha=1.0,
-                   fontproperties: str = 'Palatino', fontstyle='italic', fontweight='bold', math_fontfamily: str = 'cm', **kwargs) -> None:
+                   fontproperties: str = 'Optima', fontstyle=None, fontweight='bold',
+                   math_fontfamily: str = 'cm', **kwargs) -> None:
         self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
                        framealpha=framealpha, **kwargs)
         plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
@@ -173,7 +175,7 @@ class Figure:
         return self.ax.hist(x, bins=bins, density=density, **kwargs)
 
     def autolabel(self, rects: BarContainer, above: bool = True, fontsize: int = 6,
-                  fontproperties: str = 'Palatino', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
+                  fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
         """Attach a text label above each bar in *rects*, displaying its height."""
         for rect in rects:
             height = int(rect.get_height())
