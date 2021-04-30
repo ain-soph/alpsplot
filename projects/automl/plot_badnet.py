@@ -32,11 +32,11 @@ if __name__ == '__main__':
     fig.set_axis_label('y', 'Model Accuracy Drop (%)')
     fig.set_axis_lim('x', lim=[80, 100], piece=4, margin=[1.0, 1.0],
                      _format='%d')
-    fig.set_axis_lim('y', lim=[0, 5], piece=5, margin=[0.5, 0.5],
+    fig.set_axis_lim('y', lim=[2, 4], piece=4, margin=[0.1, 0.1],
                      _format='%d')
     for key in reversed(succ_rate.keys()):
         x = np.array(succ_rate[key])
-        y = np.array(model_acc[key])-np.array(poison_acc[key])
+        y = np.array(model_acc[key]) - np.array(poison_acc[key])
         for i in range(len(x)):
             fig.scatter(x=x[i], y=y[i], color=color_dict[key],
                         marker=mark_dict[key][i])

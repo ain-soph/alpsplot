@@ -2,12 +2,12 @@ from alpsplot import Figure, ting_color
 import numpy as np
 
 color_dict = {
-    'automl': ting_color['red'],
-    'human-designed': ting_color['blue'],
+    'Manual': ting_color['blue'],
+    'AutoML': ting_color['red'],
 }
 mark_dict = {
-    'automl': 'H',
-    'human-designed': '^',
+    'AutoML': 'H',
+    'Manual': '^',
 }
 # color_dict = {
 #     'resnet': ting_color['red_carrot'],
@@ -39,7 +39,7 @@ mark_dict = {
 
 x = [0, 2.5, 5, 10, 20, 30, 40]
 y = {
-    'human-designed': {
+    'Manual': {
         'resnet': [93.78, 93.79, 93.30, 92.16, 90.58, 88.77, 86.13],
         'densenet': [94.68, 94.07, 93.56, 92.87, 91.41, 89.10, 86.28],
         'wideresnet': [94.01, 93.64, 93.56, 92.78, 91.31, 89.42, 86.73],
@@ -47,7 +47,7 @@ y = {
         'dla': [94.50, 93.91, 93.43, 92.61, 91.05, 82.50, 77.84],
         'mobilenet': [92.90, 92.25, 91.46, 89.98, 87.67, 83.65, 80.11]
     },
-    'automl': {
+    'AutoML': {
         'amoebanet': [94.50, 93.29, 93.02, 90.14, 86.97, 83.54, 82.58],
         'darts': [93.76, 92.47, 92.64, 90.67, 87.59, 81.50, 77.56],
         'enas': [94.09, 92.64, 92.13, 90.39, 85.51, 81.67, 78.23],
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     fig.set_axis_label('y', 'Model Accuracy Drop (%)')
     fig.set_axis_lim('x', lim=[0, 40], piece=4, margin=[1.0, 1.0],
                      _format='%d')
-    fig.set_axis_lim('y', lim=[0, 20], piece=5, margin=[1.0, 1.0],
+    fig.set_axis_lim('y', lim=[0, 20], piece=4, margin=[1.0, 1.0],
                      _format='%d')
 
     for key, sub_dict in y.items():
@@ -83,8 +83,8 @@ if __name__ == '__main__':
             y_mean_list.append(np.mean(mean_temp_list))
         x_list = np.concatenate(x_list)
         y_list = np.concatenate(y_list)
-        fig.curve(x=x_list, y=y_list, color=color_dict[key])
+        fig.plot(x=x_list, y=y_list, color=color_dict[key])
         fig.scatter(x=x[:len(y_mean_list)], y=y_mean_list, color=color_dict[key],
                     marker=mark_dict[key], label=key)
-    fig.set_legend()
+    fig.set_legend(edgecolor=None)
     fig.save(folder_path='./result')
