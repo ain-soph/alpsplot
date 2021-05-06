@@ -4,6 +4,10 @@
 .devcontainer
 .idea
 
+# Not implement
+/docs
+mypy*
+
 # Temp Files
 .DS_Store
 .dropbox

@@ -29,8 +29,8 @@ def get_roc_curve(label: np.ndarray, pred: np.ndarray) -> tuple[np.ndarray, np.n
 
 
 def normalize(x: np.ndarray, _min: float = None, _max: float = None, tgt_min: float = 0.0, tgt_max: float = 1.0) -> np.ndarray:
-    _min = x.min() if _min is None else _min
-    _max = x.max() if _max is None else _max
+    _min = float(x.min()) if _min is None else _min
+    _max = float(x.max()) if _max is None else _max
     x = (x - _min) / (_max - _min) * (tgt_max - tgt_min) + tgt_min
     return x
 
