@@ -8,10 +8,10 @@ jobs:
       image: python:latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
       - name: Pytest
         run: |
           pip install numpy matplotlib seaborn pytest pytest-cov
           pytest --cov=alpsplot
       - name: Upload Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v1.5.2
