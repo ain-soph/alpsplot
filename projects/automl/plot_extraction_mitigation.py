@@ -33,7 +33,7 @@ if __name__ == '__main__':
     for i, (key, value) in enumerate(y.items()):
         x_list = x[:len(value)]
         y_list = np.array(value)
-        fig.plot(x=x_list, y=y_list, color=color_list[i])
+        fig.lineplot(x=x_list, y=y_list, color=color_list[i])
         fig.scatter(x=x_list, y=y_list, color=color_list[i],
                     marker=mark_list[i], label=key)
     fig.set_legend(edgecolor=None)

@@ -14,6 +14,8 @@ from matplotlib.axes import Axes
 from matplotlib.lines import Line2D
 from matplotlib.container import BarContainer
 
+from typing import Any
+
 add_optima()
 add_palatino()
 matplotlib.rc('mathtext', fontset='cm')
@@ -134,25 +136,31 @@ class Figure:
         plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
                  fontproperties=fontproperties, fontstyle=fontstyle, fontweight=fontweight, math_fontfamily=math_fontfamily)
 
-    def plot(self, x: np.ndarray, y: np.ndarray, err: np.array = None,
-             color: str = 'black', alpha: float = 0.0,
-             linewidth: int = 2, linestyle: str = '-',
-             label: str = None, markerfacecolor: str = 'white', zorder: int = 1, **kwargs) -> Line2D:
+    def lineplot(self, x: np.ndarray, y: np.ndarray,
+                 err: np.array = None, err_style: str = 'band',
+                 color: str = 'black', alpha: float = 0.0,
+                 linewidth: int = 2, linestyle: str = '-',
+                 label: str = None, markerfacecolor: str = 'white', zorder: int = 1, **kwargs) -> Line2D:
         # linestyle marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
         if len(set(x)) != len(x):
             assert err is None
             y_dict = group_err_bar(x, y)
-            x = np.array(y_dict.keys())
+            x = np.array(list(y_dict.keys()))
             y = np.array([y_list.mean() for y_list in y_dict.values()])
             err = np.array([y_list.std() for y_list in y_dict.values()])
         if err is not None:
-            self.ax.fill_between(x=x, y1=y-err, y2=y+err,
-                                 color=color, alpha=alpha*0.3,
-                                 zorder=zorder-0.1)
+            if err_style == 'band':  # TODO: python 3.10
+                self.ax.fill_between(x=x, y1=y-err, y2=y+err,
+                                     color=color, alpha=alpha*0.2,
+                                     zorder=zorder-0.1)
+            elif err_style == 'bars':
+                self.ax.errorbar(x=x, y=y, yerr=err,
+                                 color=color, alpha=alpha, linestyle="",
+                                 zorder=zorder)
         if label is not None:
             self.curve_legend(label=label, color=color,
                               linewidth=linewidth, linestyle=linestyle, **kwargs)
-        return self.ax.plot(x=x, y=y, color=color, alpha=alpha,
+        return self.ax.plot(x, y, color=color, alpha=alpha,
                             linewidth=linewidth, linestyle=linestyle,
                             markerfacecolor=markerfacecolor, zorder=zorder, **kwargs)
 

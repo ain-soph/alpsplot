@@ -34,10 +34,14 @@ def test_set_axis_lim():
     fig.save()
 
 
-def test_plot():
-    fig = Figure('test_plot')
+def test_lineplot():
+    fig = Figure('test_lineplot')
     x = np.arange(0, 1, 0.1)
-    fig.plot(x, x, label='plot')
+    fig.lineplot(x, x, color='red', label='plot')
+    x = np.array([1., 2., 3.]*2)
+    y = np.arange(6.0)
+    fig.lineplot(x, y, color='green', label='error band')
+    fig.lineplot(x, y, color='blue', label='error bar', err_style='bars')
     fig.save()
 
 
@@ -77,7 +81,7 @@ def test_bar3d():
 def test_set_legend():
     fig = Figure('test_set_legend')
     x = np.arange(0, 1, 0.1)
-    fig.plot(x, x, label='plot')
+    fig.lineplot(x, x, label='plot')
     fig.scatter(x, x, label='scatter')
     fig.set_legend()
     fig.save()

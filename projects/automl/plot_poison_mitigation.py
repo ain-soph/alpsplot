@@ -27,7 +27,7 @@ if __name__ == '__main__':
         value = np.array(value)
         x_list = x[:len(value)]
         y_list = value[0] - value
-        fig.plot(x=x_list, y=y_list, color=color_list[i])
+        fig.lineplot(x=x_list, y=y_list, color=color_list[i])
         fig.scatter(x=x_list, y=y_list, color=color_list[i],
                     marker=mark_list[i], label=key)
     fig.set_legend(edgecolor=None)

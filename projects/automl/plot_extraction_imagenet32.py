@@ -80,7 +80,7 @@ if __name__ == '__main__':
         x_list, y_list = avg_smooth_err_bar(x_list, y_list)
         y_mean_list = avg_smooth(y_mean_list)
         x_list, y_list = avg_smooth_err_bar(x_list, y_list)
-        fig.plot(x=x_list, y=y_list, color=color_dict[key])
+        fig.lineplot(x=x_list, y=y_list, color=color_dict[key])
         fig.scatter(x=x[:len(y_mean_list)], y=y_mean_list, color=color_dict[key],
                     marker=mark_dict[key], label=key)
     fig.set_legend(edgecolor=None)

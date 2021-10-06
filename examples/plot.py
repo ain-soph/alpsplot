@@ -14,7 +14,7 @@ if __name__ == '__main__':
     fig.set_axis_lim('y', lim=[0, 100], piece=5, margin=[1.0, 1.0],
                      _format='%d')
 
-    fig.plot(x=x, y=y, color=ting_color['red'])
+    fig.lineplot(x=x, y=y, color=ting_color['red'])
     fig.scatter(x=x, y=y, color=ting_color['red'],
                 marker='H', label='resnet', curve_legend=True)
     fig.set_legend()

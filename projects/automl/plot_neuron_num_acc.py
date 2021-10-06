@@ -66,7 +66,7 @@ if __name__ == '__main__':
             y_mean_list.append(np.mean(mean_temp_list))
         x_list = np.concatenate(x_list)
         y_list = np.concatenate(y_list)
-        fig.plot(x=x_list, y=y_list, color=color_dict[key])
+        fig.lineplot(x=x_list, y=y_list, color=color_dict[key])
         fig.scatter(x=x[:len(y_mean_list)], y=y_mean_list, color=color_dict[key],
                     marker=mark_dict[key], label=key)
     fig.set_legend(edgecolor=None)
