@@ -21,7 +21,7 @@ jobs:
       - name: Install katex
         run: |
           apt update
-          apt install npm
+          apt install -y npm
           npm install -g katex
       - name: Compile Sphinx Docs
         run: |
