@@ -165,6 +165,7 @@ def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
         (numpy.ndarray, numpy.ndarray): the smoothed x, y array.
 
     Example::
+
         >>> import numpy as np
         >>> from alpsplot.utils import group_err_bar, avg_smooth_err_bar
         >>> x = np.array([1., 2., 3.] * 2)
