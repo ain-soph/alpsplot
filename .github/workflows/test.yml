@@ -9,9 +9,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
-      - name: Pytest
+      - name: Install Dependencies
         run: |
-          pip install numpy matplotlib seaborn pytest pytest-cov
-          pytest --cov=alpsplot
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+      - name: Pytest
+        run: pytest --cov=alpsplot
       - name: Upload Codecov
         uses: codecov/codecov-action@v2.1.0
