@@ -18,6 +18,11 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r ./docs/requirements.txt
+      - name: Install katex
+        run: |
+          apt update
+          apt install npm
+          npm install -g katex
       - name: Compile Sphinx Docs
         run: |
           cd ./docs/
