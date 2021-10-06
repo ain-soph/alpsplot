@@ -39,8 +39,8 @@ def test_inverse_fit():
     inverse_fit(x, y, x_grid, degree=3)
 
 
-def test_interp_fit():
-    x = np.arange(10)
-    y = np.sin(x)
-    x_grid = np.arange(10, 2)
-    interp_fit(x, y, x_grid, interp_num=5)
+# def test_interp_fit():
+#     x = np.arange(10)
+#     y = np.sin(x)
+#     x_grid = np.arange(10, 2)
+#     interp_fit(x, y, x_grid, interp_num=5)

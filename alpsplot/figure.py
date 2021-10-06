@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from .fonts import add_optima, add_palatino
+from alpsplot.fonts import add_optima, add_palatino
+from alpsplot.utils import group_err_bar
 
 import os
 import numpy as np
@@ -12,7 +13,6 @@ from matplotlib.figure import Figure
 from matplotlib.axes import Axes
 from matplotlib.lines import Line2D
 from matplotlib.container import BarContainer
-import seaborn
 
 add_optima()
 add_palatino()
@@ -134,17 +134,27 @@ class Figure:
         plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
                  fontproperties=fontproperties, fontstyle=fontstyle, fontweight=fontweight, math_fontfamily=math_fontfamily)
 
-    def plot(self, x: np.ndarray, y: np.ndarray, color: str = 'black', linewidth: int = 2,
-             label: str = None, markerfacecolor: str = 'white', linestyle: str = '-', zorder: int = 1, **kwargs) -> Line2D:
+    def plot(self, x: np.ndarray, y: np.ndarray, err: np.array = None,
+             color: str = 'black', alpha: float = 0.0,
+             linewidth: int = 2, linestyle: str = '-',
+             label: str = None, markerfacecolor: str = 'white', zorder: int = 1, **kwargs) -> Line2D:
         # linestyle marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
-        ax = seaborn.lineplot(x=x, y=y, ax=self.ax, color=color, linewidth=linewidth,
-                              markerfacecolor=markerfacecolor, zorder=zorder, **kwargs)
-        line: Line2D = ax.get_lines()[-1]
-        line.set_linestyle(linestyle)
+        if len(set(x)) != len(x):
+            assert err is None
+            y_dict = group_err_bar(x, y)
+            x = np.array(y_dict.keys())
+            y = np.array([y_list.mean() for y_list in y_dict.values()])
+            err = np.array([y_list.std() for y_list in y_dict.values()])
+        if err is not None:
+            self.ax.fill_between(x=x, y1=y-err, y2=y+err,
+                                 color=color, alpha=alpha*0.3,
+                                 zorder=zorder-0.1)
         if label is not None:
             self.curve_legend(label=label, color=color,
                               linewidth=linewidth, linestyle=linestyle, **kwargs)
-        return line
+        return self.ax.plot(x=x, y=y, color=color, alpha=alpha,
+                            linewidth=linewidth, linestyle=linestyle,
+                            markerfacecolor=markerfacecolor, zorder=zorder, **kwargs)
 
     def curve_legend(self, label: str = None, color: str = 'black', linewidth: int = 2, linestyle: str = '-',
                      markerfacecolor: str = 'white', **kwargs) -> Line2D:
@@ -155,13 +165,16 @@ class Figure:
 
     def scatter(self, x: np.ndarray, y: np.ndarray, color: str = 'black', linewidth: int = 2,
                 label: str = None, curve_legend: bool = False,
-                marker: str = 'D', facecolor: str = 'white', zorder: int = 3, **kwargs):
+                marker: str = 'D', facecolor: str = 'white',
+                zorder: int = 3, **kwargs):
         # marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
         if curve_legend and label is not None:
             self.curve_legend(label=label, color=color,
                               linewidth=linewidth, marker=marker, **kwargs)
             label = None
-        return self.ax.scatter(x=x, y=y, color=color, linewidth=linewidth, label=label, marker=marker, facecolor=facecolor, zorder=zorder, **kwargs)
+        return self.ax.scatter(x=x, y=y, color=color, linewidth=linewidth,
+                               label=label, marker=marker, facecolor=facecolor,
+                               zorder=zorder, **kwargs)
 
     def bar(self, x: np.ndarray, y: np.ndarray, color: str = 'black', width: float = 0.2,
             align: str = 'edge', edgecolor: str = 'white', label: str = None, **kwargs) -> BarContainer:

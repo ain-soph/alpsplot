@@ -2,7 +2,7 @@
 
 from alpsplot import Figure, ting_color, color
 from alpsplot.utils import avg_smooth, monotone
-from alpsplot.fit import exp_fit, poly_fit, interp_fit, atan_fit
+from alpsplot.utils import exp_fit, poly_fit, interp_fit, atan_fit
 
 import argparse
 import numpy as np
