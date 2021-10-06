@@ -6,6 +6,9 @@ import matplotlib.font_manager
 
 
 def add_optima() -> None:
+    """
+    Add `optima` font into `matplotlib.font_manager.fontManager`. You could use it by setting `fontproperties='Optima'`
+    """
     dirname = os.path.dirname(__file__)
     fontManager: matplotlib.font_manager.FontManager = matplotlib.font_manager.fontManager
     ttflist: list[matplotlib.font_manager.FontEntry] = fontManager.ttflist
@@ -20,6 +23,9 @@ def add_optima() -> None:
 
 
 def add_palatino() -> None:
+    """
+    Add `optima` font into `matplotlib.font_manager.fontManager`. You could use it by setting `fontproperties='Palatino'`
+    """
     dirname = os.path.dirname(__file__)
     fontManager: matplotlib.font_manager.FontManager = matplotlib.font_manager.fontManager
     ttflist: list[matplotlib.font_manager.FontEntry] = fontManager.ttflist

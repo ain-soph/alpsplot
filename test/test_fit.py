@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from alpsplot.fit import *
+from alpsplot.utils.fit import *
 
 
 def test_poly_fit():

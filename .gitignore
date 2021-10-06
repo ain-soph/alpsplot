@@ -5,7 +5,6 @@
 .idea
 
 # Not implement
-/docs
 mypy*
 
 # Temp Files
