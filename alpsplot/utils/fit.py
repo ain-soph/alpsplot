@@ -11,8 +11,7 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, degree: int = 1) 
     use a polynomial of certain degree to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     Args:
-        x (numpy.ndarray): the x array to fit.
-        y (numpy.ndarray): the y array to fit.
+        x, y (numpy.ndarray): the data to fit.
         x_grid (numpy.ndarray): the x grid array.
         degree (int): the degree of polynomial to fit. Default: `1`.
 
@@ -64,8 +63,7 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         \hat{y}=\sigma\cdot\tanh(p(x))+\mu
 
     Args:
-        x (numpy.ndarray): the x array to fit.
-        y (numpy.ndarray): the y array to fit.
+        x, y (numpy.ndarray): the data to fit.
         x_grid (numpy.ndarray): the x grid array.
         degree (int): the degree of polynomial to fit. Default: `1`.
         mean_offset (float): the mean offset. Default: `0.0`.
@@ -124,8 +122,7 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         \hat{y}=\sigma\cdot\arctan(p(x))+\mu
 
     Args:
-        x (numpy.ndarray): the x array to fit.
-        y (numpy.ndarray): the y array to fit.
+        x, y (numpy.ndarray): the data to fit.
         x_grid (numpy.ndarray): the x grid array.
         degree (int): the degree of polynomial to fit. Default: `1`.
         mean_offset (float): the mean offset. Default: `0.0`.
@@ -195,8 +192,7 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         \hat{y}=\frac{1}{p(x)}+y\_lower\_bound
 
     Args:
-        x (numpy.ndarray): the x array to fit.
-        y (numpy.ndarray): the y array to fit.
+        x, y (numpy.ndarray): the data to fit.
         x_grid (numpy.ndarray): the x grid array.
         degree (int): the degree of polynomial to fit. Default: `1`.
         y_lower_bound (float): the lower bound of y. Default: `0.0`.
@@ -238,8 +234,43 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     return y_grid
 
 
-def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, interp_num: int = 20) -> np.ndarray:
+def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, **kwargs) -> np.ndarray:
+    r"""
+    use :func:`scipy.interpolate.UnivariateSpline` to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
+
+    Args:
+        x, y (numpy.ndarray): the data to fit.
+        x_grid (numpy.ndarray): the x grid array.
+        **kwargs: the lower bound of y. Default: `0.0`.
+
+    Returns:
+        numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
+
+    Example::
+
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
+        >>> from alpsplot.utils import interp_fit
+        >>> x = np.arange(10, step=0.5)
+        >>> x_grid = np.arange(10, step=0.1)
+        >>> y = x + 3 * np.sin(x)
+        >>> y_grid = interp_fit(x, y, x_grid)
+        >>> plt.scatter(x, y, color='red')
+        >>> plt.plot(x_grid, y_grid, color='green')
+        >>> plt.legend()
+        >>> plt.show()
+
+    .. raw:: html
+
+        <div style='width:60%'>
+
+    .. image:: /_static/img/utils/interp_fit.svg
+
+    .. raw:: html
+
+        </div>
+    """
     from scipy.interpolate import UnivariateSpline
-    func = UnivariateSpline(x, y, s=interp_num)
+    func = UnivariateSpline(x, y, **kwargs)
     y_grid = func(x_grid)
     return y_grid

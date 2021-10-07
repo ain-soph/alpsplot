@@ -9,3 +9,4 @@ alpsplot.utils.fit
 .. autofunction:: tanh_fit
 .. autofunction:: atan_fit
 .. autofunction:: inverse_fit
+.. autofunction:: interp_fit
