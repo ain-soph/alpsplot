@@ -14,6 +14,6 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-cov
       - name: Pytest
-        run: pytest --cov=alpsplot
+        run: pytest --cov=alpsplot --cov-report=xml
       - name: Upload Codecov
         uses: codecov/codecov-action@v2.1.0
