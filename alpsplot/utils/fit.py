@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import numpy as np
+from scipy.interpolate import UnivariateSpline
 # from scipy.optimize import curve_fit
 
 EPS = 1e-5
@@ -270,7 +271,6 @@ def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, **kwargs) -> np
 
         </div>
     """
-    from scipy.interpolate import UnivariateSpline
     func = UnivariateSpline(x, y, **kwargs)
     y_grid = func(x_grid)
     return y_grid
