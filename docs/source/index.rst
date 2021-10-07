@@ -11,8 +11,9 @@ AlpsPlot documentation
 .. toctree::
    :maxdepth: 2
    :caption: AlpsPlot Documentation
+   :glob:
 
-   utils<utils/index>
+   **/index
 
 
 Indices and tables
