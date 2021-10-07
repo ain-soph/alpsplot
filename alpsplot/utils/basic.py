@@ -70,8 +70,9 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
         >>> plt.legend()
         >>> plt.show()
 
-    .. image:: _static/img/utils/avg_smooth.svg
-        :width: 10
+    .. raw:: html
+
+        <object data="_static/img/utils/avg_smooth.svg" style="width:50%"></object>
     """
     new_x = np.zeros_like(x)
     for i in range(len(x)):
@@ -110,8 +111,9 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
         >>> plt.legend()
         >>> plt.show()
 
-    .. image:: _static/img/utils/monotone.svg
-        :width: 10
+    .. raw:: html
+
+        <object data="_static/img/utils/monotone.svg" style="width:50%"></object>
     """
     y = np.copy(x)
     temp: float = min(x) if increase else max(x)
