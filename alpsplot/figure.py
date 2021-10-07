@@ -1,27 +1,16 @@
 #!/usr/bin/env python3
 
-from alpsplot.fonts import add_optima, add_palatino
 from alpsplot.utils import group_err_bar
 
 import os
 import numpy as np
 
-import matplotlib.ticker as ticker
-import matplotlib
+from matplotlib import ticker
 from matplotlib import pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.axes import Axes
 from matplotlib.lines import Line2D
 from matplotlib.container import BarContainer
-
-from typing import Any
-
-add_optima()
-add_palatino()
-matplotlib.rc('mathtext', fontset='cm')
-matplotlib.rc('pdf', fonttype=42)
-matplotlib.rc('ps', fonttype=42)
-matplotlib.rc('svg', image_inline=True, fonttype='none')
 
 
 # Markers
