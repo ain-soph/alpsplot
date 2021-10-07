@@ -1,18 +1,10 @@
-.. _alpsplot.utils:
+.. _alpsplot.utils.error_bar:
 
-alpsplot.utils
+error_bar
 ==================================
 
 .. currentmodule:: alpsplot.utils
 
-basic
------------
-.. autofunction:: normalize
-.. autofunction:: avg_smooth
-.. autofunction:: monotone
-
-error bar
------------
 .. autofunction:: group_err_bar
 .. autofunction:: flatten_err_bar
 .. autofunction:: adjust_err_bar
