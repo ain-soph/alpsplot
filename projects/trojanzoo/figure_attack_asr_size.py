@@ -146,7 +146,7 @@ if __name__ == '__main__':
                 y_grid = exp_fit(x_list[:7], y_list[:7],
                                  x_grid, degree=2, increase=False)
                 y_grid[6000:] = atan_fit(
-                    x_list[5:], y_list[5:], x_grid, degree=4, mean_bias=-3)[6000:]
+                    x_list[5:], y_list[5:], x_grid, degree=4, mean_offset=-3)[6000:]
                 y_grid = np.clip(y_grid, a_min=0.0, a_max=100.0)
                 y_grid = monotone(y_grid, increase=False)
                 y_grid = avg_smooth(y_grid, window=100)
@@ -154,14 +154,14 @@ if __name__ == '__main__':
                 y_grid = avg_smooth(y_grid, window=300)
             elif key in ['targeted_backdoor']:
                 y_grid = atan_fit(x_list, y_list, x_grid,
-                                  degree=4, scale_multiplier=1.3)
+                                  degree=4, std_multiplier=1.3)
                 y_grid = np.clip(y_grid, a_min=0.0, a_max=100.0)
                 y_grid = monotone(y_grid, increase=False)
                 y_grid = avg_smooth(y_grid, window=40)
             elif key in ['bypass_embed']:
                 y_grid = atan_fit(x_list[:6], y_list[:6], x_grid, degree=2)
                 y_grid[5500:] = atan_fit(
-                    x_list[5:], y_list[5:], x_grid, degree=4, mean_bias=-2)[5500:]
+                    x_list[5:], y_list[5:], x_grid, degree=4, mean_offset=-2)[5500:]
                 y_grid = np.clip(y_grid, a_min=0.0, a_max=100.0)
                 y_grid = monotone(y_grid, increase=False)
                 y_grid = avg_smooth(y_grid, window=100)

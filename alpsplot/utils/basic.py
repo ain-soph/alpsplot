@@ -15,12 +15,10 @@ def normalize(x: np.ndarray,
 
     Args:
         x (numpy.ndarray): the unnormalized array.
-
-    Keyword Args:
-        _min (float, Optional): the lower bound of original :attr:`x`. Default: `x.min()`.
-        _max (float, Optional): the upper bound of original :attr:`x`. Default: `x.max()`.
-        tgt_min (float, Optional): the lower bound of original :attr:`x`. Default: `0.0`.
-        tgt_max (float, Optional): the upper bound of original :attr:`x`. Default: `1.0`.
+        _min (float): the lower bound of original :attr:`x`. Default: `x.min()`.
+        _max (float): the upper bound of original :attr:`x`. Default: `x.max()`.
+        tgt_min (float): the lower bound of original :attr:`x`. Default: `0.0`.
+        tgt_max (float): the upper bound of original :attr:`x`. Default: `1.0`.
 
     Returns:
         numpy.ndarray: a normalized array.
@@ -65,14 +63,20 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
         >>> y2 = avg_smooth(y)
         >>> y3 = avg_smooth(y, window=10)
         >>> plt.plot(x, y, color='blue', label='original')
-        >>> plt.plot(x, y2, color='red', label='window=3')
-        >>> plt.plot(x, y3, color='green', label='window=10')
+        >>> plt.plot(x, y2, color='red', label='window = 3')
+        >>> plt.plot(x, y3, color='green', label='window = 10')
         >>> plt.legend()
         >>> plt.show()
 
     .. raw:: html
 
-        <object data="_static/img/utils/avg_smooth.svg" style="width:50%"></object>
+        <div style='width:60%'>
+
+    .. image:: /_static/img/utils/avg_smooth.svg
+
+    .. raw:: html
+
+        </div>
     """
     new_x = np.zeros_like(x)
     for i in range(len(x)):
@@ -113,7 +117,13 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
 
     .. raw:: html
 
-        <object data="_static/img/utils/monotone.svg" style="width:50%"></object>
+        <div style='width:60%'>
+
+    .. image:: /_static/img/utils/monotone.svg
+
+    .. raw:: html
+
+        </div>
     """
     y = np.copy(x)
     temp: float = min(x) if increase else max(x)

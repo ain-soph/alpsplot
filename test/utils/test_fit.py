@@ -4,16 +4,19 @@ from alpsplot.utils.fit import *
 
 
 def test_poly_fit():
-    x = np.arange(10)
-    y = np.sin(x)
-    x_grid = np.arange(10, 2)
-    poly_fit(x, y, x_grid, degree=3)
+    x = np.arange(10, step=0.5)
+    x_grid = np.arange(10, step=0.1)
+    y = x + 3 * np.sin(x)
+    poly_fit(x, y, x_grid)
+    poly_fit(x, y, x_grid, degree=4)
 
 
 def test_tanh_fit():
-    x = np.arange(10)
-    y = np.sin(x)
-    x_grid = np.arange(10, 2)
+    x = np.arange(3, 4, step=0.1)
+    x_grid = np.arange(3, 4, step=0.02)
+    y = 3 * np.tanh(x**3 - 3 * x**2 - 7) + 4
+    tanh_fit(x, y, x_grid)
+    tanh_fit(x, y, x_grid, mean_offset=0.1, std_multiplier=1.1)
     tanh_fit(x, y, x_grid, degree=3)
 
 
