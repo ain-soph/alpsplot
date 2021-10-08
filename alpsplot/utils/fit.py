@@ -37,7 +37,7 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, degree: int = 1) 
 
     .. raw:: html
 
-        <object style="width:60%" data="/_static/img/utils/poly_fit.svg"></object>
+        <object style="width:60%" data="alpsplot/_static/img/utils/poly_fit.svg"></object>
     """
     z = np.polyfit(x, y, degree)
     y_grid = np.polyval(z, x_grid)
@@ -85,10 +85,11 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         >>> plt.legend()
         >>> plt.show()
 
+    .. .. image:: /_static/img/utils/tanh_fit.svg
 
     .. raw:: html
 
-        <object style="width:60%" data="_static/img/utils/tanh_fit.svg"></object>
+        <object style="width:60%" data="../_static/img/utils/tanh_fit.svg"></object>
     """
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * std_multiplier + EPS
