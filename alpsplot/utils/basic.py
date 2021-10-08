@@ -34,6 +34,7 @@ def normalize(x: np.ndarray,
         array([0.485, 0.475, 0.45 , 0.55 , 0.525, 0.515])
         >>> normalize(x, tgt_min=-1, tgt_max=1)
         array([-0.3, -0.5, -1. ,  1. ,  0.5,  0.3])
+
     """
     _min = float(x.min()) if _min is None else _min
     _max = float(x.max()) if _max is None else _max
@@ -70,13 +71,8 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
 
     .. raw:: html
 
-        <div style='width:60%'>
+        <object style="width:60%" data="/alpsplot/_static/img/utils/avg_smooth.svg"></object>
 
-    .. image:: /_static/img/utils/avg_smooth.svg
-
-    .. raw:: html
-
-        </div>
     """
     new_x = np.zeros_like(x)
     for i in range(len(x)):
@@ -117,13 +113,8 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
 
     .. raw:: html
 
-        <div style='width:60%'>
+        <object style="width:60%" data="/alpsplot/_static/img/utils/monotone.svg"></object>
 
-    .. image:: /_static/img/utils/monotone.svg
-
-    .. raw:: html
-
-        </div>
     """
     y = np.copy(x)
     temp: float = min(x) if increase else max(x)
