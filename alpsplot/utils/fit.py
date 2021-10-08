@@ -36,14 +36,7 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, degree: int = 1) 
         >>> plt.show()
 
     .. raw:: html
-
-        <div style='width:60%'>
-
-    .. image:: /_static/img/utils/poly_fit.svg
-
-    .. raw:: html
-
-        </div>
+        :file: /_static/img/utils/poly_fit.svg
     """
     z = np.polyfit(x, y, degree)
     y_grid = np.polyval(z, x_grid)
