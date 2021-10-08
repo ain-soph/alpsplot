@@ -35,15 +35,13 @@ needs_sphinx = '4.0.2'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosectionlabel',
     'sphinx.ext.autosummary',
-    'sphinx.ext.doctest',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
     'sphinx.ext.coverage',
+    'sphinx.ext.intersphinx',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinxcontrib.katex',
-    'sphinx.ext.autosectionlabel',
 ]
 
 # build the templated autosummary files
@@ -219,5 +217,7 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
+    'matplotlib': ('https://matplotlib.org/stable', None),
     'numpy': ('https://numpy.org/doc/stable', None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
 }

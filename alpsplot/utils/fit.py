@@ -217,7 +217,7 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
 def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, **kwargs) -> np.ndarray:
     r"""
-    use :func:`scipy.interpolate.UnivariateSpline` to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
+    use :any:`scipy.interpolate.UnivariateSpline` to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     Args:
         x, y (numpy.ndarray): the data to fit.
