@@ -84,15 +84,9 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         >>> plt.legend()
         >>> plt.show()
 
-    .. raw:: html
-
-        <div style='width:60%'>
-
-    .. image:: /_static/img/utils/tanh_fit.svg
 
     .. raw:: html
-
-        </div>
+        <object style="width:60%" data="_static/img/utils/tanh_fit.svg"></object>
     """
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * std_multiplier + EPS
