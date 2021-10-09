@@ -11,12 +11,15 @@ def normalize(x: np.ndarray,
     r"""
     normalize a `numpy.ndarray` into desired range.
 
-    :math:`\frac{tgt\_max - tgt\_min}{\_max - \_min}(x - \_min) + tgt\_min`
+    .. math::
+        \frac{tgt\_max - tgt\_min}{\_max - \_min}(x - \_min) + tgt\_min
 
     Args:
         x (numpy.ndarray): the unnormalized array.
-        _min (float): the lower bound of original :attr:`x`. Default: `x.min()`.
-        _max (float): the upper bound of original :attr:`x`. Default: `x.max()`.
+        _min (float): the lower bound of original :attr:`x`.
+            Default: `x.min()`.
+        _max (float): the upper bound of original :attr:`x`.
+            Default: `x.max()`.
         tgt_min (float): the lower bound of original :attr:`x`. Default: `0.0`.
         tgt_max (float): the upper bound of original :attr:`x`. Default: `1.0`.
 
@@ -44,8 +47,8 @@ def normalize(x: np.ndarray,
 
 def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
     r"""
-    average smooth a `numpy.ndarray` using a given window size.  
-    paddings added at head and tail.
+    average smooth a `numpy.ndarray` using a given window size.
+    Paddings are added at head and tail.
 
     Args:
         x (numpy.ndarray): the unsmoothed array.
@@ -90,7 +93,8 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
 
 def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
     r"""
-    monotonize a `numpy.ndarray`. All non-monotonic point would be clipped flat.
+    monotonize a `numpy.ndarray`.
+    All non-monotonic points would be clipped as previous value.
 
     Args:
         x (numpy.ndarray): the non-monotonic array.

@@ -44,8 +44,9 @@ from matplotlib.container import BarContainer
 # ':'     dotted line style
 
 class Figure:
-    def __init__(self, name: str, folder_path: str = None, fig: Figure = None, ax: Axes = None, figsize: tuple[float, float] = (5, 2.5), **kwargs):
-        super(Figure, self).__init__()
+    def __init__(self, name: str, folder_path: str = None,
+                 fig: Figure = None, ax: Axes = None,
+                 figsize: tuple[float, float] = (5, 2.5), **kwargs):
         self.name: str = name
         self.folder_path: str = folder_path
         if folder_path is None:
@@ -65,7 +66,8 @@ class Figure:
         self.ax.set_xlim([0.0, 1.0])
         self.ax.set_ylim([0.0, 1.0])
 
-    def save(self, path: str = None, folder_path: str = None, ext: str = '.pdf') -> None:
+    def save(self, path: str = None, folder_path: str = None,
+             ext: str = '.pdf') -> None:
         if path is None:
             if folder_path is None:
                 folder_path = self.folder_path
@@ -77,21 +79,29 @@ class Figure:
         self.fig.savefig(path, dpi=100, bbox_inches='tight')
 
     def set_title(self, text: str = None, fontsize: int = 16,
-                  fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
+                  fontproperties: str = 'Optima', fontweight: str = 'bold',
+                  math_fontfamily: str = 'cm') -> None:
         if text is None:
             text = self.name
         self.ax.set_title(text, fontsize=fontsize,
-                          fontproperties=fontproperties, fontweight=fontweight, math_fontfamily=math_fontfamily)
+                          fontproperties=fontproperties, fontweight=fontweight,
+                          math_fontfamily=math_fontfamily)
 
     def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
-                       fontproperties: str = 'Optima', fontweight='bold', math_fontfamily: str = 'cm', **kwargs):
+                       fontproperties: str = 'Optima', fontweight='bold',
+                       math_fontfamily: str = 'cm', **kwargs):
         func = getattr(self.ax, f'set_{axis}label')
         func(text, fontsize=fontsize, fontproperties=fontproperties,
              fontweight=fontweight, math_fontfamily=math_fontfamily, **kwargs)
 
-    def set_axis_lim(self, axis: str, labels: list[str] = None, lim: list[float] = [0.0, 1.0], margin: list[float] = [0.0, 0.0],
-                     piece: int = 10, _format: str = '%.1f', fontsize: int = 11,
-                     fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm', **kwargs) -> None:
+    def set_axis_lim(self, axis: str, labels: list[str] = None,
+                     lim: list[float] = [0.0, 1.0],
+                     margin: list[float] = [0.0, 0.0],
+                     piece: int = 10, _format: str = '%.1f',
+                     fontsize: int = 11,
+                     fontproperties: str = 'Optima',
+                     fontweight: str = 'bold',
+                     math_fontfamily: str = 'cm', **kwargs) -> None:
         if _format == 'integer':
             _format = '%d'
         lim_func = getattr(self.ax, f'set_{axis}lim')
@@ -109,28 +119,36 @@ class Figure:
         if labels is None:
             labels = getattr(self.ax, f'get_{axis}ticks')()
             set_ticklabels_func(labels, fontsize=fontsize,
-                                fontproperties=fontproperties, fontweight=fontweight,
+                                fontproperties=fontproperties,
+                                fontweight=fontweight,
                                 math_fontfamily=math_fontfamily, **kwargs)
             format_func(_format)
         else:
             set_ticklabels_func(labels, fontsize=fontsize,
-                                fontproperties=fontproperties, fontweight=fontweight,
+                                fontproperties=fontproperties,
+                                fontweight=fontweight,
                                 math_fontfamily=math_fontfamily, **kwargs)
 
-    def set_legend(self, *args, fontsize=11, frameon: bool = True, edgecolor='white', framealpha=1.0,
-                   fontproperties: str = 'Optima', fontstyle=None, fontweight='bold',
+    def set_legend(self, *args, fontsize=11, frameon: bool = True,
+                   edgecolor='white', framealpha=1.0,
+                   fontproperties: str = 'Optima',
+                   fontstyle=None, fontweight='bold',
                    math_fontfamily: str = 'cm', **kwargs) -> None:
         self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
                        framealpha=framealpha, **kwargs)
         plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
-                 fontproperties=fontproperties, fontstyle=fontstyle, fontweight=fontweight, math_fontfamily=math_fontfamily)
+                 fontproperties=fontproperties,
+                 fontstyle=fontstyle, fontweight=fontweight,
+                 math_fontfamily=math_fontfamily)
 
     def lineplot(self, x: np.ndarray, y: np.ndarray,
                  err: np.array = None, err_style: str = 'band',
                  color: str = 'black', alpha: float = 0.0,
                  linewidth: int = 2, linestyle: str = '-',
-                 label: str = None, markerfacecolor: str = 'white', zorder: int = 1, **kwargs) -> Line2D:
-        # linestyle marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
+                 label: str = None, markerfacecolor: str = 'white',
+                 zorder: int = 1, **kwargs) -> Line2D:
+        # linestyle marker markeredgecolor markeredgewidth
+        # markerfacecolor markersize alpha
         if len(set(x)) != len(x):
             assert err is None
             y_dict = group_err_bar(x, y)
@@ -148,23 +166,32 @@ class Figure:
                                  zorder=zorder)
         if label is not None:
             self.curve_legend(label=label, color=color,
-                              linewidth=linewidth, linestyle=linestyle, **kwargs)
+                              linewidth=linewidth, linestyle=linestyle,
+                              **kwargs)
         return self.ax.plot(x, y, color=color, alpha=alpha,
                             linewidth=linewidth, linestyle=linestyle,
-                            markerfacecolor=markerfacecolor, zorder=zorder, **kwargs)
+                            markerfacecolor=markerfacecolor,
+                            zorder=zorder, **kwargs)
 
-    def curve_legend(self, label: str = None, color: str = 'black', linewidth: int = 2, linestyle: str = '-',
+    def curve_legend(self, label: str = None, color: str = 'black',
+                     linewidth: int = 2, linestyle: str = '-',
                      markerfacecolor: str = 'white', **kwargs) -> Line2D:
-        # linestyle marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
-        line, = self.ax.plot([], [], color=color, linewidth=linewidth, markeredgewidth=linewidth, markeredgecolor=color,
-                             label=label, markerfacecolor=markerfacecolor, linestyle=linestyle, **kwargs)
+        # linestyle marker markeredgecolor markeredgewidth
+        # markerfacecolor markersize alpha
+        line, = self.ax.plot([], [], label=label, color=color,
+                             linewidth=linewidth, linestyle=linestyle,
+                             markeredgewidth=linewidth, markeredgecolor=color,
+                             markerfacecolor=markerfacecolor,
+                             **kwargs)
         return line
 
-    def scatter(self, x: np.ndarray, y: np.ndarray, color: str = 'black', linewidth: int = 2,
+    def scatter(self, x: np.ndarray, y: np.ndarray,
+                color: str = 'black', linewidth: int = 2,
                 label: str = None, curve_legend: bool = False,
                 marker: str = 'D', facecolor: str = 'white',
                 zorder: int = 3, **kwargs):
-        # marker markeredgecolor markeredgewidth markerfacecolor markersize alpha
+        # marker markeredgecolor markeredgewidth
+        # markerfacecolor markersize alpha
         if curve_legend and label is not None:
             self.curve_legend(label=label, color=color,
                               linewidth=linewidth, marker=marker, **kwargs)
@@ -173,26 +200,38 @@ class Figure:
                                label=label, marker=marker, facecolor=facecolor,
                                zorder=zorder, **kwargs)
 
-    def bar(self, x: np.ndarray, y: np.ndarray, color: str = 'black', width: float = 0.2,
-            align: str = 'edge', edgecolor: str = 'white', label: str = None, **kwargs) -> BarContainer:
+    def bar(self, x: np.ndarray, y: np.ndarray,
+            color: str = 'black', width: float = 0.2,
+            align: str = 'edge', edgecolor: str = 'white',
+            label: str = None, **kwargs) -> BarContainer:
         # facecolor edgewidth alpha
-        return self.ax.bar(x, y, color=color, width=width, align=align, edgecolor=edgecolor, label=label, **kwargs)
+        return self.ax.bar(x, y, color=color, width=width,
+                           align=align, edgecolor=edgecolor,
+                           label=label, **kwargs)
 
-    def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray, color: str = 'black', size: tuple[float, float] = 0.5,
+    def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
+              color: str = 'black', size: tuple[float, float] = 0.5,
               label: str = None, **kwargs) -> BarContainer:
         # facecolor edgewidth alpha
         if isinstance(size, (float, int)):
             size = [size, size]
         return self.ax.bar3d(x=x, y=y, z=np.zeros_like(x),
-                             dx=np.ones_like(x) * size[0], dy=np.ones_like(y) * size[1], dz=z,
-                             color=color, label=label, **kwargs)
+                             dx=np.ones_like(x) * size[0],
+                             dy=np.ones_like(y) * size[1],
+                             dz=z, color=color, label=label,
+                             **kwargs)
 
-    def hist(self, x: np.ndarray, bins: int = None, density: bool = True, **kwargs):
+    def hist(self, x: np.ndarray, bins: int = None,
+             density: bool = True, **kwargs):
         return self.ax.hist(x, bins=bins, density=density, **kwargs)
 
-    def autolabel(self, rects: BarContainer, above: bool = True, fontsize: int = 6,
-                  fontproperties: str = 'Optima', fontweight: str = 'bold', math_fontfamily: str = 'cm') -> None:
-        """Attach a text label above each bar in *rects*, displaying its height."""
+    def autolabel(self, rects: BarContainer, above: bool = True,
+                  fontsize: int = 6,
+                  fontproperties: str = 'Optima', fontweight: str = 'bold',
+                  math_fontfamily: str = 'cm') -> None:
+        r"""
+        Attach a text label above each bar in *rects*, displaying its height.
+        """
         for rect in rects:
             height = int(rect.get_height())
             offset = 3 if above else -13
@@ -201,4 +240,6 @@ class Figure:
                              xytext=(0, offset),  # 3 points vertical offset
                              textcoords="offset points",
                              ha='center', va='bottom', fontsize=fontsize,
-                             fontproperties=fontproperties, fontweight=fontweight, math_fontfamily=math_fontfamily)
+                             fontproperties=fontproperties,
+                             fontweight=fontweight,
+                             math_fontfamily=math_fontfamily)

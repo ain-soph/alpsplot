@@ -37,7 +37,8 @@ def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
     return y_dict
 
 
-def flatten_err_bar(y_dict: dict[float, np.ndarray]) -> tuple[np.ndarray, np.ndarray]:
+def flatten_err_bar(y_dict: dict[float, np.ndarray]
+                    ) -> tuple[np.ndarray, np.ndarray]:
     r"""
     flatten :attr:`y_dict` to be data list (x, y).
 
@@ -78,13 +79,22 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
                    std: Optional[Union[float, np.ndarray]] = None
                    ) -> dict[float, np.ndarray]:
     r"""
-    adjust :attr:`y_dict` to be with :attr:`mean` and :attr:`std`.
-    :math:`\frac{std[i]}{y\_dict[i].std()}\left(y\_dict[i]-y\_dict[i].mean()\right)+mean[i]`
+    adjust :attr:`y_dict` with :attr:`mean` and :attr:`std`.
+
+    .. math::
+        \frac{std[i]}{y\_dict[i].std()}
+        \left(y\_dict[i] - y\_dict[i].mean()\right) + mean[i]
 
     Args:
         y_dict (dict[float, numpy.ndarray]): the dict to adjust.
-        mean (numpy.ndarray]): the new mean values for :attr:`y_dict`. `None` means keeping the original mean values `[y_dict[x].mean() for x in y_dict.keys()]`. Default: `None`.
-        std (numpy.ndarray]): the new std values for :attr:`y_dict`. `None` means keeping the original std values `[y_dict[x].std() for x in y_dict.keys()]`. Default: `None`.
+        mean (numpy.ndarray]): the new mean values for :attr:`y_dict`.
+            `None` means keeping the original mean values
+            `[y_dict[x].mean() for x in y_dict.keys()]`.
+            Default: `None`.
+        std (numpy.ndarray]): the new std values for :attr:`y_dict`.
+            `None` means keeping the original std values
+            `[y_dict[x].std() for x in y_dict.keys()]`.
+            Default: `None`.
 
     Returns:
         dict[float, numpy.ndarray]: the new dict.
@@ -109,7 +119,7 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
         >>> adjust_err_bar(y_dict, mean=np.zeros(3), std=np.ones(3))
         {1.0: array([-1.,  1.]), 2.0: array([-1.,  1.]), 3.0: array([-1.,  1.])}
 
-    """
+    """  # noqa: E501
     y_dict = y_dict.copy()
     if isinstance(mean, float):
         mean = mean * np.ones(len(y_dict))
@@ -124,9 +134,13 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
     return y_dict
 
 
-def normalize_err_bar(x: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+def normalize_err_bar(x: np.ndarray, y: np.ndarray
+                      ) -> tuple[np.ndarray, np.ndarray]:
     r"""
-    normalize :attr:`x` and :attr:`y` into range [0, 1]. each :attr:`x` might correspond to multiple :attr:`y` values and therefore generate an error band on y-axis. The mean of :attr:`y` is normalized into [0, 1].
+    normalize :attr:`x` and :attr:`y` into range [0, 1].
+    each :attr:`x` might correspond to multiple :attr:`y` values
+    and therefore generate an error band on y-axis.
+    The mean of :attr:`y` is normalized into [0, 1].
 
     Args:
         x (numpy.ndarray): the x array.
@@ -148,7 +162,7 @@ def normalize_err_bar(x: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, np.ndar
         >>> normalize_err_bar(x, y)
         (array([0. , 0. , 0.5, 0.5, 1. , 1. ]), array([-1.5,  1.5, -1. ,  2. , -0.5,  2.5]))
 
-    """
+    """  # noqa: E501
     y_dict = group_err_bar(normalize(x), y)
     y_mean = np.array([y_dict[_x].mean() for _x in y_dict.keys()])
     y_dict = adjust_err_bar(y_dict, normalize(y_mean))
@@ -158,12 +172,16 @@ def normalize_err_bar(x: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, np.ndar
 def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
                        window: int = 3) -> tuple[np.ndarray, np.ndarray]:
     r"""
-    average smooth :attr:`x` and :attr:`y` using window size :attr:`window`. each :attr:`x` might correspond to multiple :attr:`y` values and therefore generate an error band on y-axis. The mean of :attr:`y` is smoothed.
+    average smooth :attr:`x` and :attr:`y` using window size :attr:`window`.
+    each :attr:`x` might correspond to multiple :attr:`y` values
+    and therefore generate an error band on y-axis.
+    The mean of :attr:`y` is smoothed.
 
     Args:
         x (numpy.ndarray): the x array.
         y (numpy.ndarray): the y array.
-        window (int): the :attr:`window` argument passed to :func:`alpsplot.utils.avg_smooth`. Default: `3`.
+        window (int): the :attr:`window` argument passed to
+            :func:`alpsplot.utils.avg_smooth`. Default: `3`.
 
     Returns:
         (numpy.ndarray, numpy.ndarray): the smoothed x, y array.
@@ -183,7 +201,7 @@ def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
         >>> avg_smooth_err_bar(x, y, window=5)
         (array([1., 1., 2., 2., 3., 3.]), array([0.6, 3.6, 0.3, 3.3, 1.4, 4.4]))
 
-    """
+    """  # noqa: E501
     y_dict = group_err_bar(x, y)
     y_mean = np.array([y_dict[_x].mean() for _x in y_dict.keys()])
     y_dict = adjust_err_bar(y_dict, avg_smooth(y_mean, window=window))

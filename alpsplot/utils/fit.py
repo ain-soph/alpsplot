@@ -7,9 +7,12 @@ from scipy.interpolate import UnivariateSpline
 EPS = 1e-5
 
 
-def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, degree: int = 1) -> np.ndarray:
+def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
+             degree: int = 1) -> np.ndarray:
     r"""
-    use a polynomial of certain degree to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
+    use a polynomial of certain degree
+    to fit (:attr:`x`, :attr:`y`) series
+    and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     Args:
         x, y (numpy.ndarray): the data to fit.
@@ -47,9 +50,12 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, degree: int = 1) 
 
 
 def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
-             degree: int = 1, mean_offset: float = 0.0, std_multiplier: float = 1.0) -> np.ndarray:
+             degree: int = 1, mean_offset: float = 0.0,
+             std_multiplier: float = 1.0) -> np.ndarray:
     r"""
-    use a tanh(polynomial) of certain degree to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
+    use a tanh(polynomial) of certain degree
+    to fit (:attr:`x`, :attr:`y`) series
+    and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     .. math::
         \begin{cases}
@@ -102,9 +108,12 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
 
 def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
-             degree: int = 1, mean_offset: float = 0.0, std_multiplier: float = 1.0) -> np.ndarray:
+             degree: int = 1, mean_offset: float = 0.0,
+             std_multiplier: float = 1.0) -> np.ndarray:
     r"""
-    use a tanh(polynomial) of certain degree to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
+    use a tanh(polynomial) of certain degree
+    to fit (:attr:`x`, :attr:`y`) series
+    and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     .. math::
         \begin{cases}
@@ -157,7 +166,8 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
 
 def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
-            degree: int = 1, increase: bool = True, eps: float = 0.01) -> np.ndarray:
+            degree: int = 1, increase: bool = True,
+            eps: float = 0.01) -> np.ndarray:
     y_max = max(y)
     y_min = min(y)
 
@@ -174,7 +184,9 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
                 degree: int = 1, y_lower_bound: float = 0.0) -> np.ndarray:
     r"""
-    use a tanh(polynomial) of certain degree to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
+    use a tanh(polynomial) of certain degree
+    to fit (:attr:`x`, :attr:`y`) series
+    and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     .. math::
 
@@ -219,9 +231,12 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     return y_grid
 
 
-def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray, **kwargs) -> np.ndarray:
+def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
+               **kwargs) -> np.ndarray:
     r"""
-    use :any:`scipy.interpolate.UnivariateSpline` to fit (:attr:`x`, :attr:`y`) series and return :attr:`y_grid` wrt :attr:`x_grid`.
+    use :any:`scipy.interpolate.UnivariateSpline`
+    to fit (:attr:`x`, :attr:`y`) series
+    and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     Args:
         x, y (numpy.ndarray): the data to fit.

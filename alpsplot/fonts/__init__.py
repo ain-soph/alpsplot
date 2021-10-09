@@ -1,17 +1,24 @@
 #!/usr/bin/env python3
 
 import os
-import matplotlib
-import matplotlib.font_manager
+from matplotlib.font_manager import fontManager
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from matplotlib.font_manager import FontManager, FontEntry
+
+
+fontManager: 'FontManager'
 
 
 def add_optima() -> None:
-    """
-    Add `optima` font into `matplotlib.font_manager.fontManager`. You could use it by setting `fontproperties='Optima'`
+    r"""
+    Add ``optima`` font into :any:`matplotlib.font_manager.fontManager`.
+
+    You could use it by setting ``fontproperties='Optima'``
     """
     dirname = os.path.dirname(__file__)
-    fontManager: matplotlib.font_manager.FontManager = matplotlib.font_manager.fontManager
-    ttflist: list[matplotlib.font_manager.FontEntry] = fontManager.ttflist
+    ttflist: list['FontEntry'] = fontManager.ttflist
     for i, font in enumerate(ttflist):
         if 'optima.ttc' in font.fname.lower():
             del ttflist[i]
@@ -23,12 +30,13 @@ def add_optima() -> None:
 
 
 def add_palatino() -> None:
-    """
-    Add `optima` font into `matplotlib.font_manager.fontManager`. You could use it by setting `fontproperties='Palatino'`
+    r"""
+    Add ``optima`` font into :any:`matplotlib.font_manager.fontManager`.
+
+    You could use it by setting ``fontproperties='Palatino'``
     """
     dirname = os.path.dirname(__file__)
-    fontManager: matplotlib.font_manager.FontManager = matplotlib.font_manager.fontManager
-    ttflist: list[matplotlib.font_manager.FontEntry] = fontManager.ttflist
+    ttflist: list['FontEntry'] = fontManager.ttflist
     for i, font in enumerate(ttflist):
         if 'palatino.ttc' in font.fname.lower():
             del ttflist[i]
