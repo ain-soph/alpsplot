@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-import os
 import glob
 from fontTools.ttLib.ttCollection import TTCollection
 from fontTools.ttLib.ttFont import TTFont
