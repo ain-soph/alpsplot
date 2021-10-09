@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  publish:
+  docs:
     runs-on: ubuntu-latest
     container:
       image: python:3.9
@@ -36,7 +36,7 @@ jobs:
         if: success()
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
-          target_branch: gh-pages
+          target_branch: docs
           build_dir: ./docs/build/html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

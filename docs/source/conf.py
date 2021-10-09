@@ -8,9 +8,8 @@ import sys
 sys.path.insert(0, os.path.abspath('../../'))
 sys.path.insert(0, os.path.abspath('./'))
 
-import trojanzoo_sphinx_theme
-import alpsplot as package
 from linkcode import linkcode_helper
+import alpsplot as package
 
 # -- General configuration ------------------------------------------------
 
@@ -21,12 +20,32 @@ copyright = f'2021, {author}'
 github_user = author
 github_repo = package.__name__
 
+github_url = f'https://github.com/{github_user}/{github_repo}/'
+gh_page_url = f'https://{github_user}.github.io/{github_repo}/'
+
+html_theme_options = {
+    'canonical_url': gh_page_url,
+    'collapse_navigation': False,
+    'display_version': True,
+
+    'doc_items': {
+        'AlpsPlot': '/alpsplot',
+        'TrojanZoo': '/trojanzoo',
+        'trojanzoo_sphinx_theme': '/trojanzoo_sphinx_theme',
+        'base': 'https://github.com/ain-soph/base',
+    },
+    'github_url': github_url,
+
+    'logo': 'images/logo/trojanzoo-logo.svg',
+    'logo_dark': 'images/logo/trojanzoo-logo-dark.svg',
+    'logo_icon': 'images/logo/trojanzoo-logo-icon.svg',
+}
+
 # -- Extension configuration ----------------------------------------------
 
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosectionlabel',
-    'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.napoleon',
     'sphinx.ext.linkcode',  # viewcode
@@ -37,8 +56,7 @@ extensions = [
 def linkcode_resolve(domain, info):
     return linkcode_helper(domain, info,
                            package=package,
-                           github_user=github_user,
-                           github_repo=github_repo)
+                           github_url=github_url)
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
@@ -69,10 +87,6 @@ autodoc_docstring_signature = True
 autodoc_inherit_docstrings = False
 autodoc_typehints = 'none'
 
-# autosummary options
-autosummary_generate = True
-numpydoc_show_class_members = False
-
 # autosectionlabel options
 # autosectionlabel throws warnings if section names are duplicated.
 # The following tells autosectionlabel to not throw a warning for
@@ -93,21 +107,9 @@ napoleon_use_rtype = False
 # -- Options for HTML output ----------------------------------------------
 
 html_theme = 'trojanzoo_sphinx_theme'
-html_theme_path = [trojanzoo_sphinx_theme.get_html_theme_path()]
 html_permalinks_icon = '\uf08e'  # '\uf0c1'  font-family = FontAwesome
-html_theme_options = {
-    'canonical_url': f'https://{github_user}.github.io/{github_repo}/',
-    'collapse_navigation': False,
-    'display_version': True,
-    'logo_only': True,
-    # 'analytics_id': 'UA-117752657-2',
-}
-# html_logo = '_static/logo/trojanzoo-logo-dark.svg'
 html_favicon = 'images/favicon.ico'
-html_static_path = ['_static']
 html_title = " ".join((project, version, "documentation"))
-
-pygments_style = 'sphinx'
 
 # -- Options for HTMLHelp output ------------------------------------------
 htmlhelp_basename = f'{project}doc'
