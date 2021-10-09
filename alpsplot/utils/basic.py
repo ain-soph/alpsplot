@@ -56,22 +56,23 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
 
     Example::
 
-        >>> import numpy as np
-        >>> import matplotlib.pyplot as plt
-        >>> from alpsplot.utils import avg_smooth
-        >>> x = np.arange(10, step=0.5)
-        >>> y = x + 3 * np.sin(x)
-        >>> y2 = avg_smooth(y)
-        >>> y3 = avg_smooth(y, window=10)
-        >>> plt.plot(x, y, color='blue', label='original')
-        >>> plt.plot(x, y2, color='red', label='window = 3')
-        >>> plt.plot(x, y3, color='green', label='window = 10')
-        >>> plt.legend()
-        >>> plt.show()
+        import numpy as np
+        import matplotlib.pyplot as plt
+        from alpsplot.utils import avg_smooth
 
-    .. raw:: html
+        x = np.arange(10, step=0.5)
+        y = x + 3 * np.sin(x)
+        y2 = avg_smooth(y)
+        y3 = avg_smooth(y, window=10)
 
-        <object style="width:60%" data="/alpsplot/_static/img/utils/avg_smooth.svg"></object>
+        plt.plot(x, y, color='blue', label='original')
+        plt.plot(x, y2, color='red', label='window = 3')
+        plt.plot(x, y3, color='green', label='window = 10')
+        plt.legend()
+        plt.show()
+
+    .. image:: /images/utils/avg_smooth.svg
+        :scale: 60%
 
     """
     new_x = np.zeros_like(x)
@@ -100,20 +101,21 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
 
     Example::
 
-        >>> import numpy as np
-        >>> import matplotlib.pyplot as plt
-        >>> from alpsplot.utils import monotone
-        >>> x = np.arange(10, step=0.1)
-        >>> y = x + 3 * np.sin(x)
-        >>> y2 = monotone(y)
-        >>> plt.plot(x, y, color='blue', label='original')
-        >>> plt.plot(x, y2, color='red', label='monotone')
-        >>> plt.legend()
-        >>> plt.show()
+        import numpy as np
+        import matplotlib.pyplot as plt
+        from alpsplot.utils import monotone
 
-    .. raw:: html
+        x = np.arange(10, step=0.1)
+        y = x + 3 * np.sin(x)
+        y2 = monotone(y)
 
-        <object style="width:60%" data="/alpsplot/_static/img/utils/monotone.svg"></object>
+        plt.plot(x, y, color='blue', label='original')
+        plt.plot(x, y2, color='red', label='monotone')
+        plt.legend()
+        plt.show()
+
+    .. image:: /images/utils/monotone.svg
+        :scale: 60%
 
     """
     y = np.copy(x)
