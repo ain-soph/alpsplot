@@ -17,6 +17,7 @@ mypy*
 __pycache__
 *.pyc
 *build/
+generated/
 .pytest_cache
 .coverage
 coverage.xml
