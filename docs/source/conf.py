@@ -5,11 +5,11 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('../../'))
 sys.path.insert(0, os.path.abspath('./'))
+sys.path.insert(0, os.path.abspath('../../'))
 
-from linkcode import linkcode_helper
-import alpsplot as package
+from linkcode import linkcode_helper  # noqa
+import alpsplot as package  # noqa
 
 # -- General configuration ------------------------------------------------
 
