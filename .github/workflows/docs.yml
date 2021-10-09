@@ -27,7 +27,6 @@ jobs:
         run: |
           cd ./docs/
           make html
-          touch ./build/html/.nojekyll
       - name: Check GitHub Pages status
         uses: crazy-max/ghaction-github-status@v2.2.0
         with:
