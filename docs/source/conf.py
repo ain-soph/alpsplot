@@ -23,8 +23,8 @@ github_repo = package.__name__
 github_url = f'https://github.com/{github_user}/{github_repo}/'
 gh_page_url = f'https://{github_user}.github.io/{github_repo}/'
 
+html_baseurl = gh_page_url
 html_theme_options = {
-    'canonical_url': gh_page_url,
     'github_url': github_url,
 
     'doc_items': {
