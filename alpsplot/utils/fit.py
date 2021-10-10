@@ -41,7 +41,7 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         plt.show()
 
     .. image:: /images/utils/poly_fit.svg
-        :scale: 60%
+        :width: 60%
 
     """
     z = np.polyfit(x, y, degree)
@@ -96,7 +96,7 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         plt.show()
 
     .. image:: /images/utils/tanh_fit.svg
-        :scale: 60%
+        :width: 60%
 
     """
     mean = (max(y) + min(y)) / 2 + mean_offset
@@ -154,7 +154,7 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         plt.show()
 
     .. image:: /images/utils/atan_fit.svg
-        :scale: 60%
+        :width: 60%
 
     """
     mean = (max(y) + min(y)) / 2 + mean_offset
@@ -222,7 +222,7 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         plt.show()
 
     .. image:: /images/utils/inverse_fit.svg
-        :scale: 60%
+        :width: 60%
 
     """
     fit_data = 1 / (y - y_lower_bound)
@@ -263,7 +263,7 @@ def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         plt.show()
 
     .. image:: /images/utils/interp_fit.svg
-        :scale: 60%
+        :width: 60%
 
     """
     func = UnivariateSpline(x, y, **kwargs)

@@ -75,7 +75,7 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
         plt.show()
 
     .. image:: /images/utils/avg_smooth.svg
-        :scale: 60%
+        :width: 60%
 
     """
     new_x = np.zeros_like(x)
@@ -119,7 +119,7 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
         plt.show()
 
     .. image:: /images/utils/monotone.svg
-        :scale: 60%
+        :width: 60%
 
     """
     y = np.copy(x)
