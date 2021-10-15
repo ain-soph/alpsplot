@@ -57,6 +57,7 @@ extensions = [
     'sphinx.ext.linkcode',  # viewcode
     'sphinx.ext.napoleon',
     'sphinxcontrib.katex',
+    'sphinx_copybutton',
 ]
 
 
@@ -74,6 +75,7 @@ intersphinx_mapping = {
     'matplotlib': ('https://matplotlib.org/stable', None),
     'numpy': ('https://numpy.org/doc/stable', None),
     'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
+    'seaborn': ('https://seaborn.pydata.org', None),
 }
 
 # -- General default configuration ----------------------------------------
