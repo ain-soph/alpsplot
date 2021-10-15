@@ -546,37 +546,42 @@ class Figure:
                                zorder=zorder, **kwargs)
 
     def bar(self, x: np.ndarray, y: np.ndarray,
-            color: str = 'black', width: float = 0.2,
-            align: str = 'edge', edgecolor: str = 'white',
-            label: str = None, **kwargs) -> BarContainer:
-        r"""Call :any:`Axes.scatter() <matplotlib.axes.Axes.scatter>`
-        to plot scatters.
+            width: float = 0.2, align: str = 'edge',
+            color: str = 'black', edgecolor: str = 'white',
+            linewidth: int = 1, label: str = None,
+            **kwargs) -> BarContainer:
+        r"""Call :any:`Axes.bar() <matplotlib.axes.Axes.bar>`
+        to plot bars.
 
         Args:
             x (numpy.ndarray): The x array.
             y (numpy.ndarray): The y array.
-            color (str): Set the color of the line.
+            width (float): The width of the bars.
+                Defaults to `0.2`.
+            align (str): Alignment of the bars to the ``x`` coordinates.
+                Possible values: ``['center', 'edge']``.
+                Defaults to ``'edge'``.
+
+                * ``'center'``: Center the base on the x positions.
+                * ``'edge'``: Align the left edges of the bars
+                  with the ``x`` positions.
+
+            color (str): The colors of the bar faces.
                 Defaults to ``'black'``.
-            linewidth (str): Set the line width in points.
-                Defaults to `2`.
-            marker (str): The marker style.
-                Defaults to ``'D'``.
-            facecolor (str): Set the marker face color.
+            edgecolor (str): Set the bar edge color.
                 Defaults to ``'white'``.
+            linewidth (float): Width of the bar edges.
+                If `0`, don't draw edges.
+                Defaults to `1`.
             label (str): Set a label that will be displayed in the legend.
                 Defaults to `None`.
-            curve_legend (bool): Whether the legend contains
-                a line around the marker.
-                Defaults to `False`.
-            zorder (float): Set the zorder for the artist.
-                Artists with lower zorder values are drawn first.
-                Defaults to `3`.
             **kwargs: Keyword arguments passed to
-                :any:`Axes.scatter() <matplotlib.axes.Axes.scatter>`.
+                :any:`Axes.bar() <matplotlib.axes.Axes.bar>`.
         """
-        return self.ax.bar(x, y, color=color, width=width,
-                           align=align, edgecolor=edgecolor,
-                           label=label, **kwargs)
+        return self.ax.bar(x, y, width=width, align=align,
+                           color=color, edgecolor=edgecolor,
+                           linewidth=linewidth, label=label,
+                           **kwargs)
 
     def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
               color: str = 'black', size: tuple[float, float] = 0.5,
