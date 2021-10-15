@@ -28,7 +28,6 @@ def normalize(x: np.ndarray,
         numpy.ndarray: A normalized array.
 
     :Example:
-
         >>> import numpy as np
         >>> from alpsplot.utils import normalize
         >>> x = np.array([-10, -5, 0, 5, 10])
@@ -38,7 +37,6 @@ def normalize(x: np.ndarray,
         array([0.45 , 0.475, 0.5  , 0.525, 0.55 ])
         >>> normalize(x, tgt_min=-1, tgt_max=1)
         array([-1. , -0.5,  0. ,  0.5,  1. ])
-
     """
     _min = float(min(x)) if _min is None else _min
     _max = float(max(x)) if _max is None else _max
@@ -79,7 +77,6 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
 
         .. image:: /images/utils/avg_smooth.svg
             :width: 60%
-
     """
     new_x = np.zeros_like(x)
     for i in range(len(x)):
@@ -126,7 +123,6 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
 
         .. image:: /images/utils/monotone.svg
             :width: 60%
-
     """
     y = np.copy(x)
     temp: float = min(x) if increase else max(x)

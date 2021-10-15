@@ -5,9 +5,9 @@ from alpsplot.utils import group_err_bar
 import os
 import numpy as np
 
+import matplotlib.figure as figure
 from matplotlib import ticker
 from matplotlib import pyplot as plt
-from matplotlib.figure import Figure
 from matplotlib.axes import Axes
 from matplotlib.lines import Line2D
 from matplotlib.container import BarContainer
@@ -48,16 +48,25 @@ class Figure:
 
     Attributes:
         name (str): Figure name.
-        attr2 (:obj:`int`, optional): Description of `attr2`.
+        folder_path (str): Figure name. Defaults to `'./output/'`.
+        fig (`matplotlib.figure.Figure`, optional): Description of `attr2`.
+        ax (`matplotlib.axes.Axes`, optional): Description of `attr2`.
+        figsize (tuple[float, float]):
+            Passed to :any:`matplotlib.pyplot.figure`
+            when :attr:`fig` and :attr:`ax` are not set.
+            Recommend to use `(5, 2.5)` for singular plot
+            and `(5, 3.75)` for subplots.
+            Defaults to `(5, 2.5)`
+        **kwargs: Keyword arguments passed to :any:`matplotlib.pyplot.figure`
+            when :attr:`fig` and :attr:`ax` are not set.
 
     """
-    def __init__(self, name: str, folder_path: str = None,
-                 fig: Figure = None, ax: Axes = None,
+
+    def __init__(self, name: str, folder_path: str = './output/',
+                 fig: figure.Figure = None, ax: Axes = None,
                  figsize: tuple[float, float] = (5, 2.5), **kwargs):
         self.name: str = name
         self.folder_path: str = folder_path
-        if folder_path is None:
-            self.folder_path = './output/'
         self.fig: Figure = fig
         self.ax: Axes = ax
         if fig is None and ax is None:
