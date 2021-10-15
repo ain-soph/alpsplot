@@ -11,3 +11,4 @@ alpsplot.utils
    basic
    error_bar
    fit
+   fonts

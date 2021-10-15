@@ -7,7 +7,6 @@ AlpsPlot documentation
    :caption: AlpsPlot Documentation
    :glob:
 
-   fonts
    figure
    **/index
 

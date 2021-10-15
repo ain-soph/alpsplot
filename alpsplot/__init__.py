@@ -6,5 +6,5 @@ from .figure import Figure
 from .colormap import *
 from .utils import *
 
-from . import fonts
+from .utils import fonts
 fonts.main()

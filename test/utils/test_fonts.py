@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
-from alpsplot.fonts import add_optima, add_palatino
+from alpsplot.utils.fonts import add_optima, add_palatino
 import matplotlib.font_manager
 import os
 
 from os.path import dirname as d
 from os.path import abspath, normpath
 
+from matplotlib.font_manager import FontManager, FontEntry
+
 
 def test_add_palatino():
-    fontManager: matplotlib.font_manager.FontManager = matplotlib.font_manager.fontManager
+    fontManager: FontManager = matplotlib.font_manager.fontManager
     ttflist: list[matplotlib.font_manager.FontEntry] = fontManager.ttflist
     fname_list: list[str] = []
     ttc_path = os.path.join(normpath(d(d(abspath(__file__)))),
@@ -27,8 +29,8 @@ def test_add_palatino():
 
 
 def test_add_optima():
-    fontManager: matplotlib.font_manager.FontManager = matplotlib.font_manager.fontManager
-    ttflist: list[matplotlib.font_manager.FontEntry] = fontManager.ttflist
+    fontManager: FontManager = matplotlib.font_manager.fontManager
+    ttflist: list[FontEntry] = fontManager.ttflist
     fname_list: list[str] = []
     ttc_path = os.path.join(normpath(d(d(abspath(__file__)))),
                             'fonts', 'Optima.ttc')

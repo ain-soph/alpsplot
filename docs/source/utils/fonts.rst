@@ -1,9 +1,9 @@
-.. _alpsplot.fonts:
+.. _alpsplot.utils.fonts:
 
-alpsplot.fonts
+alpsplot.utils.fonts
 ==================================
 
-.. currentmodule:: alpsplot.fonts
+.. currentmodule:: alpsplot.utils.fonts
 
 .. autofunction:: add_optima
 .. autofunction:: add_palatino
