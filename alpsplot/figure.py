@@ -583,20 +583,36 @@ class Figure:
                            linewidth=linewidth, label=label,
                            **kwargs)
 
-    def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
-              color: str = 'black', size: tuple[float, float] = 0.5,
-              label: str = None, **kwargs) -> BarContainer:
-        # facecolor edgewidth alpha
-        if isinstance(size, (float, int)):
-            size = [size, size]
-        return self.ax.bar3d(x=x, y=y, z=np.zeros_like(x),
-                             dx=np.ones_like(x) * size[0],
-                             dy=np.ones_like(y) * size[1],
-                             dz=z, color=color, label=label,
-                             **kwargs)
-
     def hist(self, x: np.ndarray, bins: int = None,
              density: bool = True, **kwargs):
+        r"""Call :any:`Axes.hist() <matplotlib.axes.Axes.hist>`
+        to plot a histogram.
+
+        Args:
+            x (numpy.ndarray): The x array.
+            bins (int): The y array.
+            width (float): The width of the bars.
+                Defaults to `0.2`.
+            align (str): Alignment of the bars to the ``x`` coordinates.
+                Possible values: ``['center', 'edge']``.
+                Defaults to ``'edge'``.
+
+                * ``'center'``: Center the base on the x positions.
+                * ``'edge'``: Align the left edges of the bars
+                  with the ``x`` positions.
+
+            color (str): The colors of the bar faces.
+                Defaults to ``'black'``.
+            edgecolor (str): Set the bar edge color.
+                Defaults to ``'white'``.
+            linewidth (float): Width of the bar edges.
+                If `0`, don't draw edges.
+                Defaults to `1`.
+            label (str): Set a label that will be displayed in the legend.
+                Defaults to `None`.
+            **kwargs: Keyword arguments passed to
+                :any:`Axes.bar() <matplotlib.axes.Axes.bar>`.
+        """
         return self.ax.hist(x, bins=bins, density=density, **kwargs)
 
     def autolabel(self, rects: BarContainer, above: bool = True,
@@ -617,3 +633,15 @@ class Figure:
                              fontproperties=fontproperties,
                              fontweight=fontweight,
                              math_fontfamily=math_fontfamily)
+
+    # def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
+    #           color: str = 'black', size: tuple[float, float] = 0.5,
+    #           label: str = None, **kwargs) -> BarContainer:
+    #     # facecolor edgewidth alpha
+    #     if isinstance(size, (float, int)):
+    #         size = [size, size]
+    #     return self.ax.bar3d(x=x, y=y, z=np.zeros_like(x),
+    #                          dx=np.ones_like(x) * size[0],
+    #                          dy=np.ones_like(y) * size[1],
+    #                          dz=z, color=color, label=label,
+    #                          **kwargs)

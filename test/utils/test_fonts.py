@@ -14,7 +14,7 @@ def test_add_palatino():
     fontManager: FontManager = matplotlib.font_manager.fontManager
     ttflist: list[matplotlib.font_manager.FontEntry] = fontManager.ttflist
     fname_list: list[str] = []
-    ttc_path = os.path.join(normpath(d(d(abspath(__file__)))),
+    ttc_path = os.path.join(normpath(d(d(d(abspath(__file__))))),
                             'fonts', 'Palatino.ttc')
     fontManager.addfont(ttc_path)
     add_palatino()
@@ -32,7 +32,7 @@ def test_add_optima():
     fontManager: FontManager = matplotlib.font_manager.fontManager
     ttflist: list[FontEntry] = fontManager.ttflist
     fname_list: list[str] = []
-    ttc_path = os.path.join(normpath(d(d(abspath(__file__)))),
+    ttc_path = os.path.join(normpath(d(d(d(abspath(__file__))))),
                             'fonts', 'Optima.ttc')
     fontManager.addfont(ttc_path)
     add_optima()
