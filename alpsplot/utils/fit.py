@@ -103,7 +103,7 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         .. image:: /images/utils/tanh_fit.svg
             :width: 60%
 
-    """  # noqa
+    """  # noqa: E501
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * (1 + eps)
     real_data = np.arctanh((y - mean) / std)
@@ -163,7 +163,7 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         .. image:: /images/utils/atan_fit.svg
             :width: 60%
 
-    """  # noqa
+    """  # noqa: E501
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * (1 + eps)
     real_data = np.tan((y - mean) / std)
