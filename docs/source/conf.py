@@ -4,11 +4,11 @@
 
 import os
 import sys
+from trojanzoo_sphinx_theme.linkcode import linkcode_helper
 
 sys.path.insert(0, os.path.abspath('./'))
 sys.path.insert(0, os.path.abspath('../../'))
 
-from linkcode import linkcode_helper  # noqa
 import alpsplot as package  # noqa
 
 # -- General configuration ------------------------------------------------
@@ -19,11 +19,19 @@ copyright = f'2021, {author}'
 
 github_user = author
 github_repo = package.__name__
+github_version = 'main'
 
 github_url = f'https://github.com/{github_user}/{github_repo}/'
 gh_page_url = f'https://{github_user}.github.io/{github_repo}/'
 
 html_baseurl = gh_page_url
+html_context = {
+    'display_github': True,
+    'github_user': github_user,
+    'github_repo': github_repo,
+    'github_version': github_version,
+    "conf_py_path": "/docs/source/",  # Path in the checkout to the docs root
+}
 html_theme_options = {
     'github_url': github_url,
 
@@ -53,9 +61,11 @@ extensions = [
 
 
 def linkcode_resolve(domain, info):
-    return linkcode_helper(domain, info,
-                           package=package,
-                           github_url=github_url)
+    return linkcode_helper(
+        domain, info,
+        package=package,
+        github_url=github_url,
+        github_version=github_version)
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
@@ -66,7 +76,7 @@ intersphinx_mapping = {
     'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
 }
 
-# -- General default configuration ------------------------------------------------
+# -- General default configuration ----------------------------------------
 
 needs_sphinx = '4.0.2'
 templates_path = ['_templates']

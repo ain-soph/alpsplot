@@ -17,9 +17,9 @@ def normalize(x: np.ndarray,
     Args:
         x (numpy.ndarray): the unnormalized array.
         _min (float): the lower bound of original :attr:`x`.
-            Default: `x.min()`.
+            Default: `min(x)`.
         _max (float): the upper bound of original :attr:`x`.
-            Default: `x.max()`.
+            Default: `max(x)`.
         tgt_min (float): the lower bound of original :attr:`x`. Default: `0.0`.
         tgt_max (float): the upper bound of original :attr:`x`. Default: `1.0`.
 
@@ -30,17 +30,17 @@ def normalize(x: np.ndarray,
 
         >>> import numpy as np
         >>> from alpsplot.utils import normalize
-        >>> x = np.array([-3, -5, -10, 10, 5, 3])
+        >>> x = np.array([-10, -5, 0, 5, 10])
         >>> normalize(x)
-        array([0.35, 0.25, 0.  , 1.  , 0.75, 0.65])
+        array([0.  , 0.25, 0.5 , 0.75, 1.  ])
         >>> normalize(x, _min=-100, _max=100)
-        array([0.485, 0.475, 0.45 , 0.55 , 0.525, 0.515])
+        array([0.45 , 0.475, 0.5  , 0.525, 0.55 ])
         >>> normalize(x, tgt_min=-1, tgt_max=1)
-        array([-0.3, -0.5, -1. ,  1. ,  0.5,  0.3])
+        array([-1. , -0.5,  0. ,  0.5,  1. ])
 
     """
-    _min = float(x.min()) if _min is None else _min
-    _max = float(x.max()) if _max is None else _max
+    _min = float(min(x)) if _min is None else _min
+    _max = float(max(x)) if _max is None else _max
     x = (x - _min) / (_max - _min) * (tgt_max - tgt_min) + tgt_min
     return x
 
@@ -63,14 +63,14 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
         import matplotlib.pyplot as plt
         from alpsplot.utils import avg_smooth
 
-        x = np.arange(10, step=0.5)
+        x = np.arange(10, step=1)
         y = x + 3 * np.sin(x)
         y2 = avg_smooth(y)
-        y3 = avg_smooth(y, window=10)
+        y3 = avg_smooth(y, window=5)
 
-        plt.plot(x, y, color='blue', label='original')
-        plt.plot(x, y2, color='red', label='window = 3')
-        plt.plot(x, y3, color='green', label='window = 10')
+        plt.plot(x, y, color='red', label='original')
+        plt.plot(x, y2, color='green', label='window = 3')
+        plt.plot(x, y3, color='blue', label='window = 5')
         plt.legend()
         plt.show()
 
