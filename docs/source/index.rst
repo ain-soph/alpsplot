@@ -1,6 +1,6 @@
 
 AlpsPlot documentation
-===================================
+======================
 
 .. toctree::
    :maxdepth: 2
