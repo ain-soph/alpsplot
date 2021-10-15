@@ -10,11 +10,11 @@ def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
     r"""Group (:attr:`x`, :attr:`y`) to be a dict. y_dict[x0] = [y0, y1, ...]
 
     Args:
-        x (numpy.ndarray): the x array.
-        y (numpy.ndarray): the y array.
+        x (numpy.ndarray): The x array.
+        y (numpy.ndarray): The y array.
 
     Returns:
-        dict[float, numpy.ndarray]: the result dict.
+        dict[float, numpy.ndarray]: The result dict.
 
     Example::
 
@@ -41,10 +41,10 @@ def flatten_err_bar(y_dict: dict[float, np.ndarray]
     r"""Flatten :attr:`y_dict` to be data list (x, y).
 
     Args:
-        y_dict (dict[float, numpy.ndarray]): the dict to flatten.
+        y_dict (dict[float, numpy.ndarray]): The dict to flatten.
 
     Returns:
-        (numpy.ndarray, numpy.ndarray): the x, y array.
+        (numpy.ndarray, numpy.ndarray): The x, y array.
 
     Example::
 
@@ -83,18 +83,18 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
         \left(y\_dict[i] - y\_dict[i].mean()\right) + mean[i]
 
     Args:
-        y_dict (dict[float, numpy.ndarray]): the dict to adjust.
-        mean (numpy.ndarray]): the new mean values for :attr:`y_dict`.
+        y_dict (dict[float, numpy.ndarray]): The dict to adjust.
+        mean (numpy.ndarray]): The new mean values for :attr:`y_dict`.
             `None` means keeping the original mean values
             `[y_dict[x].mean() for x in y_dict.keys()]`.
-            Default: `None`.
-        std (numpy.ndarray]): the new std values for :attr:`y_dict`.
+            Defaults to `None`.
+        std (numpy.ndarray]): The new std values for :attr:`y_dict`.
             `None` means keeping the original std values
             `[y_dict[x].std() for x in y_dict.keys()]`.
-            Default: `None`.
+            Defaults to `None`.
 
     Returns:
-        dict[float, numpy.ndarray]: the new dict.
+        dict[float, numpy.ndarray]: The new dict.
 
     Example::
 
@@ -140,11 +140,11 @@ def normalize_err_bar(x: np.ndarray, y: np.ndarray
     The mean of :attr:`y` is normalized into [0, 1].
 
     Args:
-        x (numpy.ndarray): the x array.
-        y (numpy.ndarray): the y array.
+        x (numpy.ndarray): The x array.
+        y (numpy.ndarray): The y array.
 
     Returns:
-        (numpy.ndarray, numpy.ndarray): the normalized x, y array.
+        (numpy.ndarray, numpy.ndarray): The normalized x, y array.
 
     Example::
 
@@ -175,13 +175,13 @@ def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
     The mean of :attr:`y` is smoothed.
 
     Args:
-        x (numpy.ndarray): the x array.
-        y (numpy.ndarray): the y array.
+        x (numpy.ndarray): The x array.
+        y (numpy.ndarray): The y array.
         window (int): the :attr:`window` argument passed to
-            :func:`alpsplot.utils.avg_smooth`. Default: `3`.
+            :func:`alpsplot.utils.avg_smooth`. Defaults to `3`.
 
     Returns:
-        (numpy.ndarray, numpy.ndarray): the smoothed x, y array.
+        (numpy.ndarray, numpy.ndarray): The smoothed x, y array.
 
     Example::
 

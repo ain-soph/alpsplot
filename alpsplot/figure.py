@@ -44,6 +44,13 @@ from matplotlib.container import BarContainer
 # ':'     dotted line style
 
 class Figure:
+    """The Figure wrapper class.
+
+    Attributes:
+        name (str): Figure name.
+        attr2 (:obj:`int`, optional): Description of `attr2`.
+
+    """
     def __init__(self, name: str, folder_path: str = None,
                  fig: Figure = None, ax: Axes = None,
                  figsize: tuple[float, float] = (5, 2.5), **kwargs):

@@ -14,16 +14,18 @@ def normalize(x: np.ndarray,
         \frac{tgt\_max - tgt\_min}{\_max - \_min}(x - \_min) + tgt\_min
 
     Args:
-        x (numpy.ndarray): the unnormalized array.
-        _min (float): the lower bound of original :attr:`x`.
-            Default: `min(x)`.
-        _max (float): the upper bound of original :attr:`x`.
-            Default: `max(x)`.
-        tgt_min (float): the lower bound of original :attr:`x`. Default: `0.0`.
-        tgt_max (float): the upper bound of original :attr:`x`. Default: `1.0`.
+        x (numpy.ndarray): The unnormalized array.
+        _min (float): The lower bound of original :attr:`x`.
+            Defaults to `min(x)`.
+        _max (float): The upper bound of original :attr:`x`.
+            Defaults to `max(x)`.
+        tgt_min (float): The lower bound of original :attr:`x`.
+            Defaults to `0.0`.
+        tgt_max (float): The upper bound of original :attr:`x`.
+            Defaults to `1.0`.
 
     Returns:
-        numpy.ndarray: a normalized array.
+        numpy.ndarray: A normalized array.
 
     :Example:
 
@@ -50,11 +52,11 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
     Paddings are added at head and tail.
 
     Args:
-        x (numpy.ndarray): the unsmoothed array.
-        window (int): the window size (number of points). Default: `3`.
+        x (numpy.ndarray): The unsmoothed array.
+        window (int): The window size (number of points). Defaults to `3`.
 
     Returns:
-        numpy.ndarray: a smoothed array.
+        numpy.ndarray: A smoothed array.
 
     :Example:
         .. code-block:: python
@@ -98,11 +100,12 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
     All non-monotonic points would be clipped as previous value.
 
     Args:
-        x (numpy.ndarray): the non-monotonic array.
-        increase (bool): monotonically increase or decrease. Default: `True`.
+        x (numpy.ndarray): The non-monotonic array.
+        increase (bool): Monotonically increase or decrease.
+            Defaults to `True`.
 
     Returns:
-        numpy.ndarray: a monotonic array.
+        numpy.ndarray: A monotonic array.
 
     :Example:
         .. code-block:: python

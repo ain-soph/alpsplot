@@ -15,12 +15,12 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     Args:
-        x, y (numpy.ndarray): the data to fit.
-        x_grid (numpy.ndarray): the x grid array.
-        degree (int): the degree of polynomial to fit. Default: `1`.
+        x, y (numpy.ndarray): The data to fit.
+        x_grid (numpy.ndarray): The x grid array.
+        degree (int): The degree of polynomial to fit. Defaults to `1`.
 
     Returns:
-        numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
+        numpy.ndarray: The :attr:`y_grid` array wrt :attr:`x_grid`.
 
     :Example:
         .. code-block:: python
@@ -67,11 +67,11 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         \hat{y} = \sigma \cdot \tanh(p(x)) + \mu
 
     Args:
-        x, y (numpy.ndarray): the data to fit.
-        x_grid (numpy.ndarray): the x grid array.
-        degree (int): the degree of polynomial to fit. Default: `1`.
-        mean_offset (float): the mean offset. Default: `0.0`.
-        eps (float): :math:`\varepsilon` to control the scale. Default: `1e-5`.
+        x, y (numpy.ndarray): The data to fit.
+        x_grid (numpy.ndarray): The x grid array.
+        degree (int): The degree of polynomial to fit. Defaults to `1`.
+        mean_offset (float): The mean offset. Defaults to `0.0`.
+        eps (float): :math:`\varepsilon` to control the scale. Defaults to `1e-5`.
 
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
@@ -126,14 +126,14 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         \hat{y} = \sigma \cdot \arctan(p(x)) +\mu
 
     Args:
-        x, y (numpy.ndarray): the data to fit.
-        x_grid (numpy.ndarray): the x grid array.
-        degree (int): the degree of polynomial to fit. Default: `1`.
-        mean_offset (float): the mean offset. Default: `0.0`.
-        eps (float): :math:`\varepsilon` to control the scale. Default: `1e-5`.
+        x, y (numpy.ndarray): The data to fit.
+        x_grid (numpy.ndarray): The x grid array.
+        degree (int): The degree of polynomial to fit. Defaults to `1`.
+        mean_offset (float): The mean offset. Defaults to `0.0`.
+        eps (float): :math:`\varepsilon` to control the scale. Defaults to `1e-5`.
 
     Returns:
-        numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
+        numpy.ndarray: The :attr:`y_grid` array wrt :attr:`x_grid`.
 
     :Example:
         .. code-block:: python
@@ -184,15 +184,15 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         \end{cases}
 
     Args:
-        x, y (numpy.ndarray): the data to fit.
-        x_grid (numpy.ndarray): the x grid array.
-        degree (int): the degree of polynomial to fit. Default: `1`.
+        x, y (numpy.ndarray): The data to fit.
+        x_grid (numpy.ndarray): The x grid array.
+        degree (int): The degree of polynomial to fit. Defaults to `1`.
         sign (bool): whether exp is positive, `None` means auto pick.
-            Default: `None`.
-        eps (float): :math:`\varepsilon`. Default: `1e-5`.
+            Defaults to `None`.
+        eps (float): :math:`\varepsilon`. Defaults to `1e-5`.
 
     Returns:
-        numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
+        numpy.ndarray: The :attr:`y_grid` array wrt :attr:`x_grid`.
 
     :Example:
         .. code-block:: python
@@ -260,12 +260,12 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
         \hat{y}=\frac{1}{p(x)}+\varepsilon
 
     Args:
-        x, y (numpy.ndarray): the data to fit.
-        x_grid (numpy.ndarray): the x grid array.
-        degree (int): the degree of polynomial to fit. Default: `1`.
-        sign (bool): whether reciprocal is positive, `None` means auto pick.
-            Default: `None`.
-        eps (float): :math:`\varepsilon`. Default: `1e-5`.
+        x, y (numpy.ndarray): The data to fit.
+        x_grid (numpy.ndarray): The x grid array.
+        degree (int): The degree of polynomial to fit. Defaults to `1`.
+        sign (bool): Whether reciprocal is positive, `None` means auto pick.
+            Defaults to `None`.
+        eps (float): :math:`\varepsilon`. Defaults to `1e-5`.
 
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
@@ -325,12 +325,12 @@ def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
     Args:
-        x, y (numpy.ndarray): the data to fit.
-        x_grid (numpy.ndarray): the x grid array.
-        **kwargs: the lower bound of y. Default: `0.0`.
+        x, y (numpy.ndarray): The data to fit.
+        x_grid (numpy.ndarray): The x grid array.
+        **kwargs: The lower bound of y. Defaults to `0.0`.
 
     Returns:
-        numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
+        numpy.ndarray: The :attr:`y_grid` array wrt :attr:`x_grid`.
 
     :Example:
         .. code-block:: python
