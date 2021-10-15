@@ -46,11 +46,17 @@ from matplotlib.container import BarContainer
 class Figure:
     """The Figure wrapper class.
 
-    Attributes:
-        name (str): Figure name.
-        folder_path (str): Figure name. Defaults to `'./output/'`.
-        fig (`matplotlib.figure.Figure`, optional): Description of `attr2`.
-        ax (`matplotlib.axes.Axes`, optional): Description of `attr2`.
+    Args:
+        name (str): Figure name used as default value of
+            :meth:`save` and :meth:`set_title`.
+        folder_path (str): Figure name used as default value of :meth:`save`.
+            Defaults to `'./output/'`.
+        fig (matplotlib.figure.Figure, optional): The pre-defined Figure.
+            Otherwise, call :any:`matplotlib.pyplot.figure` to generate.
+            Defaults to `None`.
+        ax (matplotlib.axes.Axes, optional): The pre-defined Axes.
+            Otherwise, call :any:`matplotlib.pyplot.figure` to generate.
+            Defaults to `None`.
         figsize (tuple[float, float]):
             Passed to :any:`matplotlib.pyplot.figure`
             when :attr:`fig` and :attr:`ax` are not set.
@@ -60,6 +66,13 @@ class Figure:
         **kwargs: Keyword arguments passed to :any:`matplotlib.pyplot.figure`
             when :attr:`fig` and :attr:`ax` are not set.
 
+    Attributes:
+        name (str): Figure name used as default value of
+            :meth:`save` and :meth:`set_title`.
+        folder_path (str): Figure name used as default value of :meth:`save`.
+            Defaults to `'./output/'`.
+        fig (matplotlib.figure.Figure):
+        ax (matplotlib.axes.Axes):
     """
 
     def __init__(self, name: str, folder_path: str = './output/',
@@ -82,30 +95,94 @@ class Figure:
         self.ax.set_xlim([0.0, 1.0])
         self.ax.set_ylim([0.0, 1.0])
 
-    def save(self, path: str = None, folder_path: str = None,
-             ext: str = '.pdf') -> None:
+    def save(self, path: str = None,
+             folder_path: str = None,
+             name: str = None, ext: str = '.pdf',
+             dpi: int = 100, bbox_inches: str = 'tight',
+             **kwargs) -> None:
+        """Class methods are similar to regular functions.
+
+        Args:
+            path (str, optional): The filepath to save the figure.
+                Defaults to ``f'{folder_path}/{name}{ext}'``.
+            folder_path (str, optional): Called when :attr:`path` is `None`,
+                Defaults to :attr:`self.folder_path`.
+            name (str, optional): Called when :attr:`path` is `None`,
+                Defaults to :attr:`self.name`.
+            ext (str): Called when :attr:`path` is `None`,
+                Defaults to ``'.pdf'``.
+            dpi (int): Passed to
+                :any:`matplotlib.figure.Figure.savefig`,
+                Defaults to `100`.
+            bbox_inches (str): Passed to
+                :any:`matplotlib.figure.Figure.savefig`,
+                Defaults to `'tight'`.
+            **kwargs: Passed to
+                :any:`matplotlib.figure.Figure.savefig`,
+        """
         if path is None:
-            if folder_path is None:
-                folder_path = self.folder_path
-            path = os.path.join(folder_path, f'{self.name}{ext}')
+            folder_path = folder_path or self.folder_path
+            name = name or self.name
+            path = os.path.join(folder_path, f'{name}{ext}')
         else:
             folder_path = os.path.dirname(path)
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
-        self.fig.savefig(path, dpi=100, bbox_inches='tight')
+        self.fig.savefig(path, dpi=dpi, bbox_inches=bbox_inches, **kwargs)
 
     def set_title(self, text: str = None, fontsize: int = 16,
                   fontproperties: str = 'Optima', fontweight: str = 'bold',
-                  math_fontfamily: str = 'cm') -> None:
-        if text is None:
-            text = self.name
+                  math_fontfamily: str = 'cm', **kwargs) -> None:
+        """Call :any:`matplotlib.axes.Axes.set_title`.
+
+        Args:
+            text (str, optional): The text of title,
+                Defaults to :attr:`self.name`.
+
+        ..
+
+        Args:
+            fontsize (int): The fontsize of text,
+                Defaults to `16`.
+            fontproperties (str): The font of text,
+                Defaults to ``'Optima'``.
+            fontweight (str): The fontweight of text,
+                Defaults to ``'bold'``.
+            math_fontfamily (str): The math_fontfamily of text,
+                Defaults to ``'cm'``.
+            **kwargs: Passed to :any:`matplotlib.axes.Axes.set_title`.
+        """
+        text = self.name if text is None else text
         self.ax.set_title(text, fontsize=fontsize,
                           fontproperties=fontproperties, fontweight=fontweight,
-                          math_fontfamily=math_fontfamily)
+                          math_fontfamily=math_fontfamily, **kwargs)
 
     def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
                        fontproperties: str = 'Optima', fontweight='bold',
                        math_fontfamily: str = 'cm', **kwargs):
+        """Call :any:`matplotlib.axes.Axes.set_xlabel`
+        or :any:`matplotlib.axes.Axes.set_ylabel`.
+
+        Args:
+            axis (str): The axis to set label.
+                Available values: ``['x', 'y', 'z']``.
+            text (str): The text of axis label,
+                Defaults to :attr:`self.name`.
+
+        ..
+
+        Args:
+            fontsize (int): The fontsize of text,
+                Defaults to `12`.
+            fontproperties (str): The font of text,
+                Defaults to ``'Optima'``.
+            fontweight (str): The fontweight of text,
+                Defaults to ``'bold'``.
+            math_fontfamily (str): The math_fontfamily of text,
+                Defaults to ``'cm'``.
+            **kwargs: Passed to :any:`matplotlib.axes.Axes.set_xlabel`
+                or :any:`matplotlib.axes.Axes.set_ylabel`.
+        """
         func = getattr(self.ax, f'set_{axis}label')
         func(text, fontsize=fontsize, fontproperties=fontproperties,
              fontweight=fontweight, math_fontfamily=math_fontfamily, **kwargs)
@@ -118,6 +195,29 @@ class Figure:
                      fontproperties: str = 'Optima',
                      fontweight: str = 'bold',
                      math_fontfamily: str = 'cm', **kwargs) -> None:
+        """Call :any:`matplotlib.axis.Axis.set_major_formatter`
+        or :any:`matplotlib.axis.Axis.set_major_formatter`.
+
+        Args:
+            axis (str): The axis to set label.
+                Available values: ``['x', 'y', 'z']``.
+            labels (list[str]): The text of axis tick labels,
+                Defaults to `None`.
+
+        ..
+
+        Args:
+            fontsize (int): The fontsize of text,
+                Defaults to `11`.
+            fontproperties (str): The font of text,
+                Defaults to ``'Optima'``.
+            fontweight (str): The fontweight of text,
+                Defaults to ``'bold'``.
+            math_fontfamily (str): The math_fontfamily of text,
+                Defaults to ``'cm'``.
+            **kwargs: Passed to :any:`matplotlib.axes.Axes.set_xticklabels`
+                or :any:`matplotlib.axes.Axes.set_yticklabels`.
+        """
         if _format == 'integer':
             _format = '%d'
         lim_func = getattr(self.ax, f'set_{axis}lim')

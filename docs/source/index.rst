@@ -8,6 +8,7 @@ AlpsPlot documentation
    :glob:
 
    fonts
+   figure
    **/index
 
 

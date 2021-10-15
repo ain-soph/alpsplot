@@ -44,7 +44,6 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
         .. image:: /images/utils/poly_fit.svg
             :width: 60%
-
     """
     z = np.polyfit(x, y, degree)
     y_grid = np.polyval(z, x_grid)
@@ -100,7 +99,6 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
         .. image:: /images/utils/tanh_fit.svg
             :width: 60%
-
     """  # noqa: E501
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * (1 + eps)
@@ -159,7 +157,6 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
         .. image:: /images/utils/atan_fit.svg
             :width: 60%
-
     """  # noqa: E501
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * (1 + eps)
@@ -227,7 +224,6 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
         .. image:: /images/utils/exp_fit.svg
             :width: 60%
-
     """
     if sign is None:
         y1 = exp_fit(x, y, x, degree=degree, sign=True, eps=eps)
@@ -303,7 +299,6 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
         .. image:: /images/utils/inverse_fit.svg
             :width: 60%
-
     """
     if sign is None:
         y1 = inverse_fit(x, y, x, degree=degree, sign=True, eps=eps)
@@ -352,7 +347,6 @@ def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
         .. image:: /images/utils/interp_fit.svg
             :width: 60%
-
     """
     func = UnivariateSpline(x, y, **kwargs)
     y_grid = func(x_grid)
