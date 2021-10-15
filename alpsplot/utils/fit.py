@@ -23,26 +23,28 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 8, 9
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import poly_fit
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import poly_fit
 
-        x = np.arange(10, step=0.5)
-        x_grid = np.arange(10, step=0.1)
-        y = x + 3 * np.sin(x)
-        y1_grid = poly_fit(x, y, x_grid)
-        y2_grid = poly_fit(x, y, x_grid, degree=4)
+            x = np.arange(10, step=0.5)
+            x_grid = np.arange(10, step=0.1)
+            y = x + 3 * np.sin(x)
+            y1_grid = poly_fit(x, y, x_grid)
+            y2_grid = poly_fit(x, y, x_grid, degree=4)
 
-        plt.scatter(x, y, color='red')
-        plt.plot(x_grid, y1_grid, color='green', label='degree = 1')
-        plt.plot(x_grid, y2_grid, color='blue', label='degree = 4')
-        plt.legend()
-        plt.show()
+            plt.scatter(x, y, color='red')
+            plt.plot(x_grid, y1_grid, color='green', label='degree = 1')
+            plt.plot(x_grid, y2_grid, color='blue', label='degree = 4')
+            plt.legend()
+            plt.show()
 
-    .. image:: /images/utils/poly_fit.svg
-        :width: 60%
+        .. image:: /images/utils/poly_fit.svg
+            :width: 60%
 
     """
     z = np.polyfit(x, y, degree)
@@ -76,30 +78,32 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 8, 9, 10
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import tanh_fit
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import tanh_fit
 
-        x = np.arange(3, 4, step=0.1)
-        x_grid = np.arange(3, 4, step=0.02)
-        y = 3 * np.tanh(x**3 - 3 * x**2 - 7) + 4
-        y1_grid = tanh_fit(x, y, x_grid)
-        y2_grid = tanh_fit(x, y, x_grid, mean_offset=0.5)
-        y3_grid = tanh_fit(x, y, x_grid, degree=3)
+            x = np.arange(3, 4, step=0.1)
+            x_grid = np.arange(3, 4, step=0.02)
+            y = 3 * np.tanh(x**3 - 3 * x**2 - 7) + 4
+            y1_grid = tanh_fit(x, y, x_grid)
+            y2_grid = tanh_fit(x, y, x_grid, mean_offset=0.5)
+            y3_grid = tanh_fit(x, y, x_grid, degree=3)
 
-        plt.scatter(x, y, color='red')
-        plt.plot(x_grid, y1_grid, color='green', label='degree = 1')
-        plt.plot(x_grid, y2_grid, color='orange', label='degree = 1 (offset)')
-        plt.plot(x_grid, y3_grid, color='blue', label='degree = 3')
-        plt.legend()
-        plt.show()
+            plt.scatter(x, y, color='red')
+            plt.plot(x_grid, y1_grid, color='green', label='degree = 1')
+            plt.plot(x_grid, y2_grid, color='orange', label='degree = 1 (offset)')
+            plt.plot(x_grid, y3_grid, color='blue', label='degree = 3')
+            plt.legend()
+            plt.show()
 
-    .. image:: /images/utils/tanh_fit.svg
-        :width: 60%
+        .. image:: /images/utils/tanh_fit.svg
+            :width: 60%
 
-    """
+    """  # noqa
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * (1 + eps)
     real_data = np.arctanh((y - mean) / std)
@@ -134,30 +138,32 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 8, 9, 10
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import atan_fit
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import atan_fit
 
-        x = np.arange(3, 4, step=0.1)
-        x_grid = np.arange(3, 4, step=0.02)
-        y = 3 * np.arctan(x**3 - 3 * x**2 - 7) + 4
-        y1_grid = atan_fit(x, y, x_grid)
-        y2_grid = atan_fit(x, y, x_grid, mean_offset=0.5)
-        y3_grid = atan_fit(x, y, x_grid, degree=3)
+            x = np.arange(3, 4, step=0.1)
+            x_grid = np.arange(3, 4, step=0.02)
+            y = 3 * np.arctan(x**3 - 3 * x**2 - 7) + 4
+            y1_grid = atan_fit(x, y, x_grid)
+            y2_grid = atan_fit(x, y, x_grid, mean_offset=0.5)
+            y3_grid = atan_fit(x, y, x_grid, degree=3)
 
-        plt.scatter(x, y, color='red')
-        plt.plot(x_grid, y1_grid, color='green', label='degree = 1')
-        plt.plot(x_grid, y2_grid, color='orange', label='degree = 1 (offset)')
-        plt.plot(x_grid, y3_grid, color='blue', label='degree = 3')
-        plt.legend()
-        plt.show()
+            plt.scatter(x, y, color='red')
+            plt.plot(x_grid, y1_grid, color='green', label='degree = 1')
+            plt.plot(x_grid, y2_grid, color='orange', label='degree = 1 (offset)')
+            plt.plot(x_grid, y3_grid, color='blue', label='degree = 3')
+            plt.legend()
+            plt.show()
 
-    .. image:: /images/utils/atan_fit.svg
-        :width: 60%
+        .. image:: /images/utils/atan_fit.svg
+            :width: 60%
 
-    """
+    """  # noqa
     mean = (max(y) + min(y)) / 2 + mean_offset
     std = max(abs(y - mean)) * (1 + eps)
     real_data = np.tan((y - mean) / std)
@@ -192,37 +198,39 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 10, 11
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import exp_fit
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import exp_fit
 
-        fig, (ax1, ax2) = plt.subplots(1,2)
+            fig, (ax1, ax2) = plt.subplots(1,2)
 
-        x = np.arange(1, 2, step=0.1)
-        x_grid = np.arange(1, 2, step=0.01)
-        y = 0.1 * np.exp(x**3 - 2 * x**2 + 4 * x - 2) + 4
-        y1_grid = exp_fit(x, y, x_grid, eps=0.1*np.e)
-        y2_grid = exp_fit(x, y, x_grid, degree=3, eps=0.1*np.e)
+            x = np.arange(1, 2, step=0.1)
+            x_grid = np.arange(1, 2, step=0.01)
+            y = 0.1 * np.exp(x**3 - 2 * x**2 + 4 * x - 2) + 4
+            y1_grid = exp_fit(x, y, x_grid, eps=0.1*np.e)
+            y2_grid = exp_fit(x, y, x_grid, degree=3, eps=0.1*np.e)
 
-        ax1.scatter(x, y, color='red')
-        ax1.plot(x_grid, y1_grid, color='green', label='degree = 1')
-        ax1.plot(x_grid, y2_grid, color='blue', label='degree = 3')
-        ax1.legend()
+            ax1.scatter(x, y, color='red')
+            ax1.plot(x_grid, y1_grid, color='green', label='degree = 1')
+            ax1.plot(x_grid, y2_grid, color='blue', label='degree = 3')
+            ax1.legend()
 
-        y1_grid = exp_fit(x, -y, x_grid, eps=0.1*np.e)
-        y2_grid = exp_fit(x, -y, x_grid, degree=3, eps=0.1*np.e)
+            y1_grid = exp_fit(x, -y, x_grid, eps=0.1*np.e)
+            y2_grid = exp_fit(x, -y, x_grid, degree=3, eps=0.1*np.e)
 
-        ax2.scatter(x, -y, color='red')
-        ax2.plot(x_grid, y1_grid, color='green', label='degree = 1')
-        ax2.plot(x_grid, y2_grid, color='blue', label='degree = 3')
-        ax2.legend()
+            ax2.scatter(x, -y, color='red')
+            ax2.plot(x_grid, y1_grid, color='green', label='degree = 1')
+            ax2.plot(x_grid, y2_grid, color='blue', label='degree = 3')
+            ax2.legend()
 
-        plt.show()
+            plt.show()
 
-    .. image:: /images/utils/exp_fit.svg
-        :width: 60%
+        .. image:: /images/utils/exp_fit.svg
+            :width: 60%
 
     """
     if sign is None:
@@ -267,37 +275,39 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 10, 11
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import inverse_fit
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import inverse_fit
 
-        fig, (ax1, ax2) = plt.subplots(1,2)
+            fig, (ax1, ax2) = plt.subplots(1,2)
 
-        x = np.arange(1, 2, step=0.1)
-        x_grid = np.arange(1, 2, step=0.01)
-        y = 6 / (x**3 - 2 * x**2 + 4 * x - 2) + 4
-        y1_grid = inverse_fit(x, y, x_grid, eps=1)
-        y2_grid = inverse_fit(x, y, x_grid, degree=3, eps=1)
+            x = np.arange(1, 2, step=0.1)
+            x_grid = np.arange(1, 2, step=0.01)
+            y = 6 / (x**3 - 2 * x**2 + 4 * x - 2) + 4
+            y1_grid = inverse_fit(x, y, x_grid, eps=1)
+            y2_grid = inverse_fit(x, y, x_grid, degree=3, eps=1)
 
-        ax1.scatter(x, y, color='red')
-        ax1.plot(x_grid, y1_grid, color='green', label='degree = 1')
-        ax1.plot(x_grid, y2_grid, color='blue', label='degree = 3')
-        ax1.legend()
+            ax1.scatter(x, y, color='red')
+            ax1.plot(x_grid, y1_grid, color='green', label='degree = 1')
+            ax1.plot(x_grid, y2_grid, color='blue', label='degree = 3')
+            ax1.legend()
 
-        y1_grid = inverse_fit(x, -y, x_grid, eps=1)
-        y2_grid = inverse_fit(x, -y, x_grid, degree=3, eps=1)
+            y1_grid = inverse_fit(x, -y, x_grid, eps=1)
+            y2_grid = inverse_fit(x, -y, x_grid, degree=3, eps=1)
 
-        ax2.scatter(x, -y, color='red')
-        ax2.plot(x_grid, y1_grid, color='green', label='degree = 1')
-        ax2.plot(x_grid, y2_grid, color='blue', label='degree = 3')
-        ax2.legend()
+            ax2.scatter(x, -y, color='red')
+            ax2.plot(x_grid, y1_grid, color='green', label='degree = 1')
+            ax2.plot(x_grid, y2_grid, color='blue', label='degree = 3')
+            ax2.legend()
 
-        plt.show()
+            plt.show()
 
-    .. image:: /images/utils/inverse_fit.svg
-        :width: 60%
+        .. image:: /images/utils/inverse_fit.svg
+            :width: 60%
 
     """
     if sign is None:
@@ -328,24 +338,26 @@ def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
     Returns:
         numpy.ndarray: the :attr:`y_grid` array wrt :attr:`x_grid`.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 8
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import interp_fit
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import interp_fit
 
-        x = np.arange(10, step=0.5)
-        x_grid = np.arange(10, step=0.1)
-        y = x + 3 * np.sin(x)
-        y_grid = interp_fit(x, y, x_grid)
+            x = np.arange(10, step=0.5)
+            x_grid = np.arange(10, step=0.1)
+            y = x + 3 * np.sin(x)
+            y_grid = interp_fit(x, y, x_grid)
 
-        plt.scatter(x, y, color='red')
-        plt.plot(x_grid, y_grid, color='green')
-        plt.legend()
-        plt.show()
+            plt.scatter(x, y, color='red')
+            plt.plot(x_grid, y_grid, color='green')
+            plt.legend()
+            plt.show()
 
-    .. image:: /images/utils/interp_fit.svg
-        :width: 60%
+        .. image:: /images/utils/interp_fit.svg
+            :width: 60%
 
     """
     func = UnivariateSpline(x, y, **kwargs)
