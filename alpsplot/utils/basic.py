@@ -8,8 +8,7 @@ def normalize(x: np.ndarray,
               _min: float = None, _max: float = None,
               tgt_min: float = 0.0, tgt_max: float = 1.0
               ) -> np.ndarray:
-    r"""
-    normalize a `numpy.ndarray` into desired range.
+    r"""Normalize a `numpy.ndarray` into desired range.
 
     .. math::
         \frac{tgt\_max - tgt\_min}{\_max - \_min}(x - \_min) + tgt\_min
@@ -46,8 +45,8 @@ def normalize(x: np.ndarray,
 
 
 def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
-    r"""
-    average smooth a `numpy.ndarray` using a given window size.
+    r"""Average smooth a `numpy.ndarray` using a given window size.
+
     Paddings are added at head and tail.
 
     Args:
@@ -94,8 +93,8 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
 
 
 def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
-    r"""
-    monotonize a `numpy.ndarray`.
+    r"""Monotonize a `numpy.ndarray`.
+
     All non-monotonic points would be clipped as previous value.
 
     Args:

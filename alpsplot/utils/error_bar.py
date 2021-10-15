@@ -7,8 +7,7 @@ from typing import Union, Optional
 
 
 def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
-    r"""
-    group (:attr:`x`, :attr:`y`) to be a dict. y_dict[x0] = [y0, y1, ...]
+    r"""Group (:attr:`x`, :attr:`y`) to be a dict. y_dict[x0] = [y0, y1, ...]
 
     Args:
         x (numpy.ndarray): the x array.
@@ -39,8 +38,7 @@ def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
 
 def flatten_err_bar(y_dict: dict[float, np.ndarray]
                     ) -> tuple[np.ndarray, np.ndarray]:
-    r"""
-    flatten :attr:`y_dict` to be data list (x, y).
+    r"""Flatten :attr:`y_dict` to be data list (x, y).
 
     Args:
         y_dict (dict[float, numpy.ndarray]): the dict to flatten.
@@ -78,8 +76,7 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
                    mean: Optional[Union[float, np.ndarray]] = None,
                    std: Optional[Union[float, np.ndarray]] = None
                    ) -> dict[float, np.ndarray]:
-    r"""
-    adjust :attr:`y_dict` with :attr:`mean` and :attr:`std`.
+    r"""Adjust :attr:`y_dict` with :attr:`mean` and :attr:`std`.
 
     .. math::
         \frac{std[i]}{y\_dict[i].std()}
@@ -136,8 +133,8 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
 
 def normalize_err_bar(x: np.ndarray, y: np.ndarray
                       ) -> tuple[np.ndarray, np.ndarray]:
-    r"""
-    normalize :attr:`x` and :attr:`y` into range [0, 1].
+    r"""Normalize :attr:`x` and :attr:`y` into range [0, 1].
+
     each :attr:`x` might correspond to multiple :attr:`y` values
     and therefore generate an error band on y-axis.
     The mean of :attr:`y` is normalized into [0, 1].
@@ -171,9 +168,9 @@ def normalize_err_bar(x: np.ndarray, y: np.ndarray
 
 def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
                        window: int = 3) -> tuple[np.ndarray, np.ndarray]:
-    r"""
-    average smooth :attr:`x` and :attr:`y` using window size :attr:`window`.
-    each :attr:`x` might correspond to multiple :attr:`y` values
+    r"""Average smooth :attr:`x` and :attr:`y` using window size :attr:`window`.
+
+    Each :attr:`x` might correspond to multiple :attr:`y` values
     and therefore generate an error band on y-axis.
     The mean of :attr:`y` is smoothed.
 

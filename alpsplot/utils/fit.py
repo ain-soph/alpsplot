@@ -10,8 +10,7 @@ __all__ = ['poly_fit', 'tanh_fit', 'atan_fit',
 
 def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
              degree: int = 1) -> np.ndarray:
-    r"""
-    use a polynomial of certain degree
+    r"""Use a polynomial of certain degree
     to fit (:attr:`x`, :attr:`y`) series
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
@@ -55,8 +54,7 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
              degree: int = 1, mean_offset: float = 0.0,
              eps: float = 1e-5) -> np.ndarray:
-    r"""
-    use a tanh(polynomial) of certain degree
+    r"""Use a tanh(polynomial) of certain degree
     to fit (:attr:`x`, :attr:`y`) series
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
@@ -115,8 +113,7 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
              degree: int = 1, mean_offset: float = 0.0,
              eps: float = 1e-5) -> np.ndarray:
-    r"""
-    use a tanh(polynomial) of certain degree
+    r"""Use a tanh(polynomial) of certain degree
     to fit (:attr:`x`, :attr:`y`) series
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
@@ -175,8 +172,7 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
             degree: int = 1, sign: bool = None,
             eps: float = 1e-5) -> np.ndarray:
-    r"""
-    use a exp(polynomial) of certain degree
+    r"""Use a exp(polynomial) of certain degree
     to fit (:attr:`x`, :attr:`y`) series
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
@@ -250,8 +246,7 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
                 degree: int = 1, sign: bool = None,
                 eps: float = 1e-5) -> np.ndarray:
-    r"""
-    use a tanh(polynomial) of certain degree
+    r"""Use a tanh(polynomial) of certain degree
     to fit (:attr:`x`, :attr:`y`) series
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
@@ -325,8 +320,7 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
 def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
                **kwargs) -> np.ndarray:
-    r"""
-    use :any:`scipy.interpolate.UnivariateSpline`
+    r"""Use :any:`scipy.interpolate.UnivariateSpline`
     to fit (:attr:`x`, :attr:`y`) series
     and return :attr:`y_grid` wrt :attr:`x_grid`.
 
