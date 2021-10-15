@@ -26,7 +26,7 @@ def normalize(x: np.ndarray,
     Returns:
         numpy.ndarray: a normalized array.
 
-    Example::
+    :Example:
 
         >>> import numpy as np
         >>> from alpsplot.utils import normalize
@@ -57,25 +57,27 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
     Returns:
         numpy.ndarray: a smoothed array.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 7, 8
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import avg_smooth
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import avg_smooth
 
-        x = np.arange(10, step=1)
-        y = x + 3 * np.sin(x)
-        y2 = avg_smooth(y)
-        y3 = avg_smooth(y, window=5)
+            x = np.arange(10, step=1)
+            y = x + 3 * np.sin(x)
+            y2 = avg_smooth(y)
+            y3 = avg_smooth(y, window=5)
 
-        plt.plot(x, y, color='red', label='original')
-        plt.plot(x, y2, color='green', label='window = 3')
-        plt.plot(x, y3, color='blue', label='window = 5')
-        plt.legend()
-        plt.show()
+            plt.plot(x, y, color='red', label='original')
+            plt.plot(x, y2, color='green', label='window = 3')
+            plt.plot(x, y3, color='blue', label='window = 5')
+            plt.legend()
+            plt.show()
 
-    .. image:: /images/utils/avg_smooth.svg
-        :width: 60%
+        .. image:: /images/utils/avg_smooth.svg
+            :width: 60%
 
     """
     new_x = np.zeros_like(x)
@@ -103,23 +105,25 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
     Returns:
         numpy.ndarray: a monotonic array.
 
-    Example::
+    :Example:
+        .. code-block:: python
+            :emphasize-lines: 7
 
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from alpsplot.utils import monotone
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from alpsplot.utils import monotone
 
-        x = np.arange(10, step=0.1)
-        y = x + 3 * np.sin(x)
-        y2 = monotone(y)
+            x = np.arange(10, step=0.1)
+            y = x + 3 * np.sin(x)
+            y2 = monotone(y)
 
-        plt.plot(x, y, color='blue', label='original')
-        plt.plot(x, y2, color='red', label='monotone')
-        plt.legend()
-        plt.show()
+            plt.plot(x, y, color='blue', label='original')
+            plt.plot(x, y2, color='red', label='monotone')
+            plt.legend()
+            plt.show()
 
-    .. image:: /images/utils/monotone.svg
-        :width: 60%
+        .. image:: /images/utils/monotone.svg
+            :width: 60%
 
     """
     y = np.copy(x)
