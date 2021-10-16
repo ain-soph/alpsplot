@@ -77,7 +77,7 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
     :Example:
         .. code-block:: python
-            :emphasize-lines: 8, 9, 10
+            :emphasize-lines: 8-10
 
             import numpy as np
             import matplotlib.pyplot as plt
@@ -135,7 +135,7 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
     :Example:
         .. code-block:: python
-            :emphasize-lines: 8, 9, 10
+            :emphasize-lines: 8-10
 
             import numpy as np
             import matplotlib.pyplot as plt
@@ -193,7 +193,7 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
     :Example:
         .. code-block:: python
-            :emphasize-lines: 10, 11
+            :emphasize-lines: 10-11
 
             import numpy as np
             import matplotlib.pyplot as plt
@@ -268,7 +268,7 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
     :Example:
         .. code-block:: python
-            :emphasize-lines: 10, 11
+            :emphasize-lines: 10-11
 
             import numpy as np
             import matplotlib.pyplot as plt

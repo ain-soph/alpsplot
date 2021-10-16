@@ -58,7 +58,7 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
 
     :Example:
         .. code-block:: python
-            :emphasize-lines: 7, 8
+            :emphasize-lines: 7-8
 
             import numpy as np
             import matplotlib.pyplot as plt

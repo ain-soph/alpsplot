@@ -194,9 +194,6 @@ class Figure:
         self.ax.grid(axis='y', linewidth=1, alpha=0.5)
         self.ax.set_axisbelow(True)
 
-        self.ax.set_xlim([0.0, 1.0])
-        self.ax.set_ylim([0.0, 1.0])
-
     def save(self, path: str = None,
              folder_path: str = None,
              name: str = None, ext: str = '.pdf',
@@ -221,10 +218,36 @@ class Figure:
                 Defaults to `'tight'`.
             **kwargs: Keyword arguments passed to
                 :any:`Figure.savefig() <matplotlib.figure.Figure.savefig>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 17
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_save')
+                fig.set_axis_lim('x', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+                fig.set_axis_lim('y', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+
+                x = np.arange(10, step=0.5)
+                y = np.arange(10, step=0.5)
+                fig.lineplot(x, y, color='red', label='test_save')
+
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/test_save.svg'
+
+            .. image:: /images/figure/test_save.svg
+                :width: 60%
         """
         if path is None:
             folder_path = folder_path or self.folder_path
             name = name or self.name
+            ext = ext if ext.startswith('.') else '.'+ext
             path = os.path.join(folder_path, f'{name}{ext}')
         else:
             folder_path = os.path.dirname(path)
@@ -254,6 +277,20 @@ class Figure:
                 Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_title() <matplotlib.axes.Axes.set_title>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 5
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_set_title')
+                fig.set_title('A New Title')
+                fig.save(ext='.svg')  # './output/test_set_title.svg'
+
+            .. image:: /images/figure/test_set_title.svg
+                :width: 60%
         """
         text = self.name if text is None else text
         self.ax.set_title(text, fontsize=fontsize,
@@ -285,6 +322,21 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_xlabel() <matplotlib.axes.Axes.set_xlabel>`
                 or :any:`Axes.set_ylabel() <matplotlib.axes.Axes.set_ylabel>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 5-6
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_set_axis_label')
+                fig.set_axis_label('x', 'x label')
+                fig.set_axis_label('y', 'y label')
+                fig.save(ext='.svg')  # './output/test_set_axis_label.svg'
+
+            .. image:: /images/figure/test_set_axis_label.svg
+                :width: 60%
         """
         func = getattr(self.ax, f'set_{axis}label')
         func(text, fontsize=fontsize, fontproperties=fontproperties,
@@ -299,7 +351,8 @@ class Figure:
                      fontproperties: str = 'Optima',
                      fontweight: str = 'bold',
                      math_fontfamily: str = 'cm', **kwargs):
-        r"""
+        r"""Set ticks and their labels for axis.
+
         .. table::
             :widths: auto
 
@@ -317,6 +370,7 @@ class Figure:
         .. parsed-literal::
             set_lim(lim[0] - margin[0], lim[1] + margin[1])
             set_ticks(lim[0], lim[0] + :math:`\frac{1}{\text{lim}[1] - \text{lim}[0]}`, :math:`\dots`, lim[1])
+            set_ticklabels(labels, \*\*fontargs, \*\*kwargs)
             format_str = :any:`ticker.FormatStrFormatter <matplotlib.ticker.FormatStrFormatter>`\(_format)
             :any:`Axis.set_major_formatter <matplotlib.axis.Axis.set_major_formatter>`\(format_str)
 
@@ -353,26 +407,49 @@ class Figure:
                 <matplotlib.axes.Axes.set_xticklabels>`
                 or :any:`Axes.set_yticklabels()
                 <matplotlib.axes.Axes.set_yticklabels>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 5-10
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_set_axis_lim')
+                fig.set_axis_lim('x', lim=(2.0, 3.0),
+                                 piece=2, _format='%.2f')
+                fig.set_axis_lim('y', labels=['l1', 'l2', 'l3'],
+                                 lim=(0.0, 4.0),
+                                 margin=(2.0, 2.0),
+                                 piece=2, _format='%d')
+                fig.save(ext='.svg')  # './output/test_set_axis_lim.svg'
+
+            .. image:: /images/figure/test_set_axis_lim.svg
+                :width: 60%
+
         """  # noqa: E501
         final_lim = lim[0] - margin[0], lim[1] + margin[1]
         ticks = np.append(
             np.arange(lim[0], lim[1], (lim[1] - lim[0]) / piece), lim[1])
         getattr(self.ax, f'set_{axis}lim')(*final_lim)
         getattr(self.ax, f'set_{axis}ticks')(ticks)
-        labels = labels or getattr(self.ax, f'get_{axis}ticks')()
         set_ticklabels_func = getattr(self.ax, f'set_{axis}ticklabels')
-        set_ticklabels_func(labels, fontsize=fontsize,
-                            fontproperties=fontproperties,
-                            fontweight=fontweight,
-                            math_fontfamily=math_fontfamily,
-                            **kwargs)
-        _format = '%d' if _format == 'interger' else _format
-        getattr(self.ax, f'{axis}axis').set_major_formatter(
-            ticker.FormatStrFormatter(_format))
+        font_args = dict(fontsize=fontsize,
+                         fontproperties=fontproperties,
+                         fontweight=fontweight,
+                         math_fontfamily=math_fontfamily)
+        if labels is None:
+            labels = getattr(self.ax, f'get_{axis}ticks')()
+            set_ticklabels_func(labels, **font_args, **kwargs)
+            _format = '%d' if _format == 'interger' else _format
+            getattr(self.ax, f'{axis}axis').set_major_formatter(
+                ticker.FormatStrFormatter(_format))
+        else:
+            set_ticklabels_func(labels, **font_args, **kwargs)
 
     def set_legend(self, *args, frameon: bool = None,
                    framealpha: float = 1.0,
-                   edgecolor: str = 'white',
+                   edgecolor: str = 'none',
                    fontsize: int = 11,
                    fontproperties: str = 'Optima',
                    fontstyle: str = None, fontweight='bold',
@@ -390,9 +467,9 @@ class Figure:
                 of the legend's background.
                 If shadow is activated and framealpha is None,
                 the default value is ignored.
-                Defaults to `1.0`.
+                Defaults to `0.0`.
             edgecolor (str): The legend's background patch edge color.
-                Defaults to ``'white'``.
+                Defaults to ``'none'``.
 
         ..
 
@@ -409,6 +486,31 @@ class Figure:
                 Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.legend() <matplotlib.axes.Axes.legend>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 16
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_set_legend')
+                fig.set_axis_lim('x', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+                fig.set_axis_lim('y', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+
+                x = np.arange(10, step=0.5)
+                y = np.arange(10, step=0.5)
+                fig.lineplot(x, y, color='red', label='test_set_legend')
+
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/test_set_legend.svg'
+
+            .. image:: /images/figure/test_set_legend.svg
+                :width: 60%
         """
         self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
                        framealpha=framealpha, **kwargs)
@@ -419,7 +521,7 @@ class Figure:
 
     def lineplot(self, x: np.ndarray, y: np.ndarray,
                  err: np.array = None, err_style: str = 'band',
-                 color: str = 'black', alpha: float = 0.0,
+                 color: str = 'black', alpha: float = 1.0,
                  linewidth: int = 2, linestyle: str = '-',
                  label: str = None, markerfacecolor: str = 'white',
                  zorder: float = 1, **kwargs) -> Line2D:
@@ -442,7 +544,7 @@ class Figure:
             alpha (float): Set the alpha value used for blending
                 - not supported on all backends.
                 It must be within the 0-1 range.
-                Defaults to `0.0`.
+                Defaults to `1.0`.
             linewidth (str): Set the line width in points.
                 Defaults to `2`.
             linestyle (str): Set the linestyle of the line.
@@ -453,10 +555,47 @@ class Figure:
                 Defaults to ``'white'``.
             zorder (float): Set the zorder for the artist.
                 Artists with lower zorder values are drawn first.
-                The ``zorder`` of the error band is ``zorder - 0.1``.
                 Defaults to `1`.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.plot() <matplotlib.axes.Axes.plot>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 14, 20, 26-27
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_lineplot')
+                fig.set_axis_lim('x', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+                fig.set_axis_lim('y', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+
+                x = np.arange(10, step=0.5)
+                y = np.arange(10, step=0.5)
+                fig.lineplot(x, y, color='red', label='plain')
+
+                x = np.concatenate((x, x, x))
+                noise = np.random.randn(20)
+                y_mean = y / 2
+                y_err = np.concatenate((y_mean-noise, y_mean, y_mean+noise))
+                fig.lineplot(x, y_err, color='green', label='error band')
+
+                x = np.concatenate((x, x, x))
+                noise = np.random.randn(20)
+                y_mean = y / 2 + 4
+                y_err = np.concatenate((y_mean-noise, y_mean, y_mean+noise))
+                fig.lineplot(x, y_err, color='blue', label='error bar',
+                             err_style='bars')
+
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/test_lineplot.svg'
+
+            .. image:: /images/figure/test_lineplot.svg
+                :width: 60%
         """
         if len(set(x)) != len(x):
             assert err is None
@@ -468,7 +607,7 @@ class Figure:
             if err_style == 'band':  # TODO: python 3.10
                 self.ax.fill_between(x=x, y1=y-err, y2=y+err,
                                      color=color, alpha=alpha*0.2,
-                                     zorder=zorder-0.1)
+                                     zorder=zorder)
             elif err_style == 'bars':
                 self.ax.errorbar(x=x, y=y, yerr=err,
                                  color=color, alpha=alpha, linestyle="",
@@ -500,6 +639,22 @@ class Figure:
                 Defaults to ``'white'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.plot() <matplotlib.axes.Axes.plot>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 5-6
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_curve_legend')
+                fig.curve_legend(color='red', marker='D',
+                                 label='test_curve_legend')
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/test_curve_legend.svg'
+
+            .. image:: /images/figure/test_curve_legend.svg
+                :width: 60%
         """
         line, = self.ax.plot([], [], label=label, color=color,
                              linewidth=linewidth, linestyle=linestyle,
@@ -537,6 +692,33 @@ class Figure:
                 Defaults to `3`.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.scatter() <matplotlib.axes.Axes.scatter>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 14-16
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('test_scatter')
+                fig.set_axis_lim('x', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+                fig.set_axis_lim('y', lim=(0.0, 10.0),
+                                 margin=(0.5, 0.0),
+                                 piece=5, _format='%d')
+
+                x = np.arange(10, step=0.5)
+                y = np.arange(10, step=0.5)
+                fig.scatter(x, y, color='red', label='plain')
+                fig.scatter(x, y/2, color='green', label='curve_legend',
+                            marker='s', curve_legend=True)
+
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/test_scatter.svg'
+
+            .. image:: /images/figure/test_scatter.svg
+                :width: 60%
         """
         if curve_legend and label is not None:
             self.curve_legend(label=label, color=color,
