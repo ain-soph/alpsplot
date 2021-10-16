@@ -50,7 +50,7 @@ html_theme_options = {
 # -- Extension configuration ----------------------------------------------
 
 extensions = [
-    'sphinx.ext.autodoc',
+    # 'sphinx.ext.autodoc',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
@@ -58,6 +58,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinxcontrib.katex',
     'sphinx_copybutton',
+    'autoapi.extension',
 ]
 
 
@@ -97,6 +98,11 @@ exclude_patterns = []
 autodoc_docstring_signature = True
 autodoc_inherit_docstrings = False
 autodoc_typehints = 'none'
+
+autoapi_type = 'python'
+autoapi_dirs = ['../../alpsplot']
+autoapi_generate_api_docs = False
+autoapi_member_order = 'bysource'
 
 # autosectionlabel options
 # autosectionlabel throws warnings if section names are duplicated.
