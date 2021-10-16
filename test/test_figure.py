@@ -2,7 +2,6 @@
 
 from alpsplot.figure import Figure
 import numpy as np
-import matplotlib.pyplot as plt
 import shutil
 
 
