@@ -127,39 +127,3 @@ html_theme = 'trojanzoo_sphinx_theme'
 html_permalinks_icon = '\uf08e'  # '\uf0c1'  font-family = FontAwesome
 html_favicon = 'images/favicon.ico'
 html_title = " ".join((project, version, "documentation"))
-
-# -- Options for HTMLHelp output ------------------------------------------
-htmlhelp_basename = f'{project}doc'
-
-# -- Options for LaTeX output ---------------------------------------------
-latex_elements = {}
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (root_doc, f'{package.__name__}.tex', f'{project} Documentation',
-     author, 'manual'),
-]
-
-
-# -- Options for manual page output ---------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (root_doc, project, f'{project} Documentation',
-     [author], 1)
-]
-
-
-# -- Options for Texinfo output -------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-    (root_doc, project, f'{project} Documentation',
-     author, project, 'One line description of project.',
-     'Miscellaneous'),
-]
