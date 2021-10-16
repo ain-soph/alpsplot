@@ -102,7 +102,6 @@ autodoc_typehints = 'none'
 autoapi_type = 'python'
 autoapi_dirs = ['../../alpsplot']
 autoapi_generate_api_docs = False
-autoapi_member_order = 'bysource'
 
 # autosectionlabel options
 # autosectionlabel throws warnings if section names are duplicated.
