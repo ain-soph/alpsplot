@@ -483,6 +483,7 @@ class Figure:
                      markerfacecolor: str = 'white', **kwargs) -> Line2D:
         r"""Call :any:`Axes.plot() <matplotlib.axes.Axes.plot>`
         to plot an empty line for legend,
+
         which is helpful for setting marker-with-line
         legend of :meth:`scatter`.
 
@@ -558,7 +559,9 @@ class Figure:
             y (numpy.ndarray): The y array.
             width (float): The width of the bars.
                 Defaults to `0.2`.
-            align (str): Alignment of the bars to the ``x`` coordinates.
+            align (str):
+                Alignment of the bars to the ``x`` coordinates.
+
                 Possible values: ``['center', 'edge']``.
                 Defaults to ``'edge'``.
 
@@ -590,38 +593,80 @@ class Figure:
 
         Args:
             x (numpy.ndarray): The x array.
-            bins (int): The y array.
-            width (float): The width of the bars.
-                Defaults to `0.2`.
-            align (str): Alignment of the bars to the ``x`` coordinates.
-                Possible values: ``['center', 'edge']``.
-                Defaults to ``'edge'``.
+            bins (int | ~typing.Sequence[int] | str): Defaults to be `None`.
 
-                * ``'center'``: Center the base on the x positions.
-                * ``'edge'``: Align the left edges of the bars
-                  with the ``x`` positions.
+                * :class:`int`: it defines the number of
+                  equal-width bins in the range.
+                * :class:`~typing.Sequence`: it defines the bin edges,
+                  including the left edge of the first bin
+                  and the right edge of the last bin.
 
-            color (str): The colors of the bar faces.
-                Defaults to ``'black'``.
-            edgecolor (str): Set the bar edge color.
-                Defaults to ``'white'``.
-            linewidth (float): Width of the bar edges.
-                If `0`, don't draw edges.
-                Defaults to `1`.
-            label (str): Set a label that will be displayed in the legend.
-                Defaults to `None`.
+                  In this case, bins may be unequally spaced.
+                  All but the last (righthand-most) bin is half-open.
+
+                  .. note::
+
+                    If bins is: ``[1, 2, 3, 4]``,
+                    then the first bin is ``[1, 2)``
+                    (including 1, but excluding 2)
+                    and the second ``[2, 3)``.
+                    The last bin, however,
+                    is ``[3, 4]``, which includes 4.
+
+                * :class:`str`: it is one of the binning strategies
+                  supported by :any:`numpy.histogram_bin_edges`:
+
+                  ``['auto', 'fd', 'doane', 'scott',
+                  'stone', 'rice', 'sturges', 'sqrt']``.
+            density (bool): Defaults to be `False`.
+                If `True`, draw and return a probability density.
+
+                Each bin will display the bin's raw count
+                divided by the total number of counts
+                and the bin width:
+
+                ``density = counts / (sum(counts) * np.diff(bins))``,
+
+                so that the area under the histogram integrates to 1:
+
+                ``np.sum(density * np.diff(bins)) == 1``.
+
+                .. note::
+
+                    If stacked is also True,
+                    the sum of the histograms is normalized to 1.
+
             **kwargs: Keyword arguments passed to
-                :any:`Axes.bar() <matplotlib.axes.Axes.bar>`.
+                :any:`Axes.hist() <matplotlib.axes.Axes.hist>`.
         """
         return self.ax.hist(x, bins=bins, density=density, **kwargs)
 
     def autolabel(self, rects: BarContainer, above: bool = True,
                   fontsize: int = 6,
                   fontproperties: str = 'Optima', fontweight: str = 'bold',
-                  math_fontfamily: str = 'cm') -> None:
-        # r"""
-        # Attach a text label above each bar in *rects*, displaying its height.
-        # """
+                  math_fontfamily: str = 'cm',
+                  **kwargs) -> None:
+        r"""Call :any:`Axes.annotate() <matplotlib.axes.Axes.annotate>`
+        to attach a text label above each bar in :attr:`rects`,
+        displaying its height.
+
+        Args:
+            rects (~matplotlib.container.BarContainer): The bar rectangles
+                to annotate.
+            above (bool): Whether to put the text above the rects.
+
+        Args:
+            fontsize (int): The fontsize of text.
+                Defaults to `6`.
+            fontproperties (str): The font of text.
+                Defaults to ``'Optima'``.
+            fontweight (str): The fontweight of text.
+                Defaults to ``'bold'``.
+            math_fontfamily (str): The math_fontfamily of text.
+                Defaults to ``'cm'``.
+            **kwargs: Keyword arguments passed to
+                :any:`Axes.annotate() <matplotlib.axes.Axes.annotate>`.
+        """
         for rect in rects:
             height = int(rect.get_height())
             offset = 3 if above else -13
@@ -632,7 +677,8 @@ class Figure:
                              ha='center', va='bottom', fontsize=fontsize,
                              fontproperties=fontproperties,
                              fontweight=fontweight,
-                             math_fontfamily=math_fontfamily)
+                             math_fontfamily=math_fontfamily,
+                             **kwargs)
 
     # def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
     #           color: str = 'black', size: tuple[float, float] = 0.5,
