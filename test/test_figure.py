@@ -61,21 +61,21 @@ def test_bar():
     fig.save()
 
 
-def test_bar3d():
-    _fig = plt.figure(figsize=(5, 2.5))
-    _ax = _fig.add_subplot(111, projection='3d')
-    fig = Figure('test_bar', fig=_fig, ax=_ax)
+# def test_bar3d():
+#     _fig = plt.figure(figsize=(5, 2.5))
+#     _ax = _fig.add_subplot(111, projection='3d')
+#     fig = Figure('test_bar', fig=_fig, ax=_ax)
 
-    _x = np.arange(0, 1, 0.1)
-    _y = np.arange(0, 1, 0.1)
-    _xx, _yy = np.meshgrid(_x, _y)
-    _xx: np.ndarray
-    _yy: np.ndarray
-    x, y = _xx.ravel(), _yy.ravel()
+#     _x = np.arange(0, 1, 0.1)
+#     _y = np.arange(0, 1, 0.1)
+#     _xx, _yy = np.meshgrid(_x, _y)
+#     _xx: np.ndarray
+#     _yy: np.ndarray
+#     x, y = _xx.ravel(), _yy.ravel()
 
-    z = (x + y) / 2
-    fig.bar3d(x, y, z, size=0.1, label='bar3d')
-    fig.save()
+#     z = (x + y) / 2
+#     fig.bar3d(x, y, z, size=0.1, label='bar3d')
+#     fig.save()
 
 
 def test_set_legend():
