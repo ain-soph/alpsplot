@@ -3,8 +3,9 @@ AlpsPlot documentation
 ======================
 
 .. toctree::
-   :maxdepth: 2
    :caption: AlpsPlot Documentation
+   :titlesonly:
+   :maxdepth: 2
 
    figure
    utils/index
