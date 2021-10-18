@@ -161,9 +161,9 @@ class Figure:
         figsize (tuple[float, float]):
             Passed to :any:`pyplot.figure() <matplotlib.pyplot.figure>`
             when :attr:`fig` and :attr:`ax` are not set.
-            Recommend to use `(5, 2.5)` for singular plot
-            and `(5, 3.75)` for subplots.
-            Defaults to `(5, 2.5)`
+            Recommend to use ``(5, 2.5)`` for singular plot
+            and ``(5, 3.75)`` for subplots.
+            Defaults to ``(5, 2.5)``
         **kwargs: Keyword arguments passed to
             :any:`pyplot.figure() <matplotlib.pyplot.figure>`
             when :attr:`fig` and :attr:`ax` are not set.
