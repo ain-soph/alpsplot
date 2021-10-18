@@ -2,14 +2,19 @@
 
 # -- Path configuration ------------------------------------------------
 
-import os
 import sys
+from os import path
 from trojanzoo_sphinx_theme.linkcode import linkcode_helper
 
-sys.path.insert(0, os.path.abspath('./'))
-sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(0, path.abspath('./'))
+sys.path.insert(0, path.abspath('../../'))
 
 import alpsplot as package  # noqa
+
+pkg_name = package.__name__
+pkg_file = package.__file__
+pkg_version = str(package.__version__)
+pkg_location = path.dirname(path.dirname(pkg_file))
 
 # -- General configuration ------------------------------------------------
 
@@ -18,7 +23,7 @@ author = 'ain-soph'
 copyright = f'2021, {author}'
 
 github_user = author
-github_repo = package.__name__
+github_repo = pkg_name
 github_version = 'main'
 
 github_url = f'https://github.com/{github_user}/{github_repo}/'
@@ -65,7 +70,7 @@ extensions = [
 def linkcode_resolve(domain, info):
     return linkcode_helper(
         domain, info,
-        package=package,
+        prefix=pkg_location,
         github_url=github_url,
         github_version=github_version)
 
@@ -86,7 +91,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'  # ['.rst', '.md']
 root_doc = 'index'
 
-release = str(package.__version__)
+release = pkg_version
 version = release if release.find('a') == -1 else release[:release.find('a')]
 
 language = None
