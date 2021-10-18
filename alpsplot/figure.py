@@ -154,10 +154,10 @@ class Figure:
             Defaults to ``'./output/'``.
         fig (~matplotlib.figure.Figure, optional): The pre-defined Figure.
             Otherwise, call :any:`pyplot.figure() <matplotlib.pyplot.figure>`
-            to generate. Defaults to `None`.
+            to generate. Defaults to ``None``.
         ax (~matplotlib.axes.Axes, optional): The pre-defined Axes.
             Otherwise, call :any:`pyplot.figure() <matplotlib.pyplot.figure>`
-            to generate. Defaults to `None`.
+            to generate. Defaults to ``None``.
         figsize (tuple[float, float]):
             Passed to :any:`pyplot.figure() <matplotlib.pyplot.figure>`
             when :attr:`fig` and :attr:`ax` are not set.
@@ -204,18 +204,18 @@ class Figure:
         Args:
             path (str, optional): The filepath to save the figure.
                 Defaults to ``f'{folder_path}/{name}{ext}'``.
-            folder_path (str, optional): Called when :attr:`path` is `None`.
+            folder_path (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to :attr:`~self.folder_path`.
-            name (str, optional): Called when :attr:`path` is `None`.
+            name (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to :attr:`self.name`.
-            ext (str): Called when :attr:`path` is `None`.
+            ext (str): Called when :attr:`path` is ``None``.
                 Defaults to ``'.pdf'``.
             dpi (int): Passed to
                 :any:`Figure.savefig() <matplotlib.figure.Figure.savefig>`.
-                Defaults to `100`.
+                Defaults to ``100``.
             bbox_inches (str): Passed to
                 :any:`Figure.savefig() <matplotlib.figure.Figure.savefig>`.
-                Defaults to `'tight'`.
+                Defaults to ``'tight'``.
             **kwargs: Keyword arguments passed to
                 :any:`Figure.savefig() <matplotlib.figure.Figure.savefig>`.
 
@@ -268,7 +268,7 @@ class Figure:
 
         Args:
             fontsize (int): The fontsize of text.
-                Defaults to `16`.
+                Defaults to ``16``.
             fontproperties (str): The font of text.
                 Defaults to ``'Optima'``.
             fontweight (str): The fontweight of text.
@@ -312,7 +312,7 @@ class Figure:
 
         Args:
             fontsize (int): The fontsize of text.
-                Defaults to `12`.
+                Defaults to ``12``.
             fontproperties (str): The font of text.
                 Defaults to ``'Optima'``.
             fontweight (str): The fontweight of text.
@@ -378,16 +378,16 @@ class Figure:
             axis (str): The axis to set label.
                 Possible values: ``['x', 'y', 'z']``.
             labels (list[str]): The text of axis tick labels.
-                Defaults to `None`.
+                Defaults to ``None``.
             lim (tuple[str, str]): The limit of axis ticks.
-                Defaults to `(0.0, 1.0)`.
+                Defaults to ``(0.0, 1.0)``.
             margin (tuple[str, str]): The margin at
                 head and tail of axis ticks.
-                Defaults to `(0.0, 0.0)`.
+                Defaults to ``(0.0, 0.0)``.
             piece (int): The number of axis ticks - 1.
                 The interval among ticks are
                 :math:`\frac{\text{lim}[1] - \text{lim}[0]}{\text{piece}}`.
-                Defaults to `10`.
+                Defaults to ``10``.
             _format (str): The format of tick labels.
                 Defaults to ``'%.1f'``.
 
@@ -395,7 +395,7 @@ class Figure:
 
         Args:
             fontsize (int): The fontsize of text.
-                Defaults to `11`.
+                Defaults to ``11``.
             fontproperties (str): The font of text.
                 Defaults to ``'Optima'``.
             fontweight (str): The fontweight of text.
@@ -467,7 +467,7 @@ class Figure:
                 of the legend's background.
                 If shadow is activated and framealpha is None,
                 the default value is ignored.
-                Defaults to `0.0`.
+                Defaults to ``0.0``.
             edgecolor (str): The legend's background patch edge color.
                 Defaults to ``'none'``.
 
@@ -475,11 +475,11 @@ class Figure:
 
         Args:
             fontsize (int): The fontsize of text.
-                Defaults to `11`.
+                Defaults to ``11``.
             fontproperties (str): The font of text.
                 Defaults to ``'Optima'``.
             fontstyle (str): The font style of text.
-                Defaults to `None`.
+                Defaults to ``None``.
             fontweight (str): The fontweight of text.
                 Defaults to ``'bold'``.
             math_fontfamily (str): The math_fontfamily of text.
@@ -530,11 +530,11 @@ class Figure:
         Args:
             x (numpy.ndarray): The x array.
             y (numpy.ndarray): The y array.
-            err (numpy.ndarray): The x array. Defaults to `None`.
+            err (numpy.ndarray): The x array. Defaults to ``None``.
             err_style (str): Whether to draw the confidence intervals
                 with translucent error bands or discrete error bars.
                 Possible values: ``['band', 'bars']``
-                Defaults to `band`.
+                Defaults to ``'band'``.
 
         ..
 
@@ -544,18 +544,18 @@ class Figure:
             alpha (float): Set the alpha value used for blending
                 - not supported on all backends.
                 It must be within the 0-1 range.
-                Defaults to `1.0`.
+                Defaults to ``1.0``.
             linewidth (str): Set the line width in points.
-                Defaults to `2`.
+                Defaults to ``2``.
             linestyle (str): Set the linestyle of the line.
                 Defaults to ``'-'``.
             label (str): Set a label that will be displayed in the legend.
-                Defaults to `None`.
+                Defaults to ``None``.
             markerfacecolor (str): Set the marker face color.
                 Defaults to ``'white'``.
             zorder (float): Set the zorder for the artist.
                 Artists with lower zorder values are drawn first.
-                Defaults to `1`.
+                Defaults to ``1``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.plot() <matplotlib.axes.Axes.plot>`.
 
@@ -628,11 +628,11 @@ class Figure:
 
         Args:
             label (str): Set a label that will be displayed in the legend.
-                Defaults to `None`.
+                Defaults to ``None``.
             color (str): Set the color of the line.
                 Defaults to ``'black'``.
             linewidth (str): Set the line width in points.
-                Defaults to `2`.
+                Defaults to ``2``.
             linestyle (str): Set the linestyle of the line.
                 Defaults to ``'-'``.
             markerfacecolor (str): Set the marker face color.
@@ -677,19 +677,19 @@ class Figure:
             color (str): Set the color of the line.
                 Defaults to ``'black'``.
             linewidth (str): Set the line width in points.
-                Defaults to `2`.
+                Defaults to ``2``.
             marker (str): The marker style.
                 Defaults to ``'D'``.
             facecolor (str): Set the marker face color.
                 Defaults to ``'white'``.
             label (str): Set a label that will be displayed in the legend.
-                Defaults to `None`.
+                Defaults to ``None``.
             curve_legend (bool): Whether the legend contains
                 a line around the marker.
-                Defaults to `False`.
+                Defaults to ``False``.
             zorder (float): Set the zorder for the artist.
                 Artists with lower zorder values are drawn first.
-                Defaults to `3`.
+                Defaults to ``3``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.scatter() <matplotlib.axes.Axes.scatter>`.
 
@@ -740,7 +740,7 @@ class Figure:
             x (numpy.ndarray): The x array.
             y (numpy.ndarray): The y array.
             width (float): The width of the bars.
-                Defaults to `0.2`.
+                Defaults to ``0.2``.
             align (str):
                 Alignment of the bars to the ``x`` coordinates.
 
@@ -756,10 +756,10 @@ class Figure:
             edgecolor (str): Set the bar edge color.
                 Defaults to ``'white'``.
             linewidth (float): Width of the bar edges.
-                If `0`, don't draw edges.
-                Defaults to `1`.
+                If ``0``, don't draw edges.
+                Defaults to ``1``.
             label (str): Set a label that will be displayed in the legend.
-                Defaults to `None`.
+                Defaults to ``None``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.bar() <matplotlib.axes.Axes.bar>`.
         """
@@ -775,7 +775,7 @@ class Figure:
 
         Args:
             x (numpy.ndarray): The x array.
-            bins (int | ~typing.Sequence[int] | str): Defaults to be `None`.
+            bins (int | ~typing.Sequence[int] | str): Defaults to be ``None``.
 
                 * :class:`int`: it defines the number of
                   equal-width bins in the range.
@@ -800,8 +800,8 @@ class Figure:
 
                   ``['auto', 'fd', 'doane', 'scott',
                   'stone', 'rice', 'sturges', 'sqrt']``.
-            density (bool): Defaults to be `False`.
-                If `True`, draw and return a probability density.
+            density (bool): Defaults to be ``False``.
+                If ``True``, draw and return a probability density.
 
                 Each bin will display the bin's raw count
                 divided by the total number of counts
@@ -839,7 +839,7 @@ class Figure:
 
         Args:
             fontsize (int): The fontsize of text.
-                Defaults to `6`.
+                Defaults to ``6``.
             fontproperties (str): The font of text.
                 Defaults to ``'Optima'``.
             fontweight (str): The fontweight of text.

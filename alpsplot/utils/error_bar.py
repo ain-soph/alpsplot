@@ -81,13 +81,13 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
     Args:
         y_dict (dict[float, numpy.ndarray]): The dict to adjust.
         mean (numpy.ndarray]): The new mean values for :attr:`y_dict`.
-            `None` means keeping the original mean values
-            `[y_dict[x].mean() for x in y_dict.keys()]`.
-            Defaults to `None`.
+            ``None`` means keeping the original mean values
+            ``[y_dict[x].mean() for x in y_dict.keys()]``.
+            Defaults to ``None``.
         std (numpy.ndarray]): The new std values for :attr:`y_dict`.
-            `None` means keeping the original std values
-            `[y_dict[x].std() for x in y_dict.keys()]`.
-            Defaults to `None`.
+            ``None`` means keeping the original std values
+            ``[y_dict[x].std() for x in y_dict.keys()]``.
+            Defaults to ``None``.
 
     Returns:
         dict[float, numpy.ndarray]: The new dict.
@@ -171,7 +171,7 @@ def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
         x (numpy.ndarray): The x array.
         y (numpy.ndarray): The y array.
         window (int): the :attr:`window` argument passed to
-            :func:`alpsplot.utils.avg_smooth`. Defaults to `3`.
+            :func:`alpsplot.utils.avg_smooth`. Defaults to ``3``.
 
     Returns:
         (numpy.ndarray, numpy.ndarray): The smoothed x, y array.

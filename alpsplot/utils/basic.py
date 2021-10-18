@@ -16,13 +16,13 @@ def normalize(x: np.ndarray,
     Args:
         x (numpy.ndarray): The unnormalized array.
         _min (float): The lower bound of original :attr:`x`.
-            Defaults to `min(x)`.
+            Defaults to ``min(x)``.
         _max (float): The upper bound of original :attr:`x`.
-            Defaults to `max(x)`.
+            Defaults to ``max(x)``.
         tgt_min (float): The lower bound of original :attr:`x`.
-            Defaults to `0.0`.
+            Defaults to ``0.0``.
         tgt_max (float): The upper bound of original :attr:`x`.
-            Defaults to `1.0`.
+            Defaults to ``1.0``.
 
     Returns:
         numpy.ndarray: A normalized array.
@@ -51,7 +51,7 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
 
     Args:
         x (numpy.ndarray): The unsmoothed array.
-        window (int): The window size (number of points). Defaults to `3`.
+        window (int): The window size (number of points). Defaults to ``3``.
 
     Returns:
         numpy.ndarray: A smoothed array.
@@ -99,7 +99,7 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
     Args:
         x (numpy.ndarray): The non-monotonic array.
         increase (bool): Monotonically increase or decrease.
-            Defaults to `True`.
+            Defaults to ``True``.
 
     Returns:
         numpy.ndarray: A monotonic array.
