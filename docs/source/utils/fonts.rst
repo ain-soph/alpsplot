@@ -1,6 +1,6 @@
 .. _alpsplot.utils.fonts:
 
-alpsplot.utils.fonts
+:mod:`alpsplot.utils.fonts`
 ==================================
 
 .. currentmodule:: alpsplot.utils.fonts

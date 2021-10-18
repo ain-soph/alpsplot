@@ -1,6 +1,6 @@
 .. _alpsplot.utils.error_bar:
 
-alpsplot.utils.error_bar
+:mod:`alpsplot.utils.error_bar`
 ==================================
 
 .. currentmodule:: alpsplot.utils

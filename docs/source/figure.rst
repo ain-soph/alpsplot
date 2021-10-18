@@ -1,6 +1,6 @@
 .. _alpsplot.figure:
 
-alpsplot.figure
+:mod:`alpsplot.figure`
 ==================================
 
 .. currentmodule:: alpsplot.figure
