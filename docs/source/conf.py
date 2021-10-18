@@ -128,6 +128,5 @@ napoleon_use_rtype = False
 # -- Options for HTML output ----------------------------------------------
 
 html_theme = 'trojanzoo_sphinx_theme'
-html_permalinks_icon = '\uf08e'  # '\uf0c1'  font-family = FontAwesome
 html_favicon = 'images/favicon.ico'
 html_title = " ".join((project, version, "documentation"))
