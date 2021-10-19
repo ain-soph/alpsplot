@@ -196,7 +196,7 @@ class Figure:
         self.ax.set_axisbelow(True)
 
     def save(self, path: str = None,
-             folder_path: str = None,
+             folder_path: str = None, filename: str = None,
              name: str = None, ext: str = '.pdf',
              dpi: int = 100, bbox_inches: str = 'tight',
              **kwargs):
@@ -204,9 +204,11 @@ class Figure:
 
         Args:
             path (str, optional): The filepath to save the figure.
-                Defaults to ``f'{folder_path}/{name}{ext}'``.
+                Defaults to ``f'{folder_path}/{filename}'``.
             folder_path (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to :attr:`~self.folder_path`.
+            folder_path (str, optional): Called when :attr:`path` is ``None``.
+                Defaults to ``f'{name}{ext}'``.
             name (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to :attr:`self.name`.
             ext (str): Called when :attr:`path` is ``None``.
@@ -247,9 +249,11 @@ class Figure:
         """
         if path is None:
             folder_path = folder_path or self.folder_path
-            name = name or self.name
-            ext = ext if ext.startswith('.') else '.'+ext
-            path = os.path.join(folder_path, f'{name}{ext}')
+            if filename is None:
+                name = name or self.name
+                ext = ext if ext.startswith('.') else '.'+ext
+                filename = f'{name}{ext}'
+            path = os.path.join(folder_path, filename)
         else:
             folder_path = os.path.dirname(path)
         if not os.path.exists(folder_path):
@@ -442,7 +446,6 @@ class Figure:
         if labels is None:
             labels = getattr(self.ax, f'get_{axis}ticks')()
             set_ticklabels_func(labels, **font_args, **kwargs)
-            _format = '%d' if _format == 'interger' else _format
             getattr(self.ax, f'{axis}axis').set_major_formatter(
                 ticker.FormatStrFormatter(_format))
         else:
