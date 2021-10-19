@@ -136,6 +136,7 @@ from matplotlib.axes import Axes
 from matplotlib.lines import Line2D
 from matplotlib.container import BarContainer
 from matplotlib.collections import PathCollection
+from typing import Sequence, Union
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     pass    # TODO: python 3.10
@@ -226,7 +227,7 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_save')
+                fig = Figure('save')
                 fig.set_axis_lim('x', lim=(0.0, 10.0),
                                  margin=(0.5, 0.0),
                                  piece=5, _format='%d')
@@ -236,12 +237,12 @@ class Figure:
 
                 x = np.arange(10, step=0.5)
                 y = np.arange(10, step=0.5)
-                fig.lineplot(x, y, color='red', label='test_save')
+                fig.lineplot(x, y, color='red', label='save')
 
                 fig.set_legend()
-                fig.save(ext='.svg')  # './output/test_save.svg'
+                fig.save(ext='.svg')  # './output/save.svg'
 
-            .. image:: /images/figure/test_save.svg
+            .. image:: /images/figure/save.svg
                 :width: 60%
         """
         if path is None:
@@ -285,11 +286,11 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_set_title')
+                fig = Figure('set_title')
                 fig.set_title('A New Title')
-                fig.save(ext='.svg')  # './output/test_set_title.svg'
+                fig.save(ext='.svg')  # './output/set_title.svg'
 
-            .. image:: /images/figure/test_set_title.svg
+            .. image:: /images/figure/set_title.svg
                 :width: 60%
         """
         text = self.name if text is None else text
@@ -330,12 +331,12 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_set_axis_label')
+                fig = Figure('set_axis_label')
                 fig.set_axis_label('x', 'x label')
                 fig.set_axis_label('y', 'y label')
-                fig.save(ext='.svg')  # './output/test_set_axis_label.svg'
+                fig.save(ext='.svg')  # './output/set_axis_label.svg'
 
-            .. image:: /images/figure/test_set_axis_label.svg
+            .. image:: /images/figure/set_axis_label.svg
                 :width: 60%
         """
         func = getattr(self.ax, f'set_{axis}label')
@@ -415,16 +416,16 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_set_axis_lim')
+                fig = Figure('set_axis_lim')
                 fig.set_axis_lim('x', lim=(2.0, 3.0),
                                  piece=2, _format='%.2f')
                 fig.set_axis_lim('y', labels=['l1', 'l2', 'l3'],
                                  lim=(0.0, 4.0),
                                  margin=(2.0, 2.0),
                                  piece=2, _format='%d')
-                fig.save(ext='.svg')  # './output/test_set_axis_lim.svg'
+                fig.save(ext='.svg')  # './output/set_axis_lim.svg'
 
-            .. image:: /images/figure/test_set_axis_lim.svg
+            .. image:: /images/figure/set_axis_lim.svg
                 :width: 60%
 
         """  # noqa: E501
@@ -494,7 +495,7 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_set_legend')
+                fig = Figure('set_legend')
                 fig.set_axis_lim('x', lim=(0.0, 10.0),
                                  margin=(0.5, 0.0),
                                  piece=5, _format='%d')
@@ -504,12 +505,12 @@ class Figure:
 
                 x = np.arange(10, step=0.5)
                 y = np.arange(10, step=0.5)
-                fig.lineplot(x, y, color='red', label='test_set_legend')
+                fig.lineplot(x, y, color='red', label='set_legend')
 
                 fig.set_legend()
-                fig.save(ext='.svg')  # './output/test_set_legend.svg'
+                fig.save(ext='.svg')  # './output/set_legend.svg'
 
-            .. image:: /images/figure/test_set_legend.svg
+            .. image:: /images/figure/set_legend.svg
                 :width: 60%
         """
         self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
@@ -566,7 +567,7 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_lineplot')
+                fig = Figure('lineplot')
                 fig.set_axis_lim('x', lim=(0.0, 10.0),
                                  margin=(0.5, 0.0),
                                  piece=5, _format='%d')
@@ -592,9 +593,9 @@ class Figure:
                              err_style='bars')
 
                 fig.set_legend()
-                fig.save(ext='.svg')  # './output/test_lineplot.svg'
+                fig.save(ext='.svg')  # './output/lineplot.svg'
 
-            .. image:: /images/figure/test_lineplot.svg
+            .. image:: /images/figure/lineplot.svg
                 :width: 60%
         """
         if len(set(x)) != len(x):
@@ -647,13 +648,13 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_curve_legend')
+                fig = Figure('curve_legend')
                 fig.curve_legend(color='red', marker='D',
-                                 label='test_curve_legend')
+                                 label='curve_legend')
                 fig.set_legend()
-                fig.save(ext='.svg')  # './output/test_curve_legend.svg'
+                fig.save(ext='.svg')  # './output/curve_legend.svg'
 
-            .. image:: /images/figure/test_curve_legend.svg
+            .. image:: /images/figure/curve_legend.svg
                 :width: 60%
         """
         line, = self.ax.plot([], [], label=label, color=color,
@@ -700,7 +701,7 @@ class Figure:
                 import numpy as np
                 from alpsplot.figure import Figure
 
-                fig = Figure('test_scatter')
+                fig = Figure('scatter')
                 fig.set_axis_lim('x', lim=(0.0, 10.0),
                                  margin=(0.5, 0.0),
                                  piece=5, _format='%d')
@@ -715,9 +716,9 @@ class Figure:
                             marker='s', curve_legend=True)
 
                 fig.set_legend()
-                fig.save(ext='.svg')  # './output/test_scatter.svg'
+                fig.save(ext='.svg')  # './output/scatter.svg'
 
-            .. image:: /images/figure/test_scatter.svg
+            .. image:: /images/figure/scatter.svg
                 :width: 60%
         """
         if curve_legend and label is not None:
@@ -728,11 +729,10 @@ class Figure:
                                marker=marker, facecolor=facecolor, label=label,
                                zorder=zorder, **kwargs)
 
-    def bar(self, x: np.ndarray, y: np.ndarray,
-            width: float = 0.2, align: str = 'edge',
+    def bar(self, x: np.ndarray, y: np.ndarray, width: float = 0.8,
             color: str = 'black', edgecolor: str = 'white',
-            linewidth: int = 1, label: str = None,
-            **kwargs) -> BarContainer:
+            align: str = 'edge', linewidth: int = 1,
+            label: str = None, **kwargs) -> BarContainer:
         r"""Call :any:`Axes.bar() <matplotlib.axes.Axes.bar>`
         to plot bars.
 
@@ -740,7 +740,11 @@ class Figure:
             x (numpy.ndarray): The x array.
             y (numpy.ndarray): The y array.
             width (float): The width of the bars.
-                Defaults to ``0.2``.
+                Defaults to ``0.8``.
+            color (str): The colors of the bar faces.
+                Defaults to ``'black'``.
+            edgecolor (str): Set the bar edge color.
+                Defaults to ``'white'``.
             align (str):
                 Alignment of the bars to the ``x`` coordinates.
 
@@ -750,11 +754,6 @@ class Figure:
                 * ``'center'``: Center the base on the x positions.
                 * ``'edge'``: Align the left edges of the bars
                   with the ``x`` positions.
-
-            color (str): The colors of the bar faces.
-                Defaults to ``'black'``.
-            edgecolor (str): Set the bar edge color.
-                Defaults to ``'white'``.
             linewidth (float): Width of the bar edges.
                 If ``0``, don't draw edges.
                 Defaults to ``1``.
@@ -762,14 +761,42 @@ class Figure:
                 Defaults to ``None``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.bar() <matplotlib.axes.Axes.bar>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 14-15
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('bar')
+                fig.set_axis_lim('x', lim=(0.0, 10.0),
+                                    margin=(0.5, 0.0),
+                                    piece=5, _format='%d')
+                fig.set_axis_lim('y', lim=(0.0, 10.0),
+                                    margin=(0.5, 0.0),
+                                    piece=5, _format='%d')
+
+                x = np.arange(10, step=2)
+                y = np.arange(10, step=2)
+                fig.bar(x, y, width=1, color='red', label='bar1')
+                fig.bar(x+1, y+1, width=1, color='green', label='bar2')
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/bar.svg'
+
+            .. image:: /images/figure/bar.svg
+                :width: 60%
         """
-        return self.ax.bar(x, y, width=width, align=align,
+        return self.ax.bar(x, y, width=width,
                            color=color, edgecolor=edgecolor,
                            linewidth=linewidth, label=label,
-                           **kwargs)
+                           align=align, **kwargs)
 
-    def hist(self, x: np.ndarray, bins: int = None,
-             density: bool = True, **kwargs):
+    def hist(self, x: np.ndarray,
+             bins: Union[int, Sequence[float], str] = None,
+             density: bool = True,
+             facecolor: str = 'black', edgecolor: str = 'white',
+             linewidth: int = 1, **kwargs):
         r"""Call :any:`Axes.hist() <matplotlib.axes.Axes.hist>`
         to plot a histogram.
 
@@ -820,12 +847,39 @@ class Figure:
 
             **kwargs: Keyword arguments passed to
                 :any:`Axes.hist() <matplotlib.axes.Axes.hist>`.
-        """
-        return self.ax.hist(x, bins=bins, density=density, **kwargs)
 
-    def autolabel(self, rects: BarContainer, above: bool = True,
-                  fontsize: int = 6,
-                  fontproperties: str = 'Optima', fontweight: str = 'bold',
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 15-16
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('hist')
+                fig.set_axis_lim('x', lim=(-2.0, 2.0),
+                                    margin=(0.1, 0.1),
+                                    piece=4, _format='%d')
+                fig.set_axis_lim('y', lim=(0.0, 1.0),
+                                    margin=(0.0, 0.1),
+                                    piece=4, _format='%.2f')
+
+                x = np.random.randn(1000)
+                fig.hist(x, range=(-2,2), bins=8,
+                         facecolor='red', label='hist')
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/hist.svg'
+
+            .. image:: /images/figure/hist.svg
+                :width: 60%
+        """
+        return self.ax.hist(x, bins=bins, density=density,
+                            facecolor=facecolor, edgecolor=edgecolor,
+                            linewidth=linewidth, **kwargs)
+
+    def autolabel(self, rects: BarContainer,
+                  offset: float = None, above: bool = True,
+                  fontsize: int = 7, fontproperties: str = 'Optima',
+                  fontweight: str = 'bold',
                   math_fontfamily: str = 'cm',
                   **kwargs) -> None:
         r"""Call :any:`Axes.annotate() <matplotlib.axes.Axes.annotate>`
@@ -835,11 +889,17 @@ class Figure:
         Args:
             rects (~matplotlib.container.BarContainer): The bar rectangles
                 to annotate.
+            offset (float) = The offset of texts from rects.
+                If ``None``, it would be ``3 if above else -13``.
+                Defaults to ``None``.
             above (bool): Whether to put the text above the rects.
+                Defaults to ``True``.
+
+        ..
 
         Args:
             fontsize (int): The fontsize of text.
-                Defaults to ``6``.
+                Defaults to ``7``.
             fontproperties (str): The font of text.
                 Defaults to ``'Optima'``.
             fontweight (str): The fontweight of text.
@@ -848,10 +908,39 @@ class Figure:
                 Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.annotate() <matplotlib.axes.Axes.annotate>`.
+
+        :Example:
+            .. code-block:: python
+                :emphasize-lines: 17-18
+
+                import numpy as np
+                from alpsplot.figure import Figure
+
+                fig = Figure('autolabel')
+                fig.set_axis_lim('x', lim=(0.0, 10.0),
+                                    margin=(0.5, 0.0),
+                                    piece=5, _format='%d')
+                fig.set_axis_lim('y', lim=(0.0, 10.0),
+                                    margin=(0.5, 0.0),
+                                    piece=5, _format='%d')
+
+                x = np.arange(10, step=2)
+                y = np.arange(10, step=2)
+                rects1 = fig.bar(x, y, width=1, color='red', label='bar1')
+                rects2 = fig.bar(x+1, y+1, width=1,
+                                    color='green', label='bar2')
+                fig.autolabel(rects1)
+                fig.autolabel(rects2, above=False)
+                fig.set_legend()
+                fig.save(ext='.svg')  # './output/autolabel.svg'
+
+            .. image:: /images/figure/autolabel.svg
+                :width: 60%
         """
+        if offset is None:
+            offset = 3 if above else -13
         for rect in rects:
             height = int(rect.get_height())
-            offset = 3 if above else -13
             self.ax.annotate(f'{int(abs(height)):d}',
                              xy=(rect.get_x() + rect.get_width() / 2, height),
                              xytext=(0, offset),  # 3 points vertical offset
