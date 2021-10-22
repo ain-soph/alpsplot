@@ -151,7 +151,7 @@ class Figure:
     Args:
         name (str): Figure name used as default value of
             :meth:`save` and :meth:`set_title`.
-        folder_path (str): Figure name used as default value of :meth:`save`.
+        folder_path (str): Folder path used as default value of :meth:`save`.
             Defaults to ``'./output/'``.
         fig (~matplotlib.figure.Figure, optional): The pre-defined Figure.
             Otherwise, call :any:`pyplot.figure() <matplotlib.pyplot.figure>`
@@ -203,7 +203,7 @@ class Figure:
         r"""Class methods are similar to regular functions.
 
         Args:
-            path (str, optional): The filepath to save the figure.
+            path (str, optional): The file path to save the figure.
                 Defaults to ``f'{folder_path}/{filename}'``.
             folder_path (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to :attr:`~self.folder_path`.
@@ -530,6 +530,8 @@ class Figure:
                  label: str = None, markerfacecolor: str = 'white',
                  zorder: float = 1, **kwargs) -> Line2D:
         r"""A similar implementation to :any:`seaborn.lineplot() <seaborn.lineplot>`.
+        same x value with different y values will result in
+        the error band/bar at that x.
 
         Args:
             x (numpy.ndarray): The x array.
@@ -582,17 +584,16 @@ class Figure:
                 y = np.arange(10, step=0.5)
                 fig.lineplot(x, y, color='red', label='plain')
 
-                x = np.concatenate((x, x, x))
+                x_err = np.concatenate((x, x, x))
                 noise = np.random.randn(20)
                 y_mean = y / 2
                 y_err = np.concatenate((y_mean-noise, y_mean, y_mean+noise))
-                fig.lineplot(x, y_err, color='green', label='error band')
+                fig.lineplot(x_err, y_err, color='green', label='error band')
 
-                x = np.concatenate((x, x, x))
                 noise = np.random.randn(20)
                 y_mean = y / 2 + 4
                 y_err = np.concatenate((y_mean-noise, y_mean, y_mean+noise))
-                fig.lineplot(x, y_err, color='blue', label='error bar',
+                fig.lineplot(x_err, y_err, color='blue', label='error bar',
                              err_style='bars')
 
                 fig.set_legend()
