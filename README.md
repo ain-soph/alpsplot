@@ -9,5 +9,6 @@
 
 [![release](https://img.shields.io/github/v/release/ain-soph/alpsplot)](https://github.com/ain-soph/alpsplot/releases)
 [![pypi](https://img.shields.io/pypi/v/alpsplot)](https://pypi.org/project/alpsplot/)
+[![docker](https://img.shields.io/pypi/v/alpsplot?label=docker)](https://hub.docker.com/r/local0state/alpsplot)
 
 Python plotting library of alps-lab style using matplotlib.
