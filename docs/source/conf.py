@@ -16,6 +16,8 @@ pkg_file = package.__file__
 pkg_version = str(package.__version__)
 pkg_location = path.dirname(path.dirname(pkg_file))
 
+autoapi_dirs = ['../../alpsplot']
+
 # -- General configuration ------------------------------------------------
 
 project = 'AlpsPlot'
@@ -105,7 +107,6 @@ autodoc_inherit_docstrings = False
 autodoc_typehints = 'none'
 
 autoapi_type = 'python'
-autoapi_dirs = ['../../alpsplot']
 autoapi_generate_api_docs = False
 
 # autosectionlabel options
