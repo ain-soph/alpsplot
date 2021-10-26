@@ -172,7 +172,7 @@ class Figure:
     Attributes:
         name (str): Figure name used as default value of
             :meth:`save` and :meth:`set_title`.
-        folder_path (str): Figure name used as default value of :meth:`save`.
+        folder_path (str): Folder path used as default value of :meth:`save`.
             Defaults to ``'./output/'``.
         fig (~matplotlib.figure.Figure): Figure object.
         ax (~matplotlib.axes.Axes): Axes object.
