@@ -5,6 +5,9 @@ import numpy as np
 
 from typing import Union, Optional
 
+__all__ = ['group_err_bar', 'flatten_err_bar', 'adjust_err_bar',
+           'normalize_err_bar', 'avg_smooth_err_bar']
+
 
 def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
     r"""Group (:attr:`x`, :attr:`y`) to be a dict. y_dict[x0] = [y0, y1, ...]

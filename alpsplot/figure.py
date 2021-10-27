@@ -144,6 +144,8 @@ if TYPE_CHECKING:
 # TODO: We could use default values after matplotlib 3.5.0
 # https://github.com/matplotlib/matplotlib/pull/20101
 
+__all__ = ['Figure']
+
 
 class Figure:
     r"""The Figure wrapper class.

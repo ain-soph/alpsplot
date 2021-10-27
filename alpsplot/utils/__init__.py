@@ -2,4 +2,4 @@
 
 from .basic import *
 from .error_bar import *
-from .fit import *
+from . import fit as fit

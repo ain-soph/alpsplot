@@ -9,6 +9,8 @@ if TYPE_CHECKING:
     from matplotlib.font_manager import FontManager, FontEntry
     fontManager: FontManager
 
+__all__ = ['add_optima', 'add_palatino']
+
 
 def add_optima() -> None:
     r"""

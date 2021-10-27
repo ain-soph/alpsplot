@@ -2,9 +2,11 @@
 
 from .version import __version__
 
-from .figure import Figure
-from .colormap import *
-from .utils import *
+from alpsplot import colormap as colormap
+from alpsplot import utils as utils
+from alpsplot.figure import Figure
 
 from .utils import fonts
 fonts.main()
+
+__all__ = ['Figure']

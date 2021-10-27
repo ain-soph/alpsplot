@@ -3,6 +3,8 @@
 import numpy as np
 # scipy.stats.gaussian_kde
 
+__all__ = ['normalize', 'avg_smooth', 'monotone']
+
 
 def normalize(x: np.ndarray,
               _min: float = None, _max: float = None,
