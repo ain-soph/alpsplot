@@ -285,6 +285,9 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_title() <matplotlib.axes.Axes.set_title>`.
 
+        Returns:
+            matplotlib.text.Text: The matplotlib text instance representing the title.
+
         :Example:
             .. code-block:: python
                 :emphasize-lines: 5
@@ -300,9 +303,9 @@ class Figure:
                 :width: 60%
         """
         text = self.name if text is None else text
-        self.ax.set_title(text, fontsize=fontsize,
-                          fontproperties=fontproperties, fontweight=fontweight,
-                          math_fontfamily=math_fontfamily, **kwargs)
+        return self.ax.set_title(text, fontsize=fontsize,
+                                 fontproperties=fontproperties, fontweight=fontweight,
+                                 math_fontfamily=math_fontfamily, **kwargs)
 
     def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
                        fontproperties: str = 'Optima', fontweight='bold',
@@ -330,6 +333,9 @@ class Figure:
                 :any:`Axes.set_xlabel() <matplotlib.axes.Axes.set_xlabel>`
                 or :any:`Axes.set_ylabel() <matplotlib.axes.Axes.set_ylabel>`.
 
+        Returns:
+            matplotlib.text.Text: The matplotlib text instance representing the axis label.
+
         :Example:
             .. code-block:: python
                 :emphasize-lines: 5-6
@@ -346,9 +352,9 @@ class Figure:
                 :width: 60%
         """
         func = getattr(self.ax, f'set_{axis}label')
-        func(text, fontsize=fontsize, fontproperties=fontproperties,
-             fontweight=fontweight, math_fontfamily=math_fontfamily,
-             **kwargs)
+        return func(text, fontsize=fontsize, fontproperties=fontproperties,
+                    fontweight=fontweight, math_fontfamily=math_fontfamily,
+                    **kwargs)
 
     def set_axis_lim(self, axis: str, labels: list[str] = None,
                      lim: tuple[float, float] = (0.0, 1.0),
@@ -493,6 +499,9 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.legend() <matplotlib.axes.Axes.legend>`.
 
+        Returns:
+            matplotlib.legend.Legend: The matplotlib legend instance.
+
         :Example:
             .. code-block:: python
                 :emphasize-lines: 16
@@ -518,12 +527,13 @@ class Figure:
             .. image:: /images/figure/set_legend.svg
                 :width: 60%
         """
-        self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
-                       framealpha=framealpha, **kwargs)
+        legend = self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
+                                framealpha=framealpha, **kwargs)
         plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
                  fontproperties=fontproperties,
                  fontstyle=fontstyle, fontweight=fontweight,
                  math_fontfamily=math_fontfamily)
+        return legend
 
     def lineplot(self, x: np.ndarray, y: np.ndarray,
                  err: np.array = None, err_style: str = 'band',
@@ -566,6 +576,9 @@ class Figure:
                 Defaults to ``1``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.plot() <matplotlib.axes.Axes.plot>`.
+
+        Returns:
+            list[matplotlib.lines.Line2D]: A list of lines representing the plotted data.
 
         :Example:
             .. code-block:: python
@@ -647,6 +660,9 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.plot() <matplotlib.axes.Axes.plot>`.
 
+        Returns:
+            matplotlib.lines.Line2D: A line object.
+
         :Example:
             .. code-block:: python
                 :emphasize-lines: 5-6
@@ -699,6 +715,9 @@ class Figure:
                 Defaults to ``3``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.scatter() <matplotlib.axes.Axes.scatter>`.
+
+        Returns:
+            matplotlib.collections.PathCollection: A collection of Paths.
 
         :Example:
             .. code-block:: python
@@ -767,6 +786,10 @@ class Figure:
                 Defaults to ``None``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.bar() <matplotlib.axes.Axes.bar>`.
+
+        Returns:
+            matplotlib.container.BarContainer:
+                Container with all the bars and optionally errorbars.
 
         :Example:
             .. code-block:: python
@@ -853,6 +876,10 @@ class Figure:
 
             **kwargs: Keyword arguments passed to
                 :any:`Axes.hist() <matplotlib.axes.Axes.hist>`.
+
+        Returns:
+            matplotlib.container.BarContainer:
+                Container with all the bars and optionally errorbars.
 
         :Example:
             .. code-block:: python
