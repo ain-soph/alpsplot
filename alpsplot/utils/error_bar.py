@@ -78,8 +78,8 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
     r"""Adjust :attr:`y_dict` with :attr:`mean` and :attr:`std`.
 
     .. math::
-        \frac{std[i]}{y\_dict[i].std()}
-        \left(y\_dict[i] - y\_dict[i].mean()\right) + mean[i]
+        \frac{std[i]}{y\_dict[x_i].std()}
+        \left(y\_dict[x_i] - y\_dict[x_i].mean()\right) + mean[i]
 
     Args:
         y_dict (dict[float, numpy.ndarray]): The dict to adjust.
