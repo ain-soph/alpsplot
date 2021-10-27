@@ -10,7 +10,7 @@ __all__ = ['group_err_bar', 'flatten_err_bar', 'adjust_err_bar',
 
 
 def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
-    r"""Group (:attr:`x`, :attr:`y`) to be a dict. y_dict[x0] = [y0, y1, ...]
+    r"""Group (:attr:`x`, :attr:`y`) to be a dict. ``y_dict[x0] = [y0, y1, ...]``.
 
     Args:
         x (numpy.ndarray): The x array.
@@ -39,7 +39,7 @@ def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
 
 def flatten_err_bar(y_dict: dict[float, np.ndarray]
                     ) -> tuple[np.ndarray, np.ndarray]:
-    r"""Flatten :attr:`y_dict` to be data list (x, y).
+    r"""Flatten :attr:`y_dict` to be data list ``(x, y)``.
 
     Args:
         y_dict (dict[float, numpy.ndarray]): The dict to flatten.
@@ -131,11 +131,11 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
 
 def normalize_err_bar(x: np.ndarray, y: np.ndarray
                       ) -> tuple[np.ndarray, np.ndarray]:
-    r"""Normalize :attr:`x` and :attr:`y` into range [0, 1].
+    r"""Normalize :attr:`x` and :attr:`y` into range ``[0, 1]``.
 
     each :attr:`x` might correspond to multiple :attr:`y` values
     and therefore generate an error band on y-axis.
-    The mean of :attr:`y` is normalized into [0, 1].
+    The mean of :attr:`y` is normalized into ``[0, 1]``.
 
     Args:
         x (numpy.ndarray): The x array.

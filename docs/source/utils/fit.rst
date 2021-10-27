@@ -3,7 +3,7 @@
 :mod:`alpsplot.utils.fit`
 ==================================
 
-.. currentmodule:: alpsplot.utils
+.. currentmodule:: alpsplot.utils.fit
 
 .. autofunction:: poly_fit
 .. autofunction:: tanh_fit
