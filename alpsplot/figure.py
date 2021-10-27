@@ -185,11 +185,11 @@ class Figure:
                  figsize: tuple[float, float] = (5, 2.5), **kwargs):
         self.name: str = name
         self.folder_path: str = folder_path
+        if fig is None and ax is None:
+            fig: Figure = plt.figure(figsize=figsize, **kwargs)
+            ax = self.fig.add_subplot(1, 1, 1)
         self.fig: Figure = fig
         self.ax: Axes = ax
-        if fig is None and ax is None:
-            self.fig: Figure = plt.figure(figsize=figsize, **kwargs)
-            self.ax = self.fig.add_subplot(1, 1, 1)
         self.ax.spines['top'].set_visible(False)
         self.ax.spines['bottom'].set_visible(True)
         self.ax.spines['left'].set_visible(False)
