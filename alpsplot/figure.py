@@ -187,7 +187,7 @@ class Figure:
         self.folder_path: str = folder_path
         if fig is None and ax is None:
             fig: Figure = plt.figure(figsize=figsize, **kwargs)
-            ax = self.fig.add_subplot(1, 1, 1)
+            ax = fig.add_subplot(1, 1, 1)
         self.fig: Figure = fig
         self.ax: Axes = ax
         self.ax.spines['top'].set_visible(False)
