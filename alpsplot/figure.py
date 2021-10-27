@@ -285,8 +285,10 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_title() <matplotlib.axes.Axes.set_title>`.
 
-        Returns:
-            matplotlib.text.Text: The matplotlib text instance representing the title.
+        Returns
+        -------
+            :any:`Text <matplotlib.text.Text>`
+                The matplotlib text instance representing the title.
 
         :Example:
             .. code-block:: python
@@ -333,8 +335,10 @@ class Figure:
                 :any:`Axes.set_xlabel() <matplotlib.axes.Axes.set_xlabel>`
                 or :any:`Axes.set_ylabel() <matplotlib.axes.Axes.set_ylabel>`.
 
-        Returns:
-            matplotlib.text.Text: The matplotlib text instance representing the axis label.
+        Returns
+        -------
+            :any:`Text <matplotlib.text.Text>`
+                The matplotlib text instance representing the axis label.
 
         :Example:
             .. code-block:: python
@@ -499,8 +503,10 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.legend() <matplotlib.axes.Axes.legend>`.
 
-        Returns:
-            matplotlib.legend.Legend: The matplotlib legend instance.
+        Returns
+        -------
+            :any:`Legend <matplotlib.legend.Legend>`
+                The matplotlib legend instance.
 
         :Example:
             .. code-block:: python
@@ -577,8 +583,10 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.plot() <matplotlib.axes.Axes.plot>`.
 
-        Returns:
-            list[matplotlib.lines.Line2D]: A list of lines representing the plotted data.
+        Returns
+        -------
+            :class:`list`\[:any:`Line2D <matplotlib.lines.Line2D>`\]
+                A list of lines representing the plotted data.
 
         :Example:
             .. code-block:: python
@@ -660,8 +668,10 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.plot() <matplotlib.axes.Axes.plot>`.
 
-        Returns:
-            matplotlib.lines.Line2D: A line object.
+        Returns
+        -------
+            :any:`Line2D <matplotlib.lines.Line2D>`
+                An invisible line object.
 
         :Example:
             .. code-block:: python
@@ -716,8 +726,10 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.scatter() <matplotlib.axes.Axes.scatter>`.
 
-        Returns:
-            matplotlib.collections.PathCollection: A collection of Paths.
+        Returns
+        -------
+            :any:`PathCollection <matplotlib.collections.PathCollection>`
+                A collection of Paths.
 
         :Example:
             .. code-block:: python
@@ -787,8 +799,9 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.bar() <matplotlib.axes.Axes.bar>`.
 
-        Returns:
-            matplotlib.container.BarContainer:
+        Returns
+        -------
+            :any:`BarContainer <matplotlib.container.BarContainer>`
                 Container with all the bars and optionally errorbars.
 
         :Example:
@@ -877,8 +890,9 @@ class Figure:
             **kwargs: Keyword arguments passed to
                 :any:`Axes.hist() <matplotlib.axes.Axes.hist>`.
 
-        Returns:
-            matplotlib.container.BarContainer:
+        Returns
+        -------
+            :any:`BarContainer <matplotlib.container.BarContainer>`
                 Container with all the bars and optionally errorbars.
 
         :Example:
