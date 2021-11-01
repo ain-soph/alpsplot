@@ -306,8 +306,10 @@ class Figure:
         """
         text = self.name if text is None else text
         return self.ax.set_title(text, fontsize=fontsize,
-                                 fontproperties=fontproperties, fontweight=fontweight,
-                                 math_fontfamily=math_fontfamily, **kwargs)
+                                 fontproperties=fontproperties,
+                                 fontweight=fontweight,
+                                 math_fontfamily=math_fontfamily,
+                                 **kwargs)
 
     def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
                        fontproperties: str = 'Optima', fontweight='bold',
@@ -590,7 +592,7 @@ class Figure:
 
         :Example:
             .. code-block:: python
-                :emphasize-lines: 14, 20, 26-27
+                :emphasize-lines: 14, 20, 25-26
 
                 import numpy as np
                 from alpsplot.figure import Figure
@@ -897,7 +899,7 @@ class Figure:
 
         :Example:
             .. code-block:: python
-                :emphasize-lines: 15-16
+                :emphasize-lines: 13-14
 
                 import numpy as np
                 from alpsplot.figure import Figure
