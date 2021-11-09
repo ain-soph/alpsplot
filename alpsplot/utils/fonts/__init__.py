@@ -32,7 +32,7 @@ def add_optima() -> None:
 
 def add_palatino() -> None:
     r"""
-    Add ``optima`` font into :any:`matplotlib.font_manager`.
+    Add ``palatino`` font into :any:`matplotlib.font_manager`.
 
     You could use it by setting ``fontproperties='Palatino'``
     """
