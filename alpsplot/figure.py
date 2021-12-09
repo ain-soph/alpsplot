@@ -565,7 +565,7 @@ class Figure:
                                      color=color, alpha=alpha, linestyle="",
                                      zorder=zorder)
                 case _:
-                    raise NotImplementedError(err_style)
+                    raise ValueError(f'{err_style=}')
         return self.ax.plot(x, y, color=color, alpha=alpha,
                             linewidth=linewidth, linestyle=linestyle,
                             label=label, markerfacecolor=markerfacecolor,

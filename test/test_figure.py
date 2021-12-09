@@ -2,6 +2,7 @@
 
 from alpsplot.figure import Figure
 import numpy as np
+import pytest
 
 
 def test_style():
@@ -75,6 +76,9 @@ def test_lineplot():
     y_err = np.concatenate((y_mean-noise, y_mean, y_mean+noise))
     fig.lineplot(x, y_err, color='blue', label='error bar',
                  err_style='bars')
+
+    with pytest.raises(ValueError):
+        fig.lineplot(x, y_err, err_style='wrong')
 
     fig.set_legend()
     fig.save()
