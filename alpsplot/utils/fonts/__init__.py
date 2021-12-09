@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
 import os
-import matplotlib
 from matplotlib.font_manager import fontManager
 
 from typing import TYPE_CHECKING
-if TYPE_CHECKING:
+if TYPE_CHECKING:   # TODO: python 3.11
     from matplotlib.font_manager import FontManager, FontEntry
     fontManager: FontManager
 
@@ -51,7 +50,3 @@ def add_palatino() -> None:
 def main():
     add_optima()
     add_palatino()
-    matplotlib.rc('mathtext', fontset='cm')
-    matplotlib.rc('pdf', fonttype=42)
-    matplotlib.rc('ps', fonttype=42)
-    matplotlib.rc('svg', image_inline=True, fonttype='none')

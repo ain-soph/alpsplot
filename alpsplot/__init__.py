@@ -2,11 +2,14 @@
 
 from .version import __version__
 
-from alpsplot import colormap as colormap
-from alpsplot import utils as utils
+from alpsplot import colormap, utils
 from alpsplot.figure import Figure
 
+import os
+import matplotlib.pyplot as plt
 from .utils import fonts
-fonts.main()
 
-__all__ = ['Figure']
+__all__ = ['colormap', 'Figure', 'utils']
+
+fonts.main()
+plt.style.use(os.path.join(os.path.dirname(__file__), 'alpsplot.mplstyle'))

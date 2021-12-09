@@ -1,0 +1,18 @@
+axes.titlesize: 16
+axes.labelsize: 12
+xtick.labelsize: 11
+ytick.labelsize: 11
+legend.fontsize: 11
+legend.title_fontsize: 12
+
+axes.titleweight: bold
+axes.labelweight: bold
+font.weight: bold
+
+font.family: Optima
+mathtext.fontset: cm
+
+pdf.fonttype: 42
+ps.fonttype: 42
+svg.image_inline : True
+svg.fonttype: none

@@ -2,7 +2,14 @@
 
 from alpsplot.figure import Figure
 import numpy as np
-import shutil
+
+
+def test_style():
+    fig = Figure('test_style')
+    fig.set_title(r'test $\alpha 45$ mathematics')
+    fig.set_axis_label('x', r'x axis $\beta$')
+    fig.set_axis_lim('x')
+    fig.save()
 
 
 def test_save():
@@ -13,7 +20,6 @@ def test_save():
     fig.save(filename='c.svg')
     fig.save(ext='.png')
     fig.save(ext='jpg')
-    shutil.rmtree('./output/abc')
 
 
 def test_set_title():

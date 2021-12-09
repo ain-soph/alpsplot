@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python
 LABEL maintainer="Ren Pang <rbp5354@psu.edu>"
 
 RUN cd / && \

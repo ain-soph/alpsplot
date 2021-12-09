@@ -126,20 +126,20 @@ path                                  A :any:`Path <matplotlib.path.Path>`
 
 from alpsplot.utils import group_err_bar
 
+from matplotlib import ticker
+from matplotlib import pyplot as plt
+
 import os
 import numpy as np
 
-import matplotlib.figure as figure
-from matplotlib import ticker
-from matplotlib import pyplot as plt
-from matplotlib.axes import Axes
-from matplotlib.lines import Line2D
-from matplotlib.container import BarContainer
-from matplotlib.collections import PathCollection
 from typing import Sequence, Union
 from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    pass    # TODO: python 3.10
+if TYPE_CHECKING:    # TODO: python 3.11
+    import matplotlib.figure as figure
+    from matplotlib.axes import Axes
+    from matplotlib.lines import Line2D
+    from matplotlib.container import BarContainer
+    from matplotlib.collections import PathCollection
 
 # TODO: We could use default values after matplotlib 3.5.0
 # https://github.com/matplotlib/matplotlib/pull/20101
@@ -181,15 +181,15 @@ class Figure:
     """
 
     def __init__(self, name: str, folder_path: str = './output/',
-                 fig: figure.Figure = None, ax: Axes = None,
+                 fig: 'figure.Figure' = None, ax: 'Axes' = None,
                  figsize: tuple[float, float] = (5, 2.5), **kwargs):
         self.name: str = name
         self.folder_path: str = folder_path
         if fig is None and ax is None:
-            fig: Figure = plt.figure(figsize=figsize, **kwargs)
+            fig: 'figure.Figure' = plt.figure(figsize=figsize, **kwargs)
             ax = fig.add_subplot(1, 1, 1)
-        self.fig: Figure = fig
-        self.ax: Axes = ax
+        self.fig: 'figure.Figure' = fig
+        self.ax: 'Axes' = ax
         self.ax.spines['top'].set_visible(False)
         self.ax.spines['bottom'].set_visible(True)
         self.ax.spines['left'].set_visible(False)
@@ -262,26 +262,12 @@ class Figure:
             os.makedirs(folder_path)
         self.fig.savefig(path, dpi=dpi, bbox_inches=bbox_inches, **kwargs)
 
-    def set_title(self, text: str = None, fontsize: int = 16,
-                  fontproperties: str = 'Optima', fontweight: str = 'bold',
-                  math_fontfamily: str = 'cm', **kwargs):
+    def set_title(self, text: str = None, **kwargs):
         r"""Call :any:`Axes.set_title() <matplotlib.axes.Axes.set_title>`.
 
         Args:
             text (str, optional): The text of title.
                 Defaults to :attr:`self.name`.
-
-        ..
-
-        Args:
-            fontsize (int): The fontsize of text.
-                Defaults to ``16``.
-            fontproperties (str): The font of text.
-                Defaults to ``'Optima'``.
-            fontweight (str): The fontweight of text.
-                Defaults to ``'bold'``.
-            math_fontfamily (str): The math_fontfamily of text.
-                Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_title() <matplotlib.axes.Axes.set_title>`.
 
@@ -304,15 +290,9 @@ class Figure:
                 :width: 60%
         """
         text = self.name if text is None else text
-        return self.ax.set_title(text, fontsize=fontsize,
-                                 fontproperties=fontproperties,
-                                 fontweight=fontweight,
-                                 math_fontfamily=math_fontfamily,
-                                 **kwargs)
+        return self.ax.set_title(text, **kwargs)
 
-    def set_axis_label(self, axis: str, text: str, fontsize: int = 12,
-                       fontproperties: str = 'Optima', fontweight='bold',
-                       math_fontfamily: str = 'cm', **kwargs):
+    def set_axis_label(self, axis: str, text: str, **kwargs):
         r"""Call :any:`Axes.set_xlabel() <matplotlib.axes.Axes.set_xlabel>`
         or :any:`Axes.set_ylabel() <matplotlib.axes.Axes.set_ylabel>`.
 
@@ -320,18 +300,6 @@ class Figure:
             axis (str): The axis to set label.
                 Possible values: ``['x', 'y', 'z']``.
             text (str): The text of axis label.
-
-        ..
-
-        Args:
-            fontsize (int): The fontsize of text.
-                Defaults to ``12``.
-            fontproperties (str): The font of text.
-                Defaults to ``'Optima'``.
-            fontweight (str): The fontweight of text.
-                Defaults to ``'bold'``.
-            math_fontfamily (str): The math_fontfamily of text.
-                Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_xlabel() <matplotlib.axes.Axes.set_xlabel>`
                 or :any:`Axes.set_ylabel() <matplotlib.axes.Axes.set_ylabel>`.
@@ -356,18 +324,13 @@ class Figure:
                 :width: 60%
         """
         func = getattr(self.ax, f'set_{axis}label')
-        return func(text, fontsize=fontsize, fontproperties=fontproperties,
-                    fontweight=fontweight, math_fontfamily=math_fontfamily,
-                    **kwargs)
+        return func(text, **kwargs)
 
     def set_axis_lim(self, axis: str, labels: list[str] = None,
                      lim: tuple[float, float] = (0.0, 1.0),
                      margin: tuple[float, tuple] = (0.0, 0.0),
                      piece: int = 10, _format: str = '%.1f',
-                     fontsize: int = 11,
-                     fontproperties: str = 'Optima',
-                     fontweight: str = 'bold',
-                     math_fontfamily: str = 'cm', **kwargs):
+                     **kwargs):
         r"""Set ticks and their labels for axis.
 
         .. table::
@@ -387,7 +350,7 @@ class Figure:
         .. parsed-literal::
             set_lim(lim[0] - margin[0], lim[1] + margin[1])
             set_ticks(lim[0], lim[0] + :math:`\frac{1}{\text{lim}[1] - \text{lim}[0]}`, :math:`\dots`, lim[1])
-            set_ticklabels(labels, \*\*fontargs, \*\*kwargs)
+            set_ticklabels(labels, \*\*kwargs)
             format_str = :any:`ticker.FormatStrFormatter <matplotlib.ticker.FormatStrFormatter>`\(_format)
             :any:`Axis.set_major_formatter <matplotlib.axis.Axis.set_major_formatter>`\(format_str)
 
@@ -407,18 +370,6 @@ class Figure:
                 Defaults to ``10``.
             _format (str): The format of tick labels.
                 Defaults to ``'%.1f'``.
-
-        ..
-
-        Args:
-            fontsize (int): The fontsize of text.
-                Defaults to ``11``.
-            fontproperties (str): The font of text.
-                Defaults to ``'Optima'``.
-            fontweight (str): The fontweight of text.
-                Defaults to ``'bold'``.
-            math_fontfamily (str): The math_fontfamily of text.
-                Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_xticklabels()
                 <matplotlib.axes.Axes.set_xticklabels>`
@@ -451,25 +402,18 @@ class Figure:
         getattr(self.ax, f'set_{axis}lim')(*final_lim)
         getattr(self.ax, f'set_{axis}ticks')(ticks)
         set_ticklabels_func = getattr(self.ax, f'set_{axis}ticklabels')
-        font_args = dict(fontsize=fontsize,
-                         fontproperties=fontproperties,
-                         fontweight=fontweight,
-                         math_fontfamily=math_fontfamily)
         if labels is None:
             labels = getattr(self.ax, f'get_{axis}ticks')()
-            set_ticklabels_func(labels, **font_args, **kwargs)
+            set_ticklabels_func(labels, **kwargs)
             getattr(self.ax, f'{axis}axis').set_major_formatter(
                 ticker.FormatStrFormatter(_format))
         else:
-            set_ticklabels_func(labels, **font_args, **kwargs)
+            set_ticklabels_func(labels, **kwargs)
 
     def set_legend(self, *args, frameon: bool = None,
                    framealpha: float = 1.0,
                    edgecolor: str = 'none',
-                   fontsize: int = 11,
-                   fontproperties: str = 'Optima',
-                   fontstyle: str = None, fontweight='bold',
-                   math_fontfamily: str = 'cm', **kwargs) -> None:
+                   **kwargs) -> None:
         r"""Call :any:`Axes.legend() <matplotlib.axes.Axes.legend>`
         to set legend of :attr:`self.ax`.
 
@@ -486,20 +430,6 @@ class Figure:
                 Defaults to ``0.0``.
             edgecolor (str): The legend's background patch edge color.
                 Defaults to ``'none'``.
-
-        ..
-
-        Args:
-            fontsize (int): The fontsize of text.
-                Defaults to ``11``.
-            fontproperties (str): The font of text.
-                Defaults to ``'Optima'``.
-            fontstyle (str): The font style of text.
-                Defaults to ``None``.
-            fontweight (str): The fontweight of text.
-                Defaults to ``'bold'``.
-            math_fontfamily (str): The math_fontfamily of text.
-                Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.legend() <matplotlib.axes.Axes.legend>`.
 
@@ -533,10 +463,6 @@ class Figure:
         """
         legend = self.ax.legend(*args, frameon=frameon, edgecolor=edgecolor,
                                 framealpha=framealpha, **kwargs)
-        plt.setp(self.ax.get_legend().get_texts(), fontsize=fontsize,
-                 fontproperties=fontproperties,
-                 fontstyle=fontstyle, fontweight=fontweight,
-                 math_fontfamily=math_fontfamily)
         return legend
 
     def lineplot(self, x: np.ndarray, y: np.ndarray,
@@ -544,7 +470,7 @@ class Figure:
                  color: str = 'black', alpha: float = 1.0,
                  linewidth: int = 2, linestyle: str = '-',
                  label: str = None, markerfacecolor: str = 'white',
-                 zorder: float = 1, **kwargs) -> Line2D:
+                 zorder: float = 1, **kwargs) -> 'Line2D':
         r"""A similar implementation to :any:`seaborn.lineplot() <seaborn.lineplot>`.
         same x value with different y values will result in
         the error band/bar at that x.
@@ -629,14 +555,17 @@ class Figure:
             y = np.array([y_list.mean() for y_list in y_dict.values()])
             err = np.array([y_list.std() for y_list in y_dict.values()])
         if err is not None:
-            if err_style == 'band':  # TODO: python 3.10
-                self.ax.fill_between(x=x, y1=y-err, y2=y+err,
-                                     color=color, alpha=alpha*0.2,
+            match err_style:
+                case 'band':
+                    self.ax.fill_between(x=x, y1=y-err, y2=y+err,
+                                         color=color, alpha=alpha*0.2,
+                                         zorder=zorder)
+                case 'bars':
+                    self.ax.errorbar(x=x, y=y, yerr=err,
+                                     color=color, alpha=alpha, linestyle="",
                                      zorder=zorder)
-            elif err_style == 'bars':
-                self.ax.errorbar(x=x, y=y, yerr=err,
-                                 color=color, alpha=alpha, linestyle="",
-                                 zorder=zorder)
+                case _:
+                    raise NotImplementedError(err_style)
         return self.ax.plot(x, y, color=color, alpha=alpha,
                             linewidth=linewidth, linestyle=linestyle,
                             label=label, markerfacecolor=markerfacecolor,
@@ -644,7 +573,7 @@ class Figure:
 
     def curve_legend(self, label: str = None, color: str = 'black',
                      linewidth: int = 2, linestyle: str = '-',
-                     markerfacecolor: str = 'white', **kwargs) -> Line2D:
+                     markerfacecolor: str = 'white', **kwargs) -> 'Line2D':
         r"""Call :any:`Axes.plot() <matplotlib.axes.Axes.plot>`
         to plot an empty line for legend,
 
@@ -695,7 +624,7 @@ class Figure:
                 color: str = 'black', linewidth: int = 2,
                 marker: str = 'D', facecolor: str = 'white',
                 label: str = None, curve_legend: bool = False,
-                zorder: float = 3, **kwargs) -> PathCollection:
+                zorder: float = 3, **kwargs) -> 'PathCollection':
         r"""Call :any:`Axes.scatter() <matplotlib.axes.Axes.scatter>`
         to plot scatters.
 
@@ -762,7 +691,7 @@ class Figure:
     def bar(self, x: np.ndarray, y: np.ndarray, width: float = 0.8,
             color: str = 'black', edgecolor: str = 'white',
             align: str = 'edge', linewidth: int = 1,
-            label: str = None, **kwargs) -> BarContainer:
+            label: str = None, **kwargs) -> 'BarContainer':
         r"""Call :any:`Axes.bar() <matplotlib.axes.Axes.bar>`
         to plot bars.
 
@@ -914,12 +843,9 @@ class Figure:
                             facecolor=facecolor, edgecolor=edgecolor,
                             linewidth=linewidth, **kwargs)
 
-    def autolabel(self, rects: BarContainer,
+    def autolabel(self, rects: 'BarContainer',
                   offset: float = None, above: bool = True,
-                  fontsize: int = 7, fontproperties: str = 'Optima',
-                  fontweight: str = 'bold',
-                  math_fontfamily: str = 'cm',
-                  **kwargs) -> None:
+                  fontsize: int = 7, **kwargs) -> None:
         r"""Call :any:`Axes.annotate() <matplotlib.axes.Axes.annotate>`
         to attach a text label above each bar in :attr:`rects`,
         displaying its height.
@@ -932,18 +858,8 @@ class Figure:
                 Defaults to ``None``.
             above (bool): Whether to put the text above the rects.
                 Defaults to ``True``.
-
-        ..
-
-        Args:
             fontsize (int): The fontsize of text.
                 Defaults to ``7``.
-            fontproperties (str): The font of text.
-                Defaults to ``'Optima'``.
-            fontweight (str): The fontweight of text.
-                Defaults to ``'bold'``.
-            math_fontfamily (str): The math_fontfamily of text.
-                Defaults to ``'cm'``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.annotate() <matplotlib.axes.Axes.annotate>`.
 
@@ -983,15 +899,12 @@ class Figure:
                              xy=(rect.get_x() + rect.get_width() / 2, height),
                              xytext=(0, offset),  # 3 points vertical offset
                              textcoords="offset points",
-                             ha='center', va='bottom', fontsize=fontsize,
-                             fontproperties=fontproperties,
-                             fontweight=fontweight,
-                             math_fontfamily=math_fontfamily,
-                             **kwargs)
+                             ha='center', va='bottom',
+                             fontsize=fontsize, **kwargs)
 
     # def bar3d(self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
     #           color: str = 'black', size: tuple[float, float] = 0.5,
-    #           label: str = None, **kwargs) -> BarContainer:
+    #           label: str = None, **kwargs) -> 'BarContainer':
     #     # facecolor edgewidth alpha
     #     if isinstance(size, (float, int)):
     #         size = [size, size]
