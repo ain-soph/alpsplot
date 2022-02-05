@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from alpsplot import ting_color, Figure
+from alpsplot import Figure
+from alpsplot.colormap import ting_color
 import numpy as np
 import os
 

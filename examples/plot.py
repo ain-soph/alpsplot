@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from alpsplot import Figure, ting_color
+from alpsplot import Figure
+from alpsplot.colormap import ting_color
 
 x = [0, 2.5, 5, 10, 20, 30, 40]
 y = [93.78, 93.79, 93.30, 92.16, 90.58, 88.77, 86.13]
@@ -10,7 +11,7 @@ if __name__ == '__main__':
     fig.set_axis_label('x', 'Poison Percent (%)')
     fig.set_axis_label('y', 'Model Accuracy Drop (%)')
     fig.set_axis_lim('x', lim=[0, 40], piece=4, margin=[1.0, 1.0],
-                     _format='%d')
+                     _format=None)
     fig.set_axis_lim('y', lim=[0, 100], piece=5, margin=[1.0, 1.0],
                      _format='%d')
 
@@ -18,4 +19,5 @@ if __name__ == '__main__':
     fig.scatter(x=x, y=y, color=ting_color['red'],
                 marker='H', label='resnet', curve_legend=True)
     fig.set_legend()
+    fig.ax.ticklabel_format(style='sci', axis='x', scilimits=(0, 0), useMathText=True)
     fig.save(folder_path='./result')

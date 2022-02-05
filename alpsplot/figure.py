@@ -137,6 +137,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:    # TODO: python 3.11
     import matplotlib.figure as figure
     from matplotlib.axes import Axes
+    from matplotlib.axis import Axis
     from matplotlib.lines import Line2D
     from matplotlib.container import BarContainer
     from matplotlib.collections import PathCollection
@@ -329,7 +330,7 @@ class Figure:
     def set_axis_lim(self, axis: str, labels: list[str] = None,
                      lim: tuple[float, float] = (0.0, 1.0),
                      margin: tuple[float, tuple] = (0.0, 0.0),
-                     piece: int = 10, _format: str = '%.1f',
+                     piece: int = 10, _format: str = None,
                      **kwargs):
         r"""Set ticks and their labels for axis.
 
@@ -350,9 +351,11 @@ class Figure:
         .. parsed-literal::
             set_lim(lim[0] - margin[0], lim[1] + margin[1])
             set_ticks(lim[0], lim[0] + :math:`\frac{1}{\text{lim}[1] - \text{lim}[0]}`, :math:`\dots`, lim[1])
-            set_ticklabels(labels, \*\*kwargs)
-            format_str = :any:`ticker.FormatStrFormatter <matplotlib.ticker.FormatStrFormatter>`\(_format)
-            :any:`Axis.set_major_formatter <matplotlib.axis.Axis.set_major_formatter>`\(format_str)
+            if labels is not None:
+                set_ticklabels(labels, \*\*kwargs)
+            elif _format is not None:
+                format_str = :any:`ticker.FormatStrFormatter <matplotlib.ticker.FormatStrFormatter>`\(_format)
+                :any:`Axis.set_major_formatter <matplotlib.axis.Axis.set_major_formatter>`\(format_str)
 
         Args:
             axis (str): The axis to set label.
@@ -368,8 +371,10 @@ class Figure:
                 The interval among ticks are
                 :math:`\frac{\text{lim}[1] - \text{lim}[0]}{\text{piece}}`.
                 Defaults to ``10``.
-            _format (str): The format of tick labels.
-                Defaults to ``'%.1f'``.
+            _format (str): The format of tick labels used in
+                :any:`ticker.FormatStrFormatter <matplotlib.ticker.FormatStrFormatter>`
+                (e.g., '%.1f' or '%d').
+                Defaults to ``None``.
             **kwargs: Keyword arguments passed to
                 :any:`Axes.set_xticklabels()
                 <matplotlib.axes.Axes.set_xticklabels>`
@@ -401,14 +406,13 @@ class Figure:
             np.arange(lim[0], lim[1], (lim[1] - lim[0]) / piece), lim[1])
         getattr(self.ax, f'set_{axis}lim')(*final_lim)
         getattr(self.ax, f'set_{axis}ticks')(ticks)
-        set_ticklabels_func = getattr(self.ax, f'set_{axis}ticklabels')
-        if labels is None:
-            labels = getattr(self.ax, f'get_{axis}ticks')()
+        if labels is not None:
+            set_ticklabels_func = getattr(self.ax, f'set_{axis}ticklabels')
             set_ticklabels_func(labels, **kwargs)
-            getattr(self.ax, f'{axis}axis').set_major_formatter(
+        elif _format is not None:
+            target_axis: Axis = getattr(self.ax, f'{axis}axis')
+            target_axis.set_major_formatter(
                 ticker.FormatStrFormatter(_format))
-        else:
-            set_ticklabels_func(labels, **kwargs)
 
     def set_legend(self, *args, frameon: bool = None,
                    framealpha: float = 1.0,
