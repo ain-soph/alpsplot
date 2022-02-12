@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-from alpsplot import Figure, ting_color, color
+from alpsplot import Figure
+from alpsplot.colormap import ting_color, color
 from alpsplot.utils import avg_smooth, monotone
-from alpsplot.utils import exp_fit, poly_fit, interp_fit, atan_fit
+from alpsplot.utils.fit import exp_fit, poly_fit, interp_fit, atan_fit
 
 import argparse
 import numpy as np

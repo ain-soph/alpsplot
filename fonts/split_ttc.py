@@ -2,6 +2,9 @@
 
 import argparse
 import os
+from fontTools.ttLib.ttCollection import TTCollection
+from fontTools.ttLib.ttFont import TTFont
+from fontTools.ttLib.tables._n_a_m_e import table__n_a_m_e, NameRecord
 
 # https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6name.html
 # https://onlinefontconverter.com/
@@ -10,9 +13,6 @@ import os
 
 
 def split_ttc(filename: str):
-    from fontTools.ttLib.ttCollection import TTCollection
-    from fontTools.ttLib.ttFont import TTFont
-    from fontTools.ttLib.tables._n_a_m_e import table__n_a_m_e, NameRecord
     ttc = TTCollection(file=filename)
     ttf_list: list[TTFont] = ttc.fonts
     dirname = os.path.dirname(filename)
