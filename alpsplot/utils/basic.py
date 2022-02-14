@@ -32,6 +32,7 @@ def normalize(x: np.ndarray,
     :Example:
         >>> import numpy as np
         >>> from alpsplot.utils import normalize
+        >>>
         >>> x = np.array([-10, -5, 0, 5, 10])
         >>> normalize(x)
         array([0.  , 0.25, 0.5 , 0.75, 1.  ])

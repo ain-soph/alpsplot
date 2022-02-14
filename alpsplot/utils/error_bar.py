@@ -22,6 +22,7 @@ def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
     :Example:
         >>> import numpy as np
         >>> from alpsplot.utils import group_err_bar
+        >>>
         >>> x = np.array([1., 2., 3.] * 2)
         >>> x
         array([1., 2., 3., 1., 2., 3.])
@@ -50,6 +51,7 @@ def flatten_err_bar(y_dict: dict[float, np.ndarray]
     :Example:
         >>> import numpy as np
         >>> from alpsplot.utils import group_err_bar, flatten_err_bar
+        >>>
         >>> x = np.array([1., 2., 3.] * 2)
         >>> x
         array([1., 2., 3., 1., 2., 3.])
@@ -98,6 +100,7 @@ def adjust_err_bar(y_dict: dict[float, np.ndarray],
     :Example:
         >>> import numpy as np
         >>> from alpsplot.utils import group_err_bar, adjust_err_bar
+        >>>
         >>> x = np.array([1., 2., 3.] * 2)
         >>> x
         array([1., 2., 3., 1., 2., 3.])
@@ -147,6 +150,7 @@ def normalize_err_bar(x: np.ndarray, y: np.ndarray
     :Example:
         >>> import numpy as np
         >>> from alpsplot.utils import group_err_bar, normalize_err_bar
+        >>>
         >>> x = np.array([1., 2., 3.] * 2)
         >>> x
         array([1., 2., 3., 1., 2., 3.])
@@ -182,6 +186,7 @@ def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
     :Example:
         >>> import numpy as np
         >>> from alpsplot.utils import group_err_bar, avg_smooth_err_bar
+        >>>
         >>> x = np.array([1., 2., 3.] * 2)
         >>> x
         array([1., 2., 3., 1., 2., 3.])
