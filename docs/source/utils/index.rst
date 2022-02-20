@@ -1,6 +1,6 @@
 .. _alpsplot.utils:
 
-:mod:`alpsplot.utils`
+utils
 ===================================
 
 .. currentmodule:: alpsplot.utils

@@ -1,6 +1,6 @@
 .. _alpsplot.utils.fit:
 
-:mod:`alpsplot.utils.fit`
+fit
 ==================================
 
 .. currentmodule:: alpsplot.utils.fit
