@@ -28,7 +28,7 @@ def poly_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
             import numpy as np
             import matplotlib.pyplot as plt
-            from alpsplot.utils import poly_fit
+            from alpsplot.utils.fit import poly_fit
 
             x = np.arange(10, step=0.5)
             x_grid = np.arange(10, step=0.1)
@@ -81,7 +81,7 @@ def tanh_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
             import numpy as np
             import matplotlib.pyplot as plt
-            from alpsplot.utils import tanh_fit
+            from alpsplot.utils.fit import tanh_fit
 
             x = np.arange(3, 4, step=0.1)
             x_grid = np.arange(3, 4, step=0.02)
@@ -139,7 +139,7 @@ def atan_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
             import numpy as np
             import matplotlib.pyplot as plt
-            from alpsplot.utils import atan_fit
+            from alpsplot.utils.fit import atan_fit
 
             x = np.arange(3, 4, step=0.1)
             x_grid = np.arange(3, 4, step=0.02)
@@ -197,7 +197,7 @@ def exp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
             import numpy as np
             import matplotlib.pyplot as plt
-            from alpsplot.utils import exp_fit
+            from alpsplot.utils.fit import exp_fit
 
             fig, (ax1, ax2) = plt.subplots(1,2)
 
@@ -272,7 +272,7 @@ def inverse_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
             import numpy as np
             import matplotlib.pyplot as plt
-            from alpsplot.utils import inverse_fit
+            from alpsplot.utils.fit import inverse_fit
 
             fig, (ax1, ax2) = plt.subplots(1,2)
 
@@ -334,7 +334,7 @@ def interp_fit(x: np.ndarray, y: np.ndarray, x_grid: np.ndarray,
 
             import numpy as np
             import matplotlib.pyplot as plt
-            from alpsplot.utils import interp_fit
+            from alpsplot.utils.fit import interp_fit
 
             x = np.arange(10, step=0.5)
             x_grid = np.arange(10, step=0.1)
