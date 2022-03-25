@@ -180,7 +180,7 @@ class Figure:
         ax (~matplotlib.axes.Axes): Axes object.
     """
 
-    def __init__(self, name: str, folder_path: str = './output/',
+    def __init__(self, name: str = 'figure', folder_path: str = './output/',
                  fig: 'figure.Figure' = None, ax: 'Axes' = None,
                  figsize: tuple[float, float] = (5, 2.5), **kwargs):
         self.name: str = name
@@ -253,7 +253,7 @@ class Figure:
             folder_path = folder_path or self.folder_path
             if filename is None:
                 name = name or self.name
-                ext = ext if ext.startswith('.') else '.'+ext
+                ext = ext if ext.startswith('.') else '.' + ext
                 filename = f'{name}{ext}'
             path = os.path.join(folder_path, filename)
         else:
@@ -560,8 +560,8 @@ class Figure:
         if err is not None:
             match err_style:
                 case 'band':
-                    self.ax.fill_between(x=x, y1=y-err, y2=y+err,
-                                         color=color, alpha=alpha*0.2,
+                    self.ax.fill_between(x=x, y1=y - err, y2=y + err,
+                                         color=color, alpha=alpha * 0.2,
                                          zorder=zorder)
                 case 'bars':
                     self.ax.errorbar(x=x, y=y, yerr=err,
