@@ -209,7 +209,7 @@ class Figure:
                 Defaults to ``f'{folder_path}/{filename}'``.
             folder_path (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to :attr:`~self.folder_path`.
-            folder_path (str, optional): Called when :attr:`path` is ``None``.
+            filename (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to ``f'{name}{ext}'``.
             name (str, optional): Called when :attr:`path` is ``None``.
                 Defaults to :attr:`self.name`.
