@@ -17,8 +17,8 @@ jobs:
           python-version: '3.x'
       - name: Install katex
         run: |
-          apt update
-          apt install -y npm
+          sudo apt update
+          sudo apt install -y npm
           npm install -g katex
       - name: Install dependencies
         run: |
