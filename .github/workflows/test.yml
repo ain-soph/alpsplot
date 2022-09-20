@@ -18,4 +18,4 @@ jobs:
       - name: Pytest
         run: pytest --cov=alpsplot --cov-report=xml
       - name: Upload Codecov
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v3.1.1
