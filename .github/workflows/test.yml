@@ -4,11 +4,13 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-      image: python
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
@@ -16,4 +18,4 @@ jobs:
       - name: Pytest
         run: pytest --cov=alpsplot --cov-report=xml
       - name: Upload Codecov
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v3.1.0
