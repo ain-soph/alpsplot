@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from matplotlib.cm import get_cmap
+import matplotlib
 
 __all__ = ['tab20c_color', 'google_color', 'ting_color', 'color']
 
-cmap_tab20c = get_cmap('tab20c')
+cmap_tab20c: matplotlib.colors.ListedColormap = matplotlib.colormaps['tab20c']
 tab20c_color: dict[str, list[tuple]] = {
     'deep': [cmap_tab20c(0), cmap_tab20c(8), cmap_tab20c(4), cmap_tab20c(12)],
     'light': [cmap_tab20c(1), cmap_tab20c(9), cmap_tab20c(5), cmap_tab20c(13)],
