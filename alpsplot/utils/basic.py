@@ -47,7 +47,8 @@ def normalize(x: np.ndarray,
     return x
 
 
-def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
+def avg_smooth(x: np.ndarray, window: int = 3,
+               method: str = 'mean') -> np.ndarray:
     r"""Average smooth a :any:`numpy.ndarray` using a given window size.
 
     Paddings are added at head and tail.
@@ -55,6 +56,8 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
     Args:
         x (numpy.ndarray): The unsmoothed array.
         window (int): The window size (number of points). Defaults to ``3``.
+        method (str): Choose from ``['mean', 'median', 'min', 'max']``.
+            Defaults to ``'mean'``.
 
     Returns:
         numpy.ndarray: A smoothed array.
@@ -82,19 +85,27 @@ def avg_smooth(x: np.ndarray, window: int = 3) -> np.ndarray:
             :width: 60%
     """
     new_x = np.zeros_like(x)
+    start = window//2
+    expand_x = np.interp(np.arange(len(x) + window), np.arange(len(x)) + start,
+                         x)
     for i in range(len(x)):
-        if i < window // 2:
-            new_x[i] = (x[0] * (window // 2 - i) +
-                        np.sum(x[: i + (window + 1) // 2])) / window
-        elif i >= len(x) - (window - 1) // 2:
-            new_x[i] = (x[-1] * ((window + 1) // 2 - len(x) + i) +
-                        np.sum(x[i - window // 2:])) / window
-        else:
-            new_x[i] = np.mean(x[i - window // 2: i + 1 + (window - 1) // 2])
+        value = expand_x[i: i + window]
+        match method:
+            case 'mean':
+                new_x[i] = np.mean(value)
+            case 'median':
+                new_x[i] = np.median(value)
+            case 'min':
+                new_x[i] = np.min(value)
+            case 'max':
+                new_x[i] = np.max(value)
+            case _:
+                raise NotImplementedError(f'{method} not supported yet.')
     return new_x
 
 
-def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
+def monotone(x: np.ndarray, increase: bool = True,
+             reverse: bool = False) -> np.ndarray:
     r"""Monotonize a :any:`numpy.ndarray`.
 
     All non-monotonic points would be clipped as previous value.
@@ -103,6 +114,8 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
         x (numpy.ndarray): The non-monotonic array.
         increase (bool): Monotonically increase or decrease.
             Defaults to ``True``.
+        reverse (bool): Enable to clip from right to left.
+            Defaults to ``False``.
 
     Returns:
         numpy.ndarray: A monotonic array.
@@ -128,9 +141,12 @@ def monotone(x: np.ndarray, increase: bool = True) -> np.ndarray:
             :width: 60%
     """
     y = np.copy(x)
-    temp: float = min(x) if increase else max(x)
+    ascend = increase != reverse
+    temp: float = min(x) if ascend else max(x)
     for i in range(len(x)):
-        if ((increase and x[i] < temp) or (not increase and x[i] > temp)):
+        if reverse:
+            i = -i-1
+        if ((ascend and x[i] < temp) or (not ascend and x[i] > temp)):
             y[i] = temp
         else:
             temp = x[i]

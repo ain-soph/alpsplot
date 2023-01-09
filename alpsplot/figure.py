@@ -474,7 +474,8 @@ class Figure:
                  linewidth: int = 2, linestyle: str = '-',
                  label: str = None, markerfacecolor: str = 'white',
                  zorder: float = 1, **kwargs) -> 'Line2D':
-        r"""A similar implementation to :any:`seaborn.lineplot() <seaborn.lineplot>`.
+        r"""A similar implementation to
+        :any:`seaborn.lineplot() <seaborn.lineplot>`.
         same x value with different y values will result in
         the error band/bar at that x.
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from alpsplot.utils import *
+from alpsplot.utils import (group_err_bar, flatten_err_bar, adjust_err_bar,
+                            normalize_err_bar, avg_smooth_err_bar)
 import numpy as np
 
 
@@ -53,4 +54,4 @@ def test_avg_smooth_err_bar():
     assert np.allclose(x1, [1., 1., 2., 2., 3., 3.])
     assert np.allclose(y1, [1 / 3, 10 / 3, 1., 4., 5 / 3, 14 / 3])
     assert np.allclose(x2, [1., 1., 2., 2., 3., 3.])
-    assert np.allclose(y2, [0.6, 3.6, 0.3, 3.3, 1.4, 4.4])
+    assert np.allclose(y2, [0.6, 3.6, 1., 4., 1.4, 4.4])

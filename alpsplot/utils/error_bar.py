@@ -10,7 +10,8 @@ __all__ = ['group_err_bar', 'flatten_err_bar', 'adjust_err_bar',
 
 
 def group_err_bar(x: np.ndarray, y: np.ndarray) -> dict[float, np.ndarray]:
-    r"""Group (:attr:`x`, :attr:`y`) to be a dict. ``y_dict[x0] = [y0, y1, ...]``.
+    r"""Group (:attr:`x`, :attr:`y`) to be a dict.
+    ``y_dict[x0] = [y0, y1, ...]``.
 
     Args:
         x (numpy.ndarray): The x array.
@@ -167,7 +168,8 @@ def normalize_err_bar(x: np.ndarray, y: np.ndarray
 
 
 def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
-                       window: int = 3) -> tuple[np.ndarray, np.ndarray]:
+                       window: int = 3, **kwargs
+                       ) -> tuple[np.ndarray, np.ndarray]:
     r"""Average smooth :attr:`x` and :attr:`y` using window size :attr:`window`.
 
     Each :attr:`x` might correspond to multiple :attr:`y` values
@@ -196,9 +198,10 @@ def avg_smooth_err_bar(x: np.ndarray, y: np.ndarray,
         >>> avg_smooth_err_bar(x, y)
         (array([1., 1., 2., 2., 3., 3.]), array([0.33333333, 3.33333333, 1.        , 4.        , 1.66666667, 4.66666667]))
         >>> avg_smooth_err_bar(x, y, window=5)
-        (array([1., 1., 2., 2., 3., 3.]), array([0.6, 3.6, 0.3, 3.3, 1.4, 4.4]))
+        (array([1., 1., 2., 2., 3., 3.]), array([0.6, 3.6, 1. , 4. , 1.4, 4.4]))
     """  # noqa: E501
     y_dict = group_err_bar(x, y)
     y_mean = np.array([y_dict[_x].mean() for _x in y_dict.keys()])
-    y_dict = adjust_err_bar(y_dict, avg_smooth(y_mean, window=window))
+    y_dict = adjust_err_bar(
+        y_dict, avg_smooth(y_mean, window=window, **kwargs))
     return flatten_err_bar(y_dict)

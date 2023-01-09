@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from alpsplot.utils import *
+from alpsplot.utils import normalize, avg_smooth, monotone
 import numpy as np
 
 
@@ -20,6 +20,14 @@ def test_avg_smooth():
     avg_smooth(y)
     avg_smooth(y, window=10)
     avg_smooth(y, window=100)
+    avg_smooth(y, window=100, method='mean')
+    avg_smooth(y, window=100, method='median')
+    avg_smooth(y, window=100, method='min')
+    avg_smooth(y, window=100, method='max')
+    try:
+        avg_smooth(y, window=100, method='wrong')
+    except NotImplementedError:
+        pass
 
 
 def test_monotone():
@@ -27,3 +35,4 @@ def test_monotone():
     y = x + 3 * np.sin(x)
     monotone(y)
     monotone(y, increase=False)
+    monotone(y, increase=False, reverse=True)

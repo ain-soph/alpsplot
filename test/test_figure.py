@@ -3,6 +3,8 @@
 from alpsplot.figure import Figure
 import numpy as np
 import pytest
+import os
+import shutil
 
 
 def test_style():
@@ -14,8 +16,10 @@ def test_style():
 
 
 def test_save():
-    fig = Figure('test_set_title',
-                 folder_path='./output/abc/')
+    folder_path = './output/abc/'
+    fig = Figure('test_set_title', folder_path=folder_path)
+    if os.path.isdir(folder_path):
+        shutil.rmtree(folder_path)
     fig.save()
     fig.save(path='./output/abc/c.pdf')
     fig.save(filename='c.svg')
