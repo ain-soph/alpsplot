@@ -96,7 +96,7 @@ root_doc = 'index'
 release = pkg_version
 version = release if release.find('a') == -1 else release[:release.find('a')]
 
-language = None
+language = 'en'
 exclude_patterns = []
 
 # -- General default extension configuration ------------------------------
@@ -106,6 +106,8 @@ autodoc_docstring_signature = True
 autodoc_inherit_docstrings = False
 autodoc_typehints = 'none'
 
+# toc_object_entries = True
+# toc_object_entries_show_parents = "domain"
 autoapi_type = 'python'
 autoapi_generate_api_docs = False
 
