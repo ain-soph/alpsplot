@@ -200,7 +200,7 @@ class Figure:
     def save(self, path: str = None,
              folder_path: str = None, filename: str = None,
              name: str = None, ext: str = '.pdf',
-             dpi: int = 100, bbox_inches: str = 'tight',
+             dpi: int = 100, bbox_inches: str = 'tight', pad_inches: float = 0.,
              **kwargs):
         r"""Class methods are similar to regular functions.
 
@@ -260,7 +260,7 @@ class Figure:
             folder_path = os.path.dirname(path)
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
-        self.fig.savefig(path, dpi=dpi, bbox_inches=bbox_inches, **kwargs)
+        self.fig.savefig(path, dpi=dpi, bbox_inches=bbox_inches, pad_inches=pad_inches, **kwargs)
 
     def set_title(self, text: str = None, **kwargs):
         r"""Call :any:`Axes.set_title() <matplotlib.axes.Axes.set_title>`.
