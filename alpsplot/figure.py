@@ -200,8 +200,8 @@ class Figure:
     def save(self, path: str = None,
              folder_path: str = None, filename: str = None,
              name: str = None, ext: str = '.pdf',
-             dpi: int = 100, bbox_inches: str = 'tight', pad_inches: float = 0.,
-             **kwargs):
+             dpi: int = 100, bbox_inches: str = 'tight',
+             pad_inches: float = 0.0, **kwargs):
         r"""Class methods are similar to regular functions.
 
         Args:
@@ -221,6 +221,9 @@ class Figure:
             bbox_inches (str): Passed to
                 :any:`Figure.savefig() <matplotlib.figure.Figure.savefig>`.
                 Defaults to ``'tight'``.
+            pad_inches (float): Passed to
+                :any:`Figure.savefig() <matplotlib.figure.Figure.savefig>`.
+                Defaults to ``0.0``.
             **kwargs: Keyword arguments passed to
                 :any:`Figure.savefig() <matplotlib.figure.Figure.savefig>`.
 
