@@ -16,7 +16,7 @@ pkg_file = package.__file__
 pkg_version = str(package.__version__)
 pkg_location = path.dirname(path.dirname(pkg_file))
 
-autoapi_dirs = ['../../alpsplot']
+# autoapi_dirs = ['../../alpsplot']
 
 # -- General configuration ------------------------------------------------
 
@@ -57,15 +57,16 @@ html_theme_options = {
 # -- Extension configuration ----------------------------------------------
 
 extensions = [
-    # 'sphinx.ext.autodoc',
+    'sphinx.ext.autodoc',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
     'sphinx.ext.linkcode',  # viewcode
     'sphinx.ext.napoleon',
+    'sphinxcontrib.jquery',
     'sphinxcontrib.katex',
     'sphinx_copybutton',
-    'autoapi.extension',
+    # 'autoapi.extension',
 ]
 
 
@@ -106,10 +107,10 @@ autodoc_docstring_signature = True
 autodoc_inherit_docstrings = False
 autodoc_typehints = 'none'
 
-# toc_object_entries = True
-# toc_object_entries_show_parents = "domain"
-autoapi_type = 'python'
-autoapi_generate_api_docs = False
+toc_object_entries = True
+toc_object_entries_show_parents = "hide"
+# autoapi_type = 'python'
+# autoapi_generate_api_docs = False
 
 # autosectionlabel options
 # autosectionlabel throws warnings if section names are duplicated.
