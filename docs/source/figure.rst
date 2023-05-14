@@ -5,7 +5,7 @@ figure
 
 .. currentmodule:: alpsplot.figure
 
-.. automodule:: alpsplot.figure
-
 .. autoclass:: Figure
    :members:
+
+.. automodule:: alpsplot.figure
