@@ -404,8 +404,11 @@ class Figure:
 
         """  # noqa: E501
         final_lim = lim[0] - margin[0], lim[1] + margin[1]
-        ticks = np.append(
-            np.arange(lim[0], lim[1], (lim[1] - lim[0]) / piece), lim[1])
+        if piece == 0:
+            ticks = np.array([lim[0]])
+        else:
+            ticks = np.append(
+                np.arange(lim[0], lim[1], (lim[1] - lim[0]) / piece), lim[1])
         getattr(self.ax, f'set_{axis}lim')(*final_lim)
         getattr(self.ax, f'set_{axis}ticks')(ticks)
         if labels is not None:
