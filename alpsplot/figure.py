@@ -331,7 +331,7 @@ class Figure:
 
     def set_axis_lim(self, axis: str, labels: list[str] = None,
                      lim: tuple[float, float] = (0.0, 1.0),
-                     margin: tuple[float, tuple] = (0.0, 0.0),
+                     margin: float | tuple[float, float] = 0.0,
                      piece: int = 10, _format: str = None,
                      **kwargs):
         r"""Set ticks and their labels for axis.
@@ -366,9 +366,9 @@ class Figure:
                 Defaults to ``None``.
             lim (tuple[str, str]): The limit of axis ticks.
                 Defaults to ``(0.0, 1.0)``.
-            margin (tuple[str, str]): The margin at
+            margin (float | tuple[str, str]): The margin at
                 head and tail of axis ticks.
-                Defaults to ``(0.0, 0.0)``.
+                Defaults to ``0.0``.
             piece (int): The number of axis ticks - 1.
                 The interval among ticks are
                 :math:`\frac{\text{lim}[1] - \text{lim}[0]}{\text{piece}}`.
@@ -403,6 +403,8 @@ class Figure:
                 :width: 60%
 
         """  # noqa: E501
+        if isinstance(margin, float):
+            margin = (margin, margin)
         final_lim = lim[0] - margin[0], lim[1] + margin[1]
         if piece == 0:
             ticks = np.array([lim[0]])

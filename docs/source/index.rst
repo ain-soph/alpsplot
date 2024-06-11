@@ -1,9 +1,20 @@
 
-AlpsPlot documentation
+Examples
 ======================
 
 .. toctree::
-   :caption: AlpsPlot Documentation
+   :caption: Examples
+   :titlesonly:
+   :maxdepth: 1
+
+   examples/math
+
+
+Documentation
+======================
+
+.. toctree::
+   :caption: Documentation
    :titlesonly:
    :maxdepth: 2
 

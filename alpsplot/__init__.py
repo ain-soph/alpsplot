@@ -12,4 +12,4 @@ from .utils import fonts
 __all__ = ['colormap', 'Figure', 'utils']
 
 fonts.main()
-plt.style.use(os.path.join(os.path.dirname(__file__), 'alpsplot.mplstyle'))
+plt.style.use(os.path.join(os.path.dirname(__file__), 'optima.mplstyle'))
