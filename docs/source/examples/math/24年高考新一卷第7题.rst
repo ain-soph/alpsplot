@@ -1,7 +1,9 @@
-math
+.. _math.24年高考新一卷第7题:
+
+24年高考新一卷第7题
 ==================================
 
-.. image:: /images/examples/math.svg
+.. image:: /images/examples/24年高考新一卷第7题.svg
     :width: 100%
 
 .. code-block:: python
@@ -43,5 +45,3 @@ math
         x, y2, label=r'$2\sin(3x-\frac{\pi}{6})$', color=ting_color['blue'])
     figure.set_legend(ncols=2, loc='upper center')
     figure.save(ext='.svg')
-
-

@@ -5,9 +5,9 @@ Examples
 .. toctree::
    :caption: Examples
    :titlesonly:
-   :maxdepth: 1
+   :maxdepth: 2
 
-   examples/math
+   examples/math/math
 
 
 Documentation
