@@ -1,15 +1,4 @@
 
-Examples
-======================
-
-.. toctree::
-   :caption: Examples
-   :titlesonly:
-   :maxdepth: 2
-
-   examples/math/math
-
-
 Documentation
 ======================
 
@@ -20,6 +9,17 @@ Documentation
 
    figure
    utils/index
+
+
+Examples
+======================
+
+.. toctree::
+   :caption: Examples
+   :titlesonly:
+   :maxdepth: 2
+
+   examples/math/math
 
 
 Indices and tables
