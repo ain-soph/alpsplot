@@ -32,7 +32,7 @@
         margin=0.3,
         piece=12,
         labels=[
-            r'$-2\pi$', r'$-\frac{5}{3}\pi$', r'$\frac{4}{3}\pi$',
+            r'$-2\pi$', r'$-\frac{5}{3}\pi$', r'-$\frac{4}{3}\pi$',
             r'$-\pi$', r'$-\frac{2}{3}\pi$', r'$-\frac{1}{3}\pi$',
             r'$0$',
             r'$\frac{1}{3}\pi$', r'$\frac{2}{3}\pi$', r'$\pi$',
