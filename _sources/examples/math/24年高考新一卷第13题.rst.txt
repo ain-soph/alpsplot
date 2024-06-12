@@ -1,0 +1,38 @@
+.. _math.24年高考新一卷第13题:
+
+24年高考新一卷第13题
+==================================
+
+.. image:: /images/examples/24年高考新一卷第13题.svg
+    :width: 100%
+
+.. code-block:: python
+
+    import numpy as np
+
+    import alpsplot
+    from alpsplot.colormap import ting_color
+
+    x = np.arange(-2, 2, step=1e-2)
+    y1 = np.exp(x)+x
+    y3 = 2*x+1
+
+    x2 = np.arange(-1+1e-6, 2, step=1e-4)
+    y2 = np.log(x2+1)+np.log(2)
+
+    figure = alpsplot.Figure(figsize=(10, 5))
+    figure.ax.grid(axis='both', linewidth=1, alpha=0.5)
+    figure.ax.axhline(0, color='black', linewidth=1)
+    figure.ax.axvline(0, color='black', linewidth=1)
+
+    figure.set_title('24年高考新一卷第13题', font='Microsoft YaHei', size=25)
+    figure.set_axis_label(axis='x', text='x')
+    figure.set_axis_label(axis='y', text='y')
+    figure.set_axis_lim('x', lim=[-1, 1], margin=(0.1, 0.1), piece=4, _format='%.1f')
+    figure.set_axis_lim('y', lim=[-2, 2], margin=(0.1, 0.1), piece=4)
+    figure.lineplot(x, y1, label=r'$e^x+x$', color=ting_color['red'])
+    figure.lineplot(x2, y2, label=r'$\ln(x+1)+\ln(2)$', color=ting_color['blue'])
+    figure.lineplot(x, y3, label=r'$2x+1$',
+                    color=ting_color['green'], linestyle='--')
+    figure.set_legend()
+    figure.save(ext='.svg')
