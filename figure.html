@@ -1,0 +1,1312 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>figure &mdash; AlpsPlot 1.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="utils" href="utils/index.html" />
+  <link rel="prev" title="Documentation" href="index.html" /> 
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+
+<div class="container-fluid header-holder docs-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="/" aria-label="AlpsPlot"></a>
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          <li class="active docs-active">
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a class="resource-option with-down-orange-arrow">
+                Docs
+              </a>
+              <div class="resources-dropdown-menu">
+                  <a class="doc-dropdown-option nav-dropdown-item active" href="/alpsplot">
+                  <span class="dropdown-title">AlpsPlot</span>
+                  <p></p>
+                </a>
+                  <a class="doc-dropdown-option nav-dropdown-item" href="/trojanzoo">
+                  <span class="dropdown-title">TrojanZoo</span>
+                  <p></p>
+                </a>
+                  <a class="doc-dropdown-option nav-dropdown-item" href="/trojanzoo_sphinx_theme">
+                  <span class="dropdown-title">trojanzoo_sphinx_theme</span>
+                  <p></p>
+                </a>
+                  <a class="doc-dropdown-option nav-dropdown-item" href="https://github.com/ain-soph/base">
+                  <span class="dropdown-title">base</span>
+                  <p></p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="https://github.com/ain-soph/alpsplot/">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="sphinx-template-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="sphinx-template-nav-shift" class="sphinx-template-left-menu" id="sphinx-template-left-menu">
+    <div class="sphinx-template-side-scroll">
+      <div class="sphinx-template-menu sphinx-template-menu-vertical" data-spy="affix" role="navigation"
+        aria-label="main navigation">
+        <div class="sphinx-template-left-menu-search">
+          
+
+          
+          
+          
+          <div class="version">
+            1.2.0
+          </div>
+          
+          
+
+          
+
+
+<div role="search">
+  <form id="rtd-search-form" class="sphinx-template-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">figure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/index.html">utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils/basic.html">basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils/error_bar.html">error_bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils/fit.html">fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils/fonts.html">fonts</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/math/math.html">math</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/math/24%E5%B9%B4%E9%AB%98%E8%80%83%E6%96%B0%E4%B8%80%E5%8D%B7%E7%AC%AC7%E9%A2%98.html">24年高考新一卷第7题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/math/24%E5%B9%B4%E9%AB%98%E8%80%83%E6%96%B0%E4%B8%80%E5%8D%B7%E7%AC%AC13%E9%A2%98.html">24年高考新一卷第13题</a></li>
+</ul>
+</li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="sphinx-template-container">
+    <div class="sphinx-template-page-level-bar" id="sphinx-template-page-level-bar">
+      <div class="sphinx-template-breadcrumbs-wrapper">
+        <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="sphinx-template-breadcrumbs">
+      <li><a href="index.html" class="fa fa-large fa-home">Docs</a> &gt;</li>
+      <li>figure</li>
+      <li class="sphinx-template-breadcrumbs-aside">
+              <a href="https://github.com/ain-soph/alpsplot/blob/main/docs/source/figure.rst" class="fa fa-large fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+</div>
+      </div>
+
+      <div class="sphinx-template-shortcuts-wrapper" id="sphinx-template-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="sphinx-template-nav-shift" id="sphinx-template-content-wrap" class="sphinx-template-content-wrap">
+      <div class="sphinx-template-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="sphinx-template-article" class="sphinx-template-article">
+                
+  <section id="figure">
+<span id="alpsplot-figure"></span><h1>figure<a class="headerlink" href="#figure" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alpsplot.figure.</span></span><span class="sig-name descname"><span class="pre">Figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'figure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./output/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">2.5)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L150-L927"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure" title="Link to this definition">¶</a></dt>
+<dd><p>The Figure wrapper class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Figure name used as default value of
+<a class="reference internal" href="#alpsplot.figure.Figure.save" title="alpsplot.figure.Figure.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a> and <a class="reference internal" href="#alpsplot.figure.Figure.set_title" title="alpsplot.figure.Figure.set_title"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_title()</span></code></a>.</p></li>
+<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Folder path used as default value of <a class="reference internal" href="#alpsplot.figure.Figure.save" title="alpsplot.figure.Figure.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'./output/'</span></code>.</p></li>
+<li><p><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.9.2)"><em>Figure</em></a><em>, </em><em>optional</em>) – The pre-defined Figure.
+Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">pyplot.figure()</span></code></a>
+to generate. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.9.2)"><em>Axes</em></a><em>, </em><em>optional</em>) – The pre-defined Axes.
+Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">pyplot.figure()</span></code></a>
+to generate. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>]</em>) – Passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">pyplot.figure()</span></code></a>
+when <code class="xref py py-attr docutils literal notranslate"><span class="pre">fig</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">ax</span></code> are not set.
+Recommend to use <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">2.5)</span></code> for singular plot
+and <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">3.75)</span></code> for subplots.
+Defaults to <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">2.5)</span></code></p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">pyplot.figure()</span></code></a>
+when <code class="xref py py-attr docutils literal notranslate"><span class="pre">fig</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">ax</span></code> are not set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Figure name used as default value of
+<a class="reference internal" href="#alpsplot.figure.Figure.save" title="alpsplot.figure.Figure.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a> and <a class="reference internal" href="#alpsplot.figure.Figure.set_title" title="alpsplot.figure.Figure.set_title"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_title()</span></code></a>.</p></li>
+<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Folder path used as default value of <a class="reference internal" href="#alpsplot.figure.Figure.save" title="alpsplot.figure.Figure.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'./output/'</span></code>.</p></li>
+<li><p><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.9.2)"><em>Figure</em></a>) – Figure object.</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.9.2)"><em>Axes</em></a>) – Axes object.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.autolabel">
+<span class="sig-name descname"><span class="pre">autolabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">above</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L858-L915"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.autolabel" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.annotate.html#matplotlib.axes.Axes.annotate" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.annotate()</span></code></a>
+to attach a text label above each bar in <code class="xref py py-attr docutils literal notranslate"><span class="pre">rects</span></code>,
+displaying its height.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rects</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/container_api.html#matplotlib.container.BarContainer" title="(in Matplotlib v3.9.2)"><em>BarContainer</em></a>) – The bar rectangles
+to annotate.</p></li>
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, it would be <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">if</span> <span class="pre">above</span> <span class="pre">else</span> <span class="pre">-13</span></code>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>above</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Whether to put the text above the rects.
+Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The fontsize of text.
+Defaults to <code class="docutils literal notranslate"><span class="pre">7</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.annotate.html#matplotlib.axes.Axes.annotate" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.annotate()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;autolabel&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                    <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                    <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                    <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                    <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rects1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bar1&#39;</span><span class="p">)</span>
+<span class="n">rects2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bar2&#39;</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">autolabel</span><span class="p">(</span><span class="n">rects1</span><span class="p">)</span>
+</span><span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">autolabel</span><span class="p">(</span><span class="n">rects2</span><span class="p">,</span> <span class="n">above</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/autolabel.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/autolabel.svg"><img alt="_images/autolabel.svg" src="_images/autolabel.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.bar">
+<span class="sig-name descname"><span class="pre">bar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'edge'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L703-L768"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.bar" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.bar()</span></code></a>
+to plot bars.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The x array.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The y array.</p></li>
+<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The width of the bars.
+Defaults to <code class="docutils literal notranslate"><span class="pre">0.8</span></code>.</p></li>
+<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The colors of the bar faces.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'black'</span></code>.</p></li>
+<li><p><strong>edgecolor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the bar edge color.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'white'</span></code>.</p></li>
+<li><p><strong>align</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – <p>Alignment of the bars to the <code class="docutils literal notranslate"><span class="pre">x</span></code> coordinates.</p>
+<p>Possible values: <code class="docutils literal notranslate"><span class="pre">['center',</span> <span class="pre">'edge']</span></code>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'edge'</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'center'</span></code>: Center the base on the x positions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'edge'</span></code>: Align the left edges of the bars
+with the <code class="docutils literal notranslate"><span class="pre">x</span></code> positions.</p></li>
+</ul>
+</p></li>
+<li><p><strong>linewidth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Width of the bar edges.
+If <code class="docutils literal notranslate"><span class="pre">0</span></code>, don’t draw edges.
+Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set a label that will be displayed in the legend.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.bar()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>~matplotlib.container.BarContainer</em> –     Container with all the bars and optionally errorbars.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                    <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                    <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                    <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                    <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bar1&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bar2&#39;</span><span class="p">)</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/bar.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/bar.svg"><img alt="_images/bar.svg" src="_images/bar.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.curve_legend">
+<span class="sig-name descname"><span class="pre">curve_legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markerfacecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L586-L633"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.curve_legend" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.plot()</span></code></a>
+to plot an empty line for legend,</p>
+<p>which is helpful for setting marker-with-line
+legend of <a class="reference internal" href="#alpsplot.figure.Figure.scatter" title="alpsplot.figure.Figure.scatter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">scatter()</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set a label that will be displayed in the legend.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the color of the line.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'black'</span></code>.</p></li>
+<li><p><strong>linewidth</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the line width in points.
+Defaults to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p><strong>linestyle</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the linestyle of the line.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'-'</span></code>.</p></li>
+<li><p><strong>markerfacecolor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the marker face color.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'white'</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.plot()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>~matplotlib.lines.Line2D</em> – An invisible line object.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;curve_legend&#39;</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">curve_legend</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span>
+</span><span class="hll">                 <span class="n">label</span><span class="o">=</span><span class="s1">&#39;curve_legend&#39;</span><span class="p">)</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/curve_legend.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/curve_legend.svg"><img alt="_images/curve_legend.svg" src="_images/curve_legend.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.hist">
+<span class="sig-name descname"><span class="pre">hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L770-L856"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.hist" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.hist.html#matplotlib.axes.Axes.hist" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.hist()</span></code></a>
+to plot a histogram.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The x array.</p></li>
+<li><p><strong>bins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.12)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – <p>Defaults to be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>: it defines the number of
+equal-width bins in the range.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>: it defines the bin edges,
+including the left edge of the first bin
+and the right edge of the last bin.</p>
+<p>In this case, bins may be unequally spaced.
+All but the last (righthand-most) bin is half-open.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If bins is: <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>,
+then the first bin is <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2)</span></code>
+(including 1, but excluding 2)
+and the second <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3)</span></code>.
+The last bin, however,
+is <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">4]</span></code>, which includes 4.</p>
+</div>
+</li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>: it is one of the binning strategies
+supported by <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges" title="(in NumPy v2.1)"><code class="xref any docutils literal notranslate"><span class="pre">numpy.histogram_bin_edges</span></code></a>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">['auto',</span> <span class="pre">'fd',</span> <span class="pre">'doane',</span> <span class="pre">'scott',</span>
+<span class="pre">'stone',</span> <span class="pre">'rice',</span> <span class="pre">'sturges',</span> <span class="pre">'sqrt']</span></code>.</p>
+</li>
+</ul>
+</p></li>
+<li><p><strong>density</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – <p>Defaults to be <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">True</span></code>, draw and return a probability density.</p>
+<p>Each bin will display the bin’s raw count
+divided by the total number of counts
+and the bin width:</p>
+<p><code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">=</span> <span class="pre">counts</span> <span class="pre">/</span> <span class="pre">(sum(counts)</span> <span class="pre">*</span> <span class="pre">np.diff(bins))</span></code>,</p>
+<p>so that the area under the histogram integrates to 1:</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.sum(density</span> <span class="pre">*</span> <span class="pre">np.diff(bins))</span> <span class="pre">==</span> <span class="pre">1</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If stacked is also True,
+the sum of the histograms is normalized to 1.</p>
+</div>
+</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.hist.html#matplotlib.axes.Axes.hist" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.hist()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>~matplotlib.container.BarContainer</em> –     Container with all the bars and optionally errorbars.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span>
+                    <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">piece</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+                    <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">piece</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+</span><span class="hll">         <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/hist.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/hist.svg"><img alt="_images/hist.svg" src="_images/hist.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.lineplot">
+<span class="sig-name descname"><span class="pre">lineplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'band'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markerfacecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L479-L584"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.lineplot" title="Link to this definition">¶</a></dt>
+<dd><p>A similar implementation to
+<a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.lineplot.html#seaborn.lineplot" title="(in seaborn v0.13.2)"><code class="xref any docutils literal notranslate"><span class="pre">seaborn.lineplot()</span></code></a>.
+same x value with different y values will result in
+the error band/bar at that x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The x array.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The y array.</p></li>
+<li><p><strong>err</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The x array. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>err_style</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Whether to draw the confidence intervals
+with translucent error bands or discrete error bars.
+Possible values: <code class="docutils literal notranslate"><span class="pre">['band',</span> <span class="pre">'bars']</span></code>
+Defaults to <code class="docutils literal notranslate"><span class="pre">'band'</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the color of the line.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'black'</span></code>.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Set the alpha value used for blending
+- not supported on all backends.
+It must be within the 0-1 range.
+Defaults to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p></li>
+<li><p><strong>linewidth</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the line width in points.
+Defaults to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p><strong>linestyle</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the linestyle of the line.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'-'</span></code>.</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set a label that will be displayed in the legend.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>markerfacecolor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the marker face color.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'white'</span></code>.</p></li>
+<li><p><strong>zorder</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Set the zorder for the artist.
+Artists with lower zorder values are drawn first.
+Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.plot()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>list[matplotlib.lines.Line2D]</em> –     A list of lines representing the plotted data.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;lineplot&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">)</span>
+</span>
+<span class="n">x_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y_mean</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">y_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y_mean</span><span class="o">-</span><span class="n">noise</span><span class="p">,</span> <span class="n">y_mean</span><span class="p">,</span> <span class="n">y_mean</span><span class="o">+</span><span class="n">noise</span><span class="p">))</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x_err</span><span class="p">,</span> <span class="n">y_err</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;error band&#39;</span><span class="p">)</span>
+</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y_mean</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="n">y_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y_mean</span><span class="o">-</span><span class="n">noise</span><span class="p">,</span> <span class="n">y_mean</span><span class="p">,</span> <span class="n">y_mean</span><span class="o">+</span><span class="n">noise</span><span class="p">))</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x_err</span><span class="p">,</span> <span class="n">y_err</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;error bar&#39;</span><span class="p">,</span>
+</span><span class="hll">             <span class="n">err_style</span><span class="o">=</span><span class="s1">&#39;bars&#39;</span><span class="p">)</span>
+</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/lineplot.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/lineplot.svg"><img alt="_images/lineplot.svg" src="_images/lineplot.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.pdf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbox_inches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tight'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_inches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L200-L266"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.save" title="Link to this definition">¶</a></dt>
+<dd><p>Class methods are similar to regular functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – The file path to save the figure.
+Defaults to <code class="docutils literal notranslate"><span class="pre">f'{folder_path}/{filename}'</span></code>.</p></li>
+<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – Called when <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+Defaults to <code class="xref py py-attr docutils literal notranslate"><span class="pre">folder_path</span></code>.</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – Called when <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">f'{name}{ext}'</span></code>.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – Called when <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+Defaults to <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.name</span></code>.</p></li>
+<li><p><strong>ext</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Called when <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'.pdf'</span></code>.</p></li>
+<li><p><strong>dpi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html#matplotlib.figure.Figure.savefig" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Figure.savefig()</span></code></a>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p></li>
+<li><p><strong>bbox_inches</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html#matplotlib.figure.Figure.savefig" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Figure.savefig()</span></code></a>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'tight'</span></code>.</p></li>
+<li><p><strong>pad_inches</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html#matplotlib.figure.Figure.savefig" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Figure.savefig()</span></code></a>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html#matplotlib.figure.Figure.savefig" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Figure.savefig()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;save&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/save.svg&#39;</span>
+</span></pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/save.svg"><img alt="_images/save.svg" src="_images/save.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.scatter">
+<span class="sig-name descname"><span class="pre">scatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'D'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L635-L701"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.scatter" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.scatter()</span></code></a>
+to plot scatters.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The x array.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>numpy.ndarray</em></a>) – The y array.</p></li>
+<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the color of the line.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'black'</span></code>.</p></li>
+<li><p><strong>linewidth</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the line width in points.
+Defaults to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p><strong>marker</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The marker style.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'D'</span></code>.</p></li>
+<li><p><strong>facecolor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set the marker face color.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'white'</span></code>.</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Set a label that will be displayed in the legend.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>curve_legend</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Whether the legend contains
+a line around the marker.
+Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>zorder</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Set the zorder for the artist.
+Artists with lower zorder values are drawn first.
+Defaults to <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.scatter()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>~matplotlib.collections.PathCollection</em> – A collection of Paths.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;curve_legend&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">curve_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/scatter.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/scatter.svg"><img alt="_images/scatter.svg" src="_images/scatter.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.set_axis_label">
+<span class="sig-name descname"><span class="pre">set_axis_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L298-L330"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.set_axis_label" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xlabel.html#matplotlib.axes.Axes.set_xlabel" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_xlabel()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_ylabel.html#matplotlib.axes.Axes.set_ylabel" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_ylabel()</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The axis to set label.
+Possible values: <code class="docutils literal notranslate"><span class="pre">['x',</span> <span class="pre">'y',</span> <span class="pre">'z']</span></code>.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The text of axis label.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xlabel.html#matplotlib.axes.Axes.set_xlabel" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_xlabel()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_ylabel.html#matplotlib.axes.Axes.set_ylabel" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_ylabel()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>~matplotlib.text.Text</em> –     The matplotlib text instance representing the axis label.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;set_axis_label&#39;</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">set_axis_label</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x label&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">set_axis_label</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y label&#39;</span><span class="p">)</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/set_axis_label.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/set_axis_label.svg"><img alt="_images/set_axis_label.svg" src="_images/set_axis_label.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.set_axis_lim">
+<span class="sig-name descname"><span class="pre">set_axis_lim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">piece</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L332-L422"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.set_axis_lim" title="Link to this definition">¶</a></dt>
+<dd><p>Set ticks and their labels for axis.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">set_lim</span></code></p></td>
+<td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xlim.html#matplotlib.axes.Axes.set_xlim" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_xlim()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_ylim.html#matplotlib.axes.Axes.set_ylim" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_ylim()</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set_ticks</span></code></p></td>
+<td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xticks.html#matplotlib.axes.Axes.set_xticks" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_xticks()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yticks.html#matplotlib.axes.Axes.set_yticks" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_yticks()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">set_ticklabels</span></code></p></td>
+<td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xticklabels.html#matplotlib.axes.Axes.set_xticklabels" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_xticklabels()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yticklabels.html#matplotlib.axes.Axes.set_yticklabels" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_yticklabels()</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<pre class="literal-block">set_lim(lim[0] - margin[0], lim[1] + margin[1])
+set_ticks(lim[0], lim[0] + <span class="math"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mtext>lim</mtext><mo stretchy="false">[</mo><mn>1</mn><mo stretchy="false">]</mo><mo>−</mo><mtext>lim</mtext><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{\text{lim}[1] - \text{lim}[0]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3651em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">lim</span></span><span class="mopen mtight">[</span><span class="mord mtight">1</span><span class="mclose mtight">]</span><span class="mbin mtight">−</span><span class="mord text mtight"><span class="mord mtight">lim</span></span><span class="mopen mtight">[</span><span class="mord mtight">0</span><span class="mclose mtight">]</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>, <span class="math"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>…</mo></mrow><annotation encoding="application/x-tex">\dots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.123em;"></span><span class="minner">…</span></span></span></span></span>, lim[1])
+if labels is not None:
+    set_ticklabels(labels, **kwargs)
+elif _format is not None:
+    format_str = <a class="reference external" href="https://matplotlib.org/stable/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">ticker.FormatStrFormatter</span></code></a>(_format)
+    <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axis.Axis.set_major_formatter.html#matplotlib.axis.Axis.set_major_formatter" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axis.set_major_formatter</span></code></a>(format_str)</pre>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The axis to set label.
+Possible values: <code class="docutils literal notranslate"><span class="pre">['x',</span> <span class="pre">'y',</span> <span class="pre">'z']</span></code>.</p></li>
+<li><p><strong>labels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The text of axis tick labels.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>lim</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The limit of axis ticks.
+Defaults to <code class="docutils literal notranslate"><span class="pre">(0.0,</span> <span class="pre">1.0)</span></code>.</p></li>
+<li><p><strong>margin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – The margin at
+head and tail of axis ticks.
+Defaults to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+<li><p><strong>piece</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The number of axis ticks - 1.
+The interval among ticks are
+<span class="math"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mtext>lim</mtext><mo stretchy="false">[</mo><mn>1</mn><mo stretchy="false">]</mo><mo>−</mo><mtext>lim</mtext><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mtext>piece</mtext></mfrac></mrow><annotation encoding="application/x-tex">\frac{\text{lim}[1] - \text{lim}[0]}{\text{piece}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.4911em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">piece</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">lim</span></span><span class="mopen mtight">[</span><span class="mord mtight">1</span><span class="mclose mtight">]</span><span class="mbin mtight">−</span><span class="mord text mtight"><span class="mord mtight">lim</span></span><span class="mopen mtight">[</span><span class="mord mtight">0</span><span class="mclose mtight">]</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></li>
+<li><p><strong>_format</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The format of tick labels used in
+<a class="reference external" href="https://matplotlib.org/stable/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">ticker.FormatStrFormatter</span></code></a>
+(e.g., ‘%.1f’ or ‘%d’).
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xticklabels.html#matplotlib.axes.Axes.set_xticklabels" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_xticklabels()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yticklabels.html#matplotlib.axes.Axes.set_yticklabels" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_yticklabels()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;set_axis_lim&#39;</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">),</span>
+</span><span class="hll">                 <span class="n">piece</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="s1">&#39;l3&#39;</span><span class="p">],</span>
+</span><span class="hll">                 <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">),</span>
+</span><span class="hll">                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span>
+</span><span class="hll">                 <span class="n">piece</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/set_axis_lim.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/set_axis_lim.svg"><img alt="_images/set_axis_lim.svg" src="_images/set_axis_lim.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.set_legend">
+<span class="sig-name descname"><span class="pre">set_legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frameon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">framealpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L424-L477"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.set_legend" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html#matplotlib.axes.Axes.legend" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.legend()</span></code></a>
+to set legend of <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.ax</span></code>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – Passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html#matplotlib.axes.Axes.legend" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.legend()</span></code></a>.</p></li>
+<li><p><strong>frameon</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Whether the legend
+should be drawn on a patch (frame).
+Defaults to <code class="docutils literal notranslate"><span class="pre">rcParams[&quot;legend.frameon&quot;]=True</span></code>.</p></li>
+<li><p><strong>framealpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The alpha transparency
+of the legend’s background.
+If shadow is activated and framealpha is None,
+the default value is ignored.
+Defaults to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+<li><p><strong>edgecolor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The legend’s background patch edge color.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'none'</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html#matplotlib.axes.Axes.legend" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.legend()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>~matplotlib.legend.Legend</em> – The matplotlib legend instance.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;set_legend&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_axis_lim</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                 <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                 <span class="n">piece</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;set_legend&#39;</span><span class="p">)</span>
+
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/set_legend.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/set_legend.svg"><img alt="_images/set_legend.svg" src="_images/set_legend.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alpsplot.figure.Figure.set_title">
+<span class="sig-name descname"><span class="pre">set_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/ain-soph/alpsplot/blob/main/alpsplot/figure.py#L268-L296"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#alpsplot.figure.Figure.set_title" title="Link to this definition">¶</a></dt>
+<dd><p>Call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_title()</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – The text of title.
+Defaults to <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.name</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Axes.set_title()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>~matplotlib.text.Text</em> –     The matplotlib text instance representing the title.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">alpsplot.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="s1">&#39;set_title&#39;</span><span class="p">)</span>
+<span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;A New Title&#39;</span><span class="p">)</span>
+</span><span class="n">fig</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.svg&#39;</span><span class="p">)</span>  <span class="c1"># &#39;./output/set_title.svg&#39;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/set_title.svg"><img alt="_images/set_title.svg" src="_images/set_title.svg" style="width: 60%;" />
+</a>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="linestyles">
+<span id="module-alpsplot.figure"></span><h2><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle">Linestyles</a><a class="headerlink" href="#linestyles" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Linestyle</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'-'</span></code> or <code class="docutils literal notranslate"><span class="pre">'solid'</span></code></p></td>
+<td><p>solid line</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'--'</span></code> or  <code class="docutils literal notranslate"><span class="pre">'dashed'</span></code></p></td>
+<td><p>dashed line</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'-.'</span></code> or  <code class="docutils literal notranslate"><span class="pre">'dashdot'</span></code></p></td>
+<td><p>dash-dotted line</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">':'</span></code> or <code class="docutils literal notranslate"><span class="pre">'dotted'</span></code></p></td>
+<td><p>dotted line</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'None'</span></code> or <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code> or <code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>draw nothing</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="markers">
+<h2><a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">Markers</a><a class="headerlink" href="#markers" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>marker</p></th>
+<th class="head"><p>symbol</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code></p></td>
+<td><p><img alt="m00" src="https://matplotlib.org/stable/_images/m00.png" /></p></td>
+<td><p>point</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code></p></td>
+<td><p><img alt="m01" src="https://matplotlib.org/stable/_images/m01.png" /></p></td>
+<td><p>pixel</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code></p></td>
+<td><p><img alt="m02" src="https://matplotlib.org/stable/_images/m02.png" /></p></td>
+<td><p>circle</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;v&quot;</span></code></p></td>
+<td><p><img alt="m03" src="https://matplotlib.org/stable/_images/m03.png" /></p></td>
+<td><p>triangle_down</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;^&quot;</span></code></p></td>
+<td><p><img alt="m04" src="https://matplotlib.org/stable/_images/m04.png" /></p></td>
+<td><p>triangle_up</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;&quot;</span></code></p></td>
+<td><p><img alt="m05" src="https://matplotlib.org/stable/_images/m05.png" /></p></td>
+<td><p>triangle_left</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;&gt;&quot;</span></code></p></td>
+<td><p><img alt="m06" src="https://matplotlib.org/stable/_images/m06.png" /></p></td>
+<td><p>triangle_right</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code></p></td>
+<td><p><img alt="m07" src="https://matplotlib.org/stable/_images/m07.png" /></p></td>
+<td><p>tri_down</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span></code></p></td>
+<td><p><img alt="m08" src="https://matplotlib.org/stable/_images/m08.png" /></p></td>
+<td><p>tri_up</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span></code></p></td>
+<td><p><img alt="m09" src="https://matplotlib.org/stable/_images/m09.png" /></p></td>
+<td><p>tri_left</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;4&quot;</span></code></p></td>
+<td><p><img alt="m10" src="https://matplotlib.org/stable/_images/m10.png" /></p></td>
+<td><p>tri_right</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;8&quot;</span></code></p></td>
+<td><p><img alt="m11" src="https://matplotlib.org/stable/_images/m11.png" /></p></td>
+<td><p>octagon</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;s&quot;</span></code></p></td>
+<td><p><img alt="m12" src="https://matplotlib.org/stable/_images/m12.png" /></p></td>
+<td><p>square</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;p&quot;</span></code></p></td>
+<td><p><img alt="m13" src="https://matplotlib.org/stable/_images/m13.png" /></p></td>
+<td><p>pentagon</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;P&quot;</span></code></p></td>
+<td><p><img alt="m23" src="https://matplotlib.org/stable/_images/m23.png" /></p></td>
+<td><p>plus (filled)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code></p></td>
+<td><p><img alt="m14" src="https://matplotlib.org/stable/_images/m14.png" /></p></td>
+<td><p>star</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;h&quot;</span></code></p></td>
+<td><p><img alt="m15" src="https://matplotlib.org/stable/_images/m15.png" /></p></td>
+<td><p>hexagon1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;H&quot;</span></code></p></td>
+<td><p><img alt="m16" src="https://matplotlib.org/stable/_images/m16.png" /></p></td>
+<td><p>hexagon2</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code></p></td>
+<td><p><img alt="m17" src="https://matplotlib.org/stable/_images/m17.png" /></p></td>
+<td><p>plus</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code></p></td>
+<td><p><img alt="m18" src="https://matplotlib.org/stable/_images/m18.png" /></p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;X&quot;</span></code></p></td>
+<td><p><img alt="m24" src="https://matplotlib.org/stable/_images/m24.png" /></p></td>
+<td><p>x (filled)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;D&quot;</span></code></p></td>
+<td><p><img alt="m19" src="https://matplotlib.org/stable/_images/m19.png" /></p></td>
+<td><p>diamond</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code></p></td>
+<td><p><img alt="m20" src="https://matplotlib.org/stable/_images/m20.png" /></p></td>
+<td><p>thin_diamond</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;|&quot;</span></code></p></td>
+<td><p><img alt="m21" src="https://matplotlib.org/stable/_images/m21.png" /></p></td>
+<td><p>vline</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code></p></td>
+<td><p><img alt="m22" src="https://matplotlib.org/stable/_images/m22.png" /></p></td>
+<td><p>hline</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">TICKLEFT</span></code>)</p></td>
+<td><p><img alt="m25" src="https://matplotlib.org/stable/_images/m25.png" /></p></td>
+<td><p>tickleft</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">TICKRIGHT</span></code>)</p></td>
+<td><p><img alt="m26" src="https://matplotlib.org/stable/_images/m26.png" /></p></td>
+<td><p>tickright</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code> (<code class="docutils literal notranslate"><span class="pre">TICKUP</span></code>)</p></td>
+<td><p><img alt="m27" src="https://matplotlib.org/stable/_images/m27.png" /></p></td>
+<td><p>tickup</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">3</span></code> (<code class="docutils literal notranslate"><span class="pre">TICKDOWN</span></code>)</p></td>
+<td><p><img alt="m28" src="https://matplotlib.org/stable/_images/m28.png" /></p></td>
+<td><p>tickdown</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">4</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETLEFT</span></code>)</p></td>
+<td><p><img alt="m29" src="https://matplotlib.org/stable/_images/m29.png" /></p></td>
+<td><p>caretleft</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">5</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETRIGHT</span></code>)</p></td>
+<td><p><img alt="m30" src="https://matplotlib.org/stable/_images/m30.png" /></p></td>
+<td><p>caretright</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">6</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETUP</span></code>)</p></td>
+<td><p><img alt="m31" src="https://matplotlib.org/stable/_images/m31.png" /></p></td>
+<td><p>caretup</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">7</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETDOWN</span></code>)</p></td>
+<td><p><img alt="m32" src="https://matplotlib.org/stable/_images/m32.png" /></p></td>
+<td><p>caretdown</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">8</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETLEFTBASE</span></code>)</p></td>
+<td><p><img alt="m33" src="https://matplotlib.org/stable/_images/m33.png" /></p></td>
+<td><p>caretleft (centered at base)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">9</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETRIGHTBASE</span></code>)</p></td>
+<td><p><img alt="m34" src="https://matplotlib.org/stable/_images/m34.png" /></p></td>
+<td><p>caretright (centered at base)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">10</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETUPBASE</span></code>)</p></td>
+<td><p><img alt="m35" src="https://matplotlib.org/stable/_images/m35.png" /></p></td>
+<td><p>caretup (centered at base)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">11</span></code> (<code class="docutils literal notranslate"><span class="pre">CARETDOWNBASE</span></code>)</p></td>
+<td><p><img alt="m36" src="https://matplotlib.org/stable/_images/m36.png" /></p></td>
+<td><p>caretdown (centered at base)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;None&quot;</span></code></p></td>
+<td></td>
+<td><p>nothing</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code> or  <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td></td>
+<td><p>nothing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'$...$'</span></code></p></td>
+<td><p><img alt="m37" src="https://matplotlib.org/stable/_images/m37.png" /></p></td>
+<td><p>Render the string using mathtext.
+E.g <code class="docutils literal notranslate"><span class="pre">&quot;$f$&quot;</span></code> for marker showing the
+letter <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">verts</span></code></p></td>
+<td></td>
+<td><p>A list of (x, y) pairs used for Path
+vertices. The center of the marker is
+located at (0, 0) and the size is
+normalized, such that the created path
+is encapsulated inside the unit cell.</p></td>
+</tr>
+<tr class="row-odd"><td><p>path</p></td>
+<td></td>
+<td><p>A <a class="reference external" href="https://matplotlib.org/stable/api/path_api.html#matplotlib.path.Path" title="(in Matplotlib v3.9.2)"><code class="xref any docutils literal notranslate"><span class="pre">Path</span></code></a>
+instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">(numsides,</span> <span class="pre">0,</span> <span class="pre">angle)</span></code></p></td>
+<td></td>
+<td><p>A regular polygon with <code class="docutils literal notranslate"><span class="pre">numsides</span></code>
+sides, rotated by <code class="docutils literal notranslate"><span class="pre">angle</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">(numsides,</span> <span class="pre">1,</span> <span class="pre">angle)</span></code></p></td>
+<td></td>
+<td><p>A star-like symbol with <code class="docutils literal notranslate"><span class="pre">numsides</span></code>
+sides, rotated by <code class="docutils literal notranslate"><span class="pre">angle</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">(numsides,</span> <span class="pre">2,</span> <span class="pre">angle)</span></code></p></td>
+<td></td>
+<td><p>An asterisk with <code class="docutils literal notranslate"><span class="pre">numsides</span></code> sides,
+rotated by <code class="docutils literal notranslate"><span class="pre">angle</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utils/index.html" class="btn btn-neutral float-right" title="utils" accesskey="n" rel="next">Next <img src="_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Documentation" accesskey="p" rel="prev"><img src="_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+  
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, ain-soph.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using <a href="https://github.com/ain-soph/trojanzoo_sphinx_theme">trojanzoo_sphinx_theme</a> (modified from  <a href="https://github.com/ain-soph/pytorch_sphinx_theme">pytorch_sphinx_theme</a>).
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="sphinx-template-content-right" id="sphinx-template-content-right">
+          <div class="sphinx-template-right-menu" id="sphinx-template-right-menu">
+            <div class="sphinx-template-side-scroll" id="sphinx-template-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">figure</a><ul>
+<li><a class="reference internal" href="#alpsplot.figure.Figure"><code class="docutils literal notranslate"><span class="pre">Figure</span></code></a><ul>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.autolabel"><code class="docutils literal notranslate"><span class="pre">autolabel()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.bar"><code class="docutils literal notranslate"><span class="pre">bar()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.curve_legend"><code class="docutils literal notranslate"><span class="pre">curve_legend()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.hist"><code class="docutils literal notranslate"><span class="pre">hist()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.lineplot"><code class="docutils literal notranslate"><span class="pre">lineplot()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.scatter"><code class="docutils literal notranslate"><span class="pre">scatter()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.set_axis_label"><code class="docutils literal notranslate"><span class="pre">set_axis_label()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.set_axis_lim"><code class="docutils literal notranslate"><span class="pre">set_axis_lim()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.set_legend"><code class="docutils literal notranslate"><span class="pre">set_legend()</span></code></a></li>
+<li><a class="reference internal" href="#alpsplot.figure.Figure.set_title"><code class="docutils literal notranslate"><span class="pre">set_title()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linestyles">Linestyles</a></li>
+<li><a class="reference internal" href="#markers">Markers</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+  
+
+  
+  <script src="_static/jquery.js?v=5d32c60e"></script>
+  <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+  <script src="_static/documentation_options.js?v=6efca38a"></script>
+  <script src="_static/doctools.js?v=9a2dae69"></script>
+  <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+  <script src="_static/copybutton.js?v=f281be69"></script>
+  
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      $('.header-logo').css('background-image', 'url(_static/logo/trojanzoo-logo.svg)');
+      $('.docs-header .header-logo').css('background-image', 'url(_static/logo/trojanzoo-logo-dark.svg)');
+      $('.footer-logo').css('background-image', 'url(_static/logo/trojanzoo-logo-icon.svg)');
+      });
+  </script>
+  <script script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-resources" id="docs-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access comprehensive developer documentation for AlpsPlot</p>
+          <a class="with-right-arrow" href="index.html">View Docs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="/" class="footer-logo"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="/" aria-label="AlpsPlot"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          <li class="active resources-mobile-menu-title">
+            <a href="./">Docs</a>
+          </li>
+          <ul class="resources-mobile-menu-items">
+              <li class="active">
+              <a href="/alpsplot">AlpsPlot</a>
+            </li>
+              <li>
+              <a href="/trojanzoo">TrojanZoo</a>
+            </li>
+              <li>
+              <a href="/trojanzoo_sphinx_theme">trojanzoo_sphinx_theme</a>
+            </li>
+              <li>
+              <a href="https://github.com/ain-soph/base">base</a>
+            </li>
+          </ul>
+          
+          <li>
+            <a href="https://github.com/ain-soph/alpsplot/">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      trojanzooAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.sphinx-template-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>
