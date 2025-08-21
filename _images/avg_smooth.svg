@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 377.2 285.7" style="enable-background:new 0 0 377.2 285.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{stroke:#000000;stroke-width:0.8;stroke-linejoin:round;}
+	.st2{font-family:'DejaVuSans';}
+	.st3{font-size:10px;}
+	.st4{clip-path:url(#SVGID_2_);fill:none;stroke:#FF0000;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round;}
+	.st5{clip-path:url(#SVGID_4_);fill:none;stroke:#008000;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round;}
+	.st6{clip-path:url(#SVGID_6_);fill:none;stroke:#0000FF;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round;}
+	.st7{fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;}
+	.st8{opacity:0.8;fill:#FFFFFF;stroke:#CCCCCC;enable-background:new    ;}
+	.st9{fill:none;stroke:#FF0000;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round;}
+	.st10{fill:none;stroke:#008000;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round;}
+	.st11{fill:none;stroke:#0000FF;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round;}
+</style>
+<g id="figure_1">
+	<g id="axes_1">
+		<g id="patch_2">
+			<path class="st0" d="M19.7,266.5h357.1V0.4H19.7V266.5z"/>
+		</g>
+		<g id="matplotlib.axis_1">
+			<g id="xtick_1">
+				<g id="line2d_1">
+					<g>
+						<g>
+							<path id="m71f74ac675" class="st1" d="M36,266.5v3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_1">
+					<text transform="matrix(1 0 0 1 32.7761 281.1104)" class="st2 st3">0</text>
+				</g>
+			</g>
+			<g id="xtick_2">
+				<g id="line2d_2">
+					<g>
+						<g>
+							<path id="m71f74ac675_1_" class="st1" d="M108.1,266.5v3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_2">
+					<text transform="matrix(1 0 0 1 104.9215 281.1104)" class="st2 st3">2</text>
+				</g>
+			</g>
+			<g id="xtick_3">
+				<g id="line2d_3">
+					<g>
+						<g>
+							<path id="m71f74ac675_2_" class="st1" d="M180.2,266.5v3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_3">
+					<text transform="matrix(1 0 0 1 177.067 281.1104)" class="st2 st3">4</text>
+				</g>
+			</g>
+			<g id="xtick_4">
+				<g id="line2d_4">
+					<g>
+						<g>
+							<path id="m71f74ac675_3_" class="st1" d="M252.4,266.5v3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_4">
+					<text transform="matrix(1 0 0 1 249.2125 281.1104)" class="st2 st3">6</text>
+				</g>
+			</g>
+			<g id="xtick_5">
+				<g id="line2d_5">
+					<g>
+						<g>
+							<path id="m71f74ac675_4_" class="st1" d="M324.5,266.5v3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_5">
+					<text transform="matrix(1 0 0 1 321.3579 281.1104)" class="st2 st3">8</text>
+				</g>
+			</g>
+		</g>
+		<g id="matplotlib.axis_2">
+			<g id="ytick_1">
+				<g id="line2d_6">
+					<g>
+						<g>
+							<path id="m8ef8264204" class="st1" d="M19.7,254.4h-3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_6">
+					<text transform="matrix(1 0 0 1 6.3622 258.2152)" class="st2 st3">0</text>
+				</g>
+			</g>
+			<g id="ytick_2">
+				<g id="line2d_7">
+					<g>
+						<g>
+							<path id="m8ef8264204_1_" class="st1" d="M19.7,210.3h-3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_7">
+					<text transform="matrix(1 0 0 1 6.3622 214.1017)" class="st2 st3">2</text>
+				</g>
+			</g>
+			<g id="ytick_3">
+				<g id="line2d_8">
+					<g>
+						<g>
+							<path id="m8ef8264204_2_" class="st1" d="M19.7,166.2h-3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_8">
+					<text transform="matrix(1 0 0 1 6.3622 169.9882)" class="st2 st3">4</text>
+				</g>
+			</g>
+			<g id="ytick_4">
+				<g id="line2d_9">
+					<g>
+						<g>
+							<path id="m8ef8264204_3_" class="st1" d="M19.7,122.1h-3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_9">
+					<text transform="matrix(1 0 0 1 6.3622 125.8748)" class="st2 st3">6</text>
+				</g>
+			</g>
+			<g id="ytick_5">
+				<g id="line2d_10">
+					<g>
+						<g>
+							<path id="m8ef8264204_4_" class="st1" d="M19.7,78h-3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_10">
+					<text transform="matrix(1 0 0 1 6.3622 81.7613)" class="st2 st3">8</text>
+				</g>
+			</g>
+			<g id="ytick_6">
+				<g id="line2d_11">
+					<g>
+						<g>
+							<path id="m8ef8264204_5_" class="st1" d="M19.7,33.8h-3.5"/>
+						</g>
+					</g>
+				</g>
+				<g id="text_11">
+					<text transform="matrix(1 0 0 1 -1.220703e-04 37.6478)" class="st2 st3">10</text>
+				</g>
+			</g>
+		</g>
+		<g id="line2d_12">
+			<g>
+				<defs>
+					<rect id="SVGID_1_" x="19.7" y="0.4" width="357.1" height="266.1"/>
+				</defs>
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+				</clipPath>
+				<path class="st4" d="M36,254.4L72,176.7l36.1-26.5l36.1,28.8l36.1,37.4l36.1-8.7l36.1-67l36.1-84l36.1-44l36.1,16.1"/>
+			</g>
+		</g>
+		<g id="line2d_13">
+			<g>
+				<defs>
+					<rect id="SVGID_3_" x="19.7" y="0.4" width="357.1" height="266.1"/>
+				</defs>
+				<clipPath id="SVGID_4_">
+					<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+				</clipPath>
+				<path class="st5" d="M36,228.5L72,193.7l36.1-25.2l36.1,13.2l36.1,19.2l36.1-12.8l36.1-53.2l36.1-65l36.1-37.3l36.1-9.3"/>
+			</g>
+		</g>
+		<g id="line2d_14">
+			<g>
+				<defs>
+					<rect id="SVGID_5_" x="19.7" y="0.4" width="357.1" height="266.1"/>
+				</defs>
+				<clipPath id="SVGID_6_">
+					<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+				</clipPath>
+				<path class="st6" d="M36,218L72,202.9l36.1-7.6l36.1-9.4l36.1-7.2l36.1-18.7l36.1-33.3l36.1-37.5l36.1-35.8L360.6,31"/>
+			</g>
+		</g>
+		<g id="patch_3">
+			<path class="st7" d="M19.7,266.5V0.4"/>
+		</g>
+		<g id="patch_4">
+			<path class="st7" d="M376.8,266.5V0.4"/>
+		</g>
+		<g id="patch_5">
+			<path class="st7" d="M19.7,266.5h357.1"/>
+		</g>
+		<g id="patch_6">
+			<path class="st7" d="M19.7,0.4h357.1"/>
+		</g>
+		<g id="legend_1">
+			<g id="patch_7">
+				<path class="st8" d="M26.7,52.4h91c1.3,0,2-0.7,2-2v-43c0-1.3-0.7-2-2-2h-91c-1.3,0-2,0.7-2,2v43C24.7,51.8,25.4,52.4,26.7,52.4
+					z"/>
+			</g>
+			<g id="line2d_15">
+				<path class="st9" d="M28.7,13.5h20"/>
+			</g>
+			<g id="line2d_16">
+			</g>
+			<g id="text_12">
+				<text transform="matrix(1 0 0 1 56.7245 16.9984)" class="st2 st3">original</text>
+			</g>
+			<g id="line2d_17">
+				<path class="st10" d="M28.7,28.2h20"/>
+			</g>
+			<g id="line2d_18">
+			</g>
+			<g id="text_13">
+				<text transform="matrix(1 0 0 1 56.7245 31.6766)" class="st2 st3">window = 3</text>
+			</g>
+			<g id="line2d_19">
+				<path class="st11" d="M28.7,42.9h20"/>
+			</g>
+			<g id="line2d_20">
+			</g>
+			<g id="text_14">
+				<text transform="matrix(1 0 0 1 56.7245 46.3547)" class="st2 st3">window = 5</text>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

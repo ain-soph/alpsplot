@@ -1,0 +1,47 @@
+.. _math.24年高考新一卷第7题:
+
+24年高考新一卷第7题
+==================================
+
+.. image:: /images/examples/24年高考新一卷第7题.svg
+    :width: 100%
+
+.. code-block:: python
+
+    import math
+    import numpy as np
+
+    import alpsplot
+    from alpsplot.colormap import ting_color
+
+    x = np.arange(-2*math.pi, 2*math.pi, step=1e-2)
+    y1 = np.sin(x)
+    y2 = 2*np.sin(3*x-math.pi/6)
+
+    figure = alpsplot.Figure(figsize=(10, 5))
+    figure.ax.grid(axis='both', linewidth=1, alpha=0.5)
+    figure.ax.axhline(0, color='black', linewidth=1)
+    figure.ax.axvline(0, color='black', linewidth=1)
+
+    figure.set_title('24年高考新一卷第7题', font='Microsoft YaHei', size=25)
+    figure.set_axis_label(axis='x', text='x')
+    figure.set_axis_label(axis='y', text='y')
+    figure.set_axis_lim(
+        'x',
+        lim=[-2*math.pi, 2*math.pi],
+        margin=0.3,
+        piece=12,
+        labels=[
+            r'$-2\pi$', r'$-\frac{5}{3}\pi$', r'-$\frac{4}{3}\pi$',
+            r'$-\pi$', r'$-\frac{2}{3}\pi$', r'$-\frac{1}{3}\pi$',
+            r'$0$',
+            r'$\frac{1}{3}\pi$', r'$\frac{2}{3}\pi$', r'$\pi$',
+            r'$\frac{4}{3}\pi$', r'$\frac{5}{3}\pi$', r'$2\pi$',
+        ],
+    )
+    figure.set_axis_lim('y', lim=[-2, 2], margin=(0.1, 0.75), piece=4)
+    figure.lineplot(x, y1, label=r'$\sin(x)$', color=ting_color['red'])
+    figure.lineplot(
+        x, y2, label=r'$2\sin(3x-\frac{\pi}{6})$', color=ting_color['blue'])
+    figure.set_legend(ncols=2, loc='upper center')
+    figure.save(ext='.svg')
